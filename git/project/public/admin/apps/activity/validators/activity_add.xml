@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<title tips="请输入标题">
+		<required event="submit">标题不得为空</required>
+		<max args="80">标题不得超过80个字节</max>
+	</title>
+	<tags tips="多个Tag用空格隔开，最多5个">
+	<max args="60">Tags 不得超过60个字节</max>
+	</tags>
+	<starttime tips="请输入活动开始时间">
+	<required event="submit">活动开始时间不得为空</required>
+	</starttime>
+	<maxpersons tips="请输入人数限制，不限制请留空">
+	<max args="5">人数限制不超过5位数</max>
+	</maxpersons>
+	<type tips="例如：春游、聚餐、旅行....">
+	<max args="50">活动类型不超过50个字节</max>
+	</type>
+	<address tips="请输入活动地址">
+	<max args="255">活动地址不超过255个字节</max>
+	</address>
+	<content>
+		<required event="submit">内容不得为空</required>
+	</content>
+</root>

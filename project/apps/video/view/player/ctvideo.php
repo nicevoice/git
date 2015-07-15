@@ -1,0 +1,1 @@
+<script type="text/javascript" src="<?=$playerurl?>?w=450&h=370&id=<?=$video?>"></script>

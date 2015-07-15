@@ -1,0 +1,14 @@
+.content-slider-white-a {background:#000;}
+.content-slider-white-a .slider-nav a,
+.content-slider-white-a .slider-nav a:hover {
+	color:#333;
+	text-decoration: none;
+	font-size:12px;
+}
+
+.content-slider-white-a .slider-nav a.active{
+	color:#fff;
+	background:#333;
+}
+.content-slider-white-a a.title{color:#fff; font-weight:normal;}
+.content-slider-white-a a:hover.title{color:#999;}

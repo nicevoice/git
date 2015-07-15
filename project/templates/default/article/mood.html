@@ -1,0 +1,61 @@
+<div id="mood" class="cont-mood padd-8">
+<p class="mood-head"><a href="{APP_URL}mood.php" class="f-r cor-06c">查看心情排行</a>你看到此篇文章的感受是：</p>
+<ul>
+<!--{db sql="select * from #table_mood where 1"}-->
+  <li><a href="javascript:vote.set({$r[moodid]});"><img src="{IMG_URL}apps/mood/{$r[image]}" title="{$r[name]}" /></a><br />{$r[name]}<br /><input onclick="javascript:vote.set({$r[moodid]});return false;" type="radio" name="moodradio" value="1" /></li>
+<!--{/db}-->
+</ul>
+</div>
+<script type="text/javascript">
+var mood_img_url = IMG_URL+'apps/mood/';
+$(function(){vote.get();});
+
+var vote = {
+	time : new Date().getTime(),
+	html : '<style>\
+.mood_bar {position:relative; width:24px; height:100px;background:#EEF7F7; margin:0 auto;}\
+.mood_bar_in {background:url({IMG_URL}apps/mood/images/moodrank.gif) repeat-y -2px 0;bottom:0;left:0;position:absolute;width:24px;}\
+</style>\
+<div class="titles layout">\
+<h3 class="mar-b-10 txt-l"><span class="f-r" style="width: 80px;"><a target="_blank" href="{APP_URL}mood.php">查看心情排行</a></span>\
+已经有 <font color="red" id="vote_total"></font> 人表态：</h3>\
+	<ul id="clear layout">\
+	<!--{db sql="select * from #table_mood where 1"}-->
+	<li id="m{$r[moodid]}_li"><em></em><div class="mood_bar"><div class="mood_bar_in" id="m{$r[moodid]}_bar"></div></div></li>\
+    <!--{/db}-->
+	</ul>\
+</div>',
+	set:function(vote_id) {
+		var _this = this;
+		if(this.check()) {
+			$.getJSON(APP_URL+"?app=mood&controller=index&action=vote&contentid="+contentid+"&voteid="+vote_id+"&jsoncallback=?", function(json){
+				_this.render(json);
+				$("#mood").find(':radio').remove();
+				$.cookie("mood_time"+contentid, _this.time);
+			});
+		} else {
+			alert('请勿重复提交');
+		}
+	},
+	get:function() {
+		var _this = this;
+		$.getJSON(APP_URL+"?app=mood&controller=index&action=vote&contentid="+contentid+"&jsoncallback=?", function(json){
+			_this.render(json);
+		});
+	},
+	check:function() {
+		return (this.time - $.cookie('mood_time'+contentid)) > 1000 * 30;
+	},
+	render: function(json) {
+		var html = this.html + '<ul class="clear">' + $("ul:last", "#mood").html() + '</ul>'
+
+		$("#mood").html(html).hide().fadeIn(450 | "slow");
+		$('#vote_total').html(json.total);
+
+		$.each(json.data, function(i){
+			$('#'+i+'_li em').html(json.data[i].number);
+			$('#'+i+'_bar').css({"height": json.data[i].height+'%'}); 
+		});
+	}
+};
+</script>

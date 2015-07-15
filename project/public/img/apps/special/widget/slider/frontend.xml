@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+	<resource>slider.js</resource>
+	<resource>style.css</resource>
+	<depends>jquery</depends>
+</package>

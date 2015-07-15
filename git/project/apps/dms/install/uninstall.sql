@@ -1,0 +1,1 @@
+DROP TABLE `cmstop_dms_app`, `cmstop_dms_article`, `cmstop_dms_log`, `cmstop_dms_model`, `cmstop_dms_picture`, `cmstop_dms_picture_group`, `cmstop_dms_server`, `cmstop_dms_setting`, `cmstop_dms_tag`;

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$name}</title>
+<meta NAME="description" CONTENT="【每日更新】专门收集每天最新的海量暴走漫画表情,暴走漫画全集,暴走漫画动画系列,应有尽有！">
+<meta name="keywords" content="暴走漫画表情,暴走漫画全集,暴走漫画动画系列">
+<link href="{IMG_URL}3536/js/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{IMG_URL}3536/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}3536/js/mei.js"></script>
+</head>
+<body>
+<!--#include virtual="/section/74.html"-->
+<div class="menu">
+	<ul>
+		<li><a href="{WWW_URL}baoxiao/">爆笑图片</a></li>
+		<li><a href="{WWW_URL}tucao/">吐槽图片</a></li>
+		<li><a href="{WWW_URL}baozou/">暴走漫画</a></li>
+		<li><a href="{WWW_URL}xiee/">邪恶漫画</a>
+    </ul>
+</div>
+
+<div class="picmain"><ul class="pic lifl">
+ <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+<li class="piclist"><div class="pic_b"><a href="{$r[url]}" title="{$r[title]}" class="pic_a" target="_blank"><div style="height: 260px;" class="pic_div" src="{$r[thumb]}"></div><ins></ins><span></span><em class="png"></em><strong class="txt">{$r[title]}</strong></a></div></li>
+ <!--{/content}-->
+</ul></div>
+<div class="pages"><form onsubmit="return tj(this)">
+<ul class="page">
+<!--{pages3536($mintotal, $page, $pagesize, 2, $urlrule)}--> 
+</div>
+</form></div>
+<!--#include virtual="/section/72.html"--><!--3536首页 底部区块-->
+</body></html>

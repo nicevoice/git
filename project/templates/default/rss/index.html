@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>Rss_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/index.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+
+</head>
+
+<body>
+    	<div class="rss-head">
+            <div class="column02">
+                <h1>Rss订阅中心</h1>
+                <p>RSS 是站点用来和其他站点之间共享内容的简易方式（也叫聚合内容）。 RSS使用XML作为彼此共享内容的标准方式。它能让别人很容易t的发现你已经更新了你的站点，并让人们很容易的追踪他们阅读的所有weblogs。 </p>
+            </div>
+        </div>
+		<div class="column02" style="margin-top:12px">
+        	<!-- **************** start频道列表  ***************** -->
+        	<div class="col-l-main w-160">
+            	<div class="channels-title ">
+                	频道订阅Rss
+                </div>
+                <div class="channels-list bor-9fc">
+                    <ul class="fs-14 ">
+					<!--{loop channel() $cha}-->
+					<li<!--{if ($cha['alias'] == $alias) }--> class="on"<!--{/if}-->><a href="{APP_URL}rss.php?catid={$cha[catid]}">{$cha[name]}</a></li>
+					<!--{/loop}-->
+                    </ul>
+                </div>
+                <div class="hr-h10"></div>
+                <div class="subscribe-list bor-9fc hide">
+                	<ul>
+                    	<li><a href="http://reader.youdao.com/b.do?url=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/youdao.gif" alt="" width="111" height="17" /></a></li>
+                        <li><a href="http://fusion.google.com/add?feedurl=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/google.gif" alt="" width="111" height="17" /></a></li>
+                       
+                        <li><a href="http://www.netvibes.com/subscribe.php?url=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/net.gif" alt="" width="111" height="17" /></a></li>
+                        <li><a href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/news.gif" alt="" width="111" height="17" /></a></li>
+                        
+                        <li><a href="http://www.rojo.com/add-subscription?resource=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/rojo.gif" alt="" width="111" height="17" /></a></li>
+                        <li><a href="http://www.xianguo.com/subscribe.php?url=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/xianguo.gif" alt="" width="111" height="17" /></a></li>
+						<li><a href="http://add.my.yahoo.com/rss?url=<?php echo url('rss/index/feed','catid=0',true);?>"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/yahoo.gif" alt="" width="111" height="17" /></a></li>
+						<li><a href="http://www.zhuaxia.com/add_channel.php?url=<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/zhuaxia.gif" alt="" width="111" height="17" /></a></li>
+						<li><a href="http://www.bloglines.com/sub/<?php echo url('rss/index/feed','catid=0',true);?>" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/images/dy/blog.gif" alt="" width="111" height="17" /></a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <!-- **************** end频道列表  ***************** -->
+	    <div class="col-r-extra">
+              <!-- ******************* start 频道   *********************** -->
+          <div class="w-600 f-r">
+		    <!--{loop $rsslist $cat}-->
+            <div class="bor-9fc" >
+                <div class="mode-tabs">
+                  <h2 class="cor-c00">{$cat[name]}</h2>
+                      <div class="f-r">
+                        <div class="mode-rss f-l"><a href="<?php echo url('rss/index/feed','catid='.$cat['catid'],true);?>"><img src="{IMG_URL}templates/{TEMPLATE}/images/rss.gif" width="40" height="17"/></a></div>
+                          <div class="subscribe f-l" catid="{$cat[catid]}">订阅到</div>
+                      </div>
+                </div>
+                <div class="mode-txtlink fs-14 cor-06c mar-l-10">
+                      <ul class="mar-b-8">
+					   <!--{loop $cat['rss'] $k $item}-->
+                          <li><a href="{$item[url]}">{$item[title]}</a><span class="date">{date('Y-m-d',$item[published])}</span></li>
+                        <!--{/loop}-->
+                      </ul>
+                </div>
+            </div>
+            <div class="hr-h10"></div>
+           <!--{/loop}-->
+          </div>
+          <!-- *******************  end 频道  *********************** -->
+		  </div>
+		</div>
+	<div class="hr-h10"></div>
+<!--{template 'system/footer.html'}-->
+		<script type="text/javascript">
+			(function(){
+				var subscribe_list = $('.subscribe-list'),
+					subscribe = $('.subscribe'),
+					timer = null;
+				    rss_urls =[] ;
+				subscribe_list.find('a').each(function(){
+				    rss_urls.push(this.href);
+				});
+				subscribe.hover(function(){
+					var t = this;
+					window.clearTimeout(timer);
+					$(this).addClass('subscribe-hover');
+					
+					subscribe_list.show();
+					for(var i in rss_urls){
+						var url = rss_urls[i].replace(/catid=(\d)/,'catid='+$(t).attr('catid')),					    reg = new RegExp(APP_URL.substring(0,APP_URL.length-1)+".+");
+						url = url.replace(reg,function(a){return encodeURIComponent(a)});
+						subscribe_list.find('a:eq('+i+')')[0].href = url;
+					}
+					subscribe_list.css({position:'absolute',left:$(this).offset().left - 68 + 'px',top: $(this).offset().top + 26 + 'px'});
+				
+					subscribe_list.hover(function(){
+						window.clearTimeout(timer);
+					},function(){
+						subscribe_list.hide();
+						subscribe.removeClass('subscribe-hover');
+					});
+				},function(){
+					timer = window.setTimeout(function(){
+						subscribe_list.hide();
+						subscribe.removeClass('subscribe-hover');
+					},500);
+				});
+			})();
+		</script>
+	</body>
+</html>

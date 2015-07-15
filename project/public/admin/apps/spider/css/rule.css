@@ -1,0 +1,21 @@
+.offsetTag {
+	vertical-align:middle;width:235px
+}
+.split {
+	display:inline-block;
+	vertical-align: middle;
+	width: 20px;
+	text-align:center;
+	line-height:16px;
+}
+.c_gray {
+	color:#333;
+}
+#tasklabel {
+	margin-top:2px;
+	height:30px;
+	line-height:30px;
+}
+#tasklabel label {
+	margin-right:5px;
+}

@@ -1,0 +1,49 @@
+<div class="calendarMain" id="calendarBox">
+	<div class="selectDate">
+		<div><a title="上一年" target="_self" href="{$preYear}" id="preYear">&lt;&lt;</a></div>
+		<div><a title="上一月" target="_self" href="{$preMonth}" id="preMonth">&lt;</a></div>
+		<div class="cu_month">{$year}年{$month}月</div>
+		<div><a title="下一月" target="_self" href="{$nextMonth}" id="nextMonth">&gt;</a></div>
+		<div><a title="下一年" target="_self" href="{$nextYear}" id="nextYear">&gt;&gt;</a></div>
+	</div>
+	<div class="title">
+		<ul>
+			<li class="endweek">日</li>
+			<li>一</li>
+			<li>二</li>
+			<li>三</li>
+			<li>四</li>
+			<li>五</li>
+			<li class="endweek">六</li>
+		</ul>
+	</div>
+	<div class="list clearfix">
+		<ul id="calendarList" class="clearfix">
+		{loop $days $d}
+			<li>{$d}</li>
+		{/loop}
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript">
+(function(){
+	var tarE = $('#history_index'),
+		box = $('#calendarBox'),
+		offsetE  = tarE.offset(),
+		ox = offsetE.left,
+		oy = offsetE.top;
+		box.css({
+			'left':ox - 90 + 'px',
+			'top': oy + 30 + 'px'
+		});
+})();
+</script>
+<script>
+$(function (){
+	if(typeof history_init != 'function') {
+		$.getScript(IMG_URL+'apps/history/js/history.js');
+	}	
+})
+</script>

@@ -1,0 +1,62 @@
+.content-comment-gray-a .mod-comment {
+	padding:10px;
+	font-size:12px;
+	background:#FFF;
+}
+.content-comment-gray-a dl {
+
+}
+.content-comment-gray-a .user-info {
+	color:#da2c83;
+}
+.content-comment-gray-a .post-time {
+	color:#999;
+	float:right;
+}
+.content-comment-gray-a  dd {
+	border-bottom:1px dotted #ccc;
+	padding:6px 0 10px;
+	font-size:14px;
+	color:#333;
+}
+.content-comment-gray-a .view-comment {
+	padding:8px 0;
+	text-align:right;
+	color:#da2c83;
+}
+.content-comment-gray-a .view-comment a{
+	color:#da2c83;
+	text-decoration:none;
+}
+.content-comment-gray-a .view-comment span{
+	color:#333;
+}
+.content-comment-gray-a textarea {
+	width:100%;
+	overflow:auto;
+	height:120px;
+	font-size:14px;
+}
+.content-comment-gray-a .user-writeinfo {
+	margin:5px 0;
+	font-size:12px;
+	color:#333;
+}
+.content-comment-gray-a .user-writeinfo .quickLogout a{
+	color:#da2c83;
+	text-decoration:none;
+}
+.content-comment-gray-a input.input-submit {
+	background:#fff url("images/submit.gif") no-repeat 0 0;
+	color:#fff;
+	height:23px;
+	width:72px;
+	border:0;
+}
+
+.citation{padding: 4px 4px 0 4px; line-height: 24px; margin-bottom: 4px;  border: 1px solid #ffe1a4;  color: #444;}
+.citation-title,.citation-title a{ color: #DA2C83; font-size: 12px;}
+.mode-comment dd .citation p{ padding: 8px 0; font-size: 12px; }
+.citation-number{ margin-right: 4px; font-size: 10px; color: #999; font-family: Arial; }
+
+.diy-widget a:hover {color:#000;text-decoration:none}

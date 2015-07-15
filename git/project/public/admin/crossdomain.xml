@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+	<site-control permitted-cross-domain-policies="all" />
+    <allow-access-from domain="*.cmstop.com" />
+    <allow-http-request-headers-from domain="*.cmstop.com" headers="*"/>
+</cross-domain-policy>

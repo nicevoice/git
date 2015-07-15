@@ -1,0 +1,11 @@
+<?php echo '<?xml version="1.0" encoding="utf-8"?>'; ?>
+<root>
+<!--{loop $data $i $r}-->
+  <node>
+    <contentid><![CDATA[{$r[contentid]}]]></contentid>
+    <title><![CDATA[{$r[title]}]]></title>
+    <url><![CDATA[{$r[url]}]]></url>
+    <time><![CDATA[{$r['time']}]]></time>
+  </node>
+<!--{/loop}-->
+</root>

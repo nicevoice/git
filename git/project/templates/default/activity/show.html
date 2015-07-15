@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+	<meta name="keywords" content="{$tags}" />
+    <meta name="description" content="{$description}" />
+    <meta name="author" content="{$SYSTEM[sitename]}" />
+    <meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+	<title>{$title}_{$SYSTEM[sitename]}</title>
+  	<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};
+</script>
+	</head>
+	
+	<body class="cmstop-event">
+		<!-- ******************* start header   *********************** -->
+		<div class="topMenu-event">
+			<div class="topBar">
+			<ul>
+				<li><a href="{WWW_URL}">首页</a></li>|
+			<li><a href="http://news.cmstop.loc/">新闻</a></li>|
+			<li><a href="http://photo.cmstop.loc/">图片</a></li>|
+			<li><a href="http://video.cmstop.loc/">视频</a></li>|
+			<li><a href="http://talk.cmstop.loc/">访谈</a></li>|
+			<li><a href="http://special.cmstop.loc/">专题</a></li>|
+			<li><a href="http://space.cmstop.loc/">专栏</a></li>|
+			<li><a href="{WWW_URL}paper/">报纸</a></li>|
+			<li><a href="{WWW_URL}magazine/">杂志</a></li>|
+			<li><a href="{APP_URL}roll.php">滚动</a></li>|
+			<li><a href="{APP_URL}rank.php">排行</a></li>|
+			<li><a href="{APP_URL}tags.php">标签</a></li>|
+			<li><a href="{APP_URL}digg.php">Digg</a></li>|
+			<li><a href="{APP_URL}mood.php">心情</a></li>|
+			<li><a href="{APP_URL}?app=space&controller=panel&action=contribute" target="_self">投稿</a></li>|
+			<li><a href="{APP_URL}?app=rss" target="_self">RSS</a></li>
+			</ul>
+			</div>
+		</div>
+		<!-- *******************  end header   *********************** -->
+		<!-- ******************* start banner   *********************** -->
+<div class="pageTitle"></div>
+<!-- ******************* end banner   *********************** -->
+<div class="pageMainContent">
+	<div class="pagecontWrap">
+
+	<div class="maincontentHead">
+		<h2>{$title}</h2>
+		<span>
+		<!--{if $keywords}-->Tags：<!--{/if}--><!--{loop $keywords $r}--><a href="{$r[url]}">{$r[tag]}</a><!--{/loop}-->
+		</span>
+	</div>
+	<div class="clear"></div>
+	<div class="eventLeft" style="margin-left: 0;">
+		<div class="eventInfo">
+			<p class="e-time"><strong>活动时间：</strong>{date('Y年m月d日 H时',$starttime)} 至 {if $endtime}{date('Y年m月d日 H时',$endtime)}{else}不限{/if} </p>
+			<p><strong>报名时间：</strong>{date('Y年m月d日 H时', $signstart)} 至 {if $signend}{date('Y年m月d日 H时', $signend)}{else}不限{/if} </p>
+			<!--{if $address}-->
+			<p><strong>活动地点：</strong>{$address}<br /> <a href="#map"><img style="margin-top: 4px; margin-left: 65px;" src="{IMG_URL}templates/{TEMPLATE}/css/images/inMap.gif" />查看地图</a></p>
+			<!--{/if}-->
+			<!--{if $maxpersons}-->
+			<p><strong>人数限制：</strong>{$maxpersons}人</p>
+			<!--{/if}-->
+			<!--{if $gender}-->
+			<p><strong>性别限制：</strong>{if $gender==1}男性{else}女性{/if}</p>
+			<!--{/if}-->
+			<span class="function"><a href="javascript:window.external.addFavorite(window.location.href,document.title);" class="collection">加入收藏</a><a href="javascript:;" onclick="copyToClipboard(window.location.href);return false;" class="share">和好友分享</a></span>
+            <span><a href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('{$title}'+'{$description}')+'&url='+encodeURIComponent(location.href)+'&appkey='+SINA_APPKEY,'_blank','width=450,height=400');})()"><img src="{IMG_URL}templates/{TEMPLATE}/images/sina.gif" title="新浪微博"/></a>
+            <a href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent('{$title}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&source='+QQ_SOURCEID+'&pic=','转播到腾讯微博', 'width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no'); })()"><img src="{IMG_URL}templates/{TEMPLATE}/images/qq.png" title="腾讯微博"/></a>
+            
+						<a href="javascript:u=location.href;t='{$title}';c = %22%22 + (window.getSelection ? window.getSelection() : document.getSelection ? document.getSelection() : document.selection.createRange().text);var url=%22http://cang.baidu.com/do/add?it=%22+encodeURIComponent(t)+%22&iu=%22+encodeURIComponent(u)+%22&dc=%22+encodeURIComponent('{$description}')+%22&fr=ien#nw=1%22;window.open(url,%22_blank%22,%22scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes%22); void 0"><img src="{IMG_URL}templates/{TEMPLATE}/images/baidu.gif" title="百度搜藏"/></a>
+						<a href="javascript:u='http://share.xiaonei.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'xiaonei','toolbar=0,resizable=1,scrollbars=yes,status=1,width=626,height=436');void(0)" title="人人网"/></a>
+						<a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent('{$title}'.substring(0,76))+'&uri='+encodeURIComponent(location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/qzone.gif" title="Qzone" /></a>
+						<a href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(kaixin=window.open('http://www.kaixin001.com/~repaste/repaste.php?&rurl='+escape(d.location.href)+'&rtitle='+escape('{$title}')+'&rcontent='+escape('{$description}'),'kaixin'));kaixin.focus();"><img src="{IMG_URL}templates/{TEMPLATE}/images/kaixin.gif" title="开心网"/></a>
+						<a href="javascript:var%20u='http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/douban.gif" title="豆瓣网"/></a>
+					</span>
+		</div>
+		<div id="eventDetail" class="eventDetail">
+			<div class="edHead"></div>
+			{$content}
+		</div>
+		<!--{if $address}-->
+		<div id="map" name="map" class="map" style="width:400px;height:200px;border:1px solid #006666"></div>
+		<!--{/if}-->
+	</div>
+	<div class="eventRight">
+		<div class="eventAd">
+			<img src="{if $thumb}{thumb($thumb,330,160)}{else}{IMG_URL}templates/{TEMPLATE}/images/eventad.jpg{/if}" />
+		</div>
+		<!--{if $total}-->
+		<div class="eventPersonList">
+			<div class="eplHead">
+				<span>{if $total} 已有<em>{$total} </em>人参加{else}{$signstatef}{/if}</span>
+			</div>
+			<div class="signup_list">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tbody><tr>
+	{if $fields[name][display]}<th>姓名</th>{/if}
+   	{if $fields[sex][display]}<th>性别</th>{/if}
+   	{if $fields[photo][display]}  <th>照片</th>{/if}
+    {if $fields[identity][display]} <th>身份证号</th>{/if}
+ 	{if $fields[company][display]}  <th>公司</th>{/if}
+  	{if $fields[job][display]}  <th>工作</th>{/if}
+    {if $fields[telephone][display]} <th>电话</th>{/if}
+  	{if $fields[mobile][display]}  <th>手机</th>{/if}
+   	{if $fields[email][display]}  <th>E-mail</th>{/if}
+    {if $fields[qq][display]} <th>QQ</th>{/if}
+   	{if $fields[msn][display]}  <th>MSN</th>{/if}
+   	{if $fields[site][display]}  <th>主页</th> {/if}
+   	{if $fields[address][display]}  <th>地址</th> {/if}
+  	{if $fields[zipcode][display]}   <th>邮编</th>{/if}
+   	{if $fields[aid][display]}  <th>附件</th>{/if}
+   	{if $fields[note][display]}  <th>附言</th>{/if}
+  </tr>
+ {loop $signed $k $v} 
+  <tr>
+    {if $fields[name][display]}<td>{$v[name]}</td>{/if}
+    {if $fields[sex][display]}<td>{$v[sex]}</td>{/if}
+    {if $fields[photo][display]}<td><a target="_blank" href="{UPLOAD_URL}{$v[photo]}">查看</a></td>{/if}
+    {if $fields[identity][display]}<td>{$v[identity]}</td>{/if}
+    {if $fields[company][display]}<td>{$v[company]}</td>{/if}
+    {if $fields[job][display]}<td>{$v[job]}</td>{/if}
+    {if $fields[telephone][display]}<td>{$v[telephone]}</td>{/if}
+    {if $fields[mobile][display]}<td>{$v[mobile]}</td>{/if}
+    {if $fields[email][display]}<td>{$v[email]}</td>{/if}
+    {if $fields[qq][display]}<td>{$v[qq]}</td>{/if}
+    {if $fields[msn][display]}<td>{$v[msn]}</td>{/if}
+    {if $fields[site][display]}<td>{$v[site]}</td>{/if}
+    {if $fields[address][display]}<td>{$v[address]}</td>{/if}
+    {if $fields[zipcode][display]}<td>{$v[zipcode]}</td>{/if}
+    {if $fields[aid][display]}<td><a target="_blank" href="{$v[aid]}">查看</a></td>{/if}
+    {if $fields[note][display]}<td>{$v[note]}</td>{/if}
+   </tr>
+  {/loop}
+</tbody></table>
+</div>	
+		</div>
+		<!--{/if}-->
+		<div class="eventJoin">
+			<div class="ejHead"><a href="">赶快报名参加吧!</a></div>
+			<div class="ejCont">
+<form  action="{APP_URL}?app=activity&controller=sign&action=add" id="signform" name="signform" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="contentid" value="{$contentid}"/>
+				<ul>
+{if $fields[name][have]}
+<li><span class="ev-label"><label for="name">姓名：</label></span><span class="ev-input {if $fields[name][need]}need{/if}"><input type="text" name="name" id="name" class="event-input" /></span></li>
+{/if}
+{if $fields[sex][have]}
+<li><span class="ev-label"><label for="man">性别：</label></span><span class="ev-input {if $fields[sex][need]}need{/if}"><input type="radio" name="sex" id="man" value="1"/>男  <input type="radio" name="sex" id="woman" value="0" />女</span></li>
+{/if}
+{if $fields[photo][have]}
+<li><span class="ev-label"><label for="photo">照片：</label></span><span class="ev-input {if $fields[photo][need]}need{/if}"><input type="file" size="12" name="photo" id="photo" class="event-input" /></span></li>
+{/if} 
+{if $fields[email][have]}     
+<li><span class="ev-label"><label for="email">邮箱：</label></span><span class="ev-input{if $fields[email][need]} need{/if}"><input type="text" name="email" id="email" /></span></li>
+{/if}
+{if $fields[address][have]}     
+<li><span class="ev-label"><label for="address">地址：</label></span><span class="ev-input{if $fields[address][need]} need{/if}"><input type="text" name="address" id="address"/></span></li>
+{/if}
+{if $fields[telephone][have]}    
+<li><span class="ev-label"><label for="telephone">电话：</label></span><span class="ev-input{if $fields[telephone][need]} need{/if} "><input type="text" name="telephone" id="telephone"/></span></li>
+{/if}
+{if $fields[mobile][have]}    
+<li><span class="ev-label"><label for="mobile">手机：</label></span><span class="ev-input{if $fields[mobile][need]} need{/if}"><input type="text" name="mobile" id="mobile" /></span></li>
+{/if}
+{if $fields[zipcode][have]} 
+<li><span class="ev-label"><label for="zipcode">邮编：</label></span><span class="ev-input{if $fields[zipcode][need]} need{/if}"><input type="text" name="zipcode" id="zipcode" /></span></li>
+{/if}
+{if $fields[qq][have]} 
+<li><span class="ev-label"><label for="qq">QQ：</label></span><span class="ev-input {if $fields[qq][need]} need{/if}"><input type="text" name="qq" id="qq"/></span></li>
+{/if}
+{if $fields[msn][have]} 
+<li><span class="ev-label"><label for="msn">MSN：</label></span><span class="ev-input{if $fields[msn][need]} need{/if}"><input type="text" name="msn" id="msn"/></span></li>
+{/if}
+{if $fields[site][have]} 
+<li><span class="ev-label"><label for="site">网址：</label></span><span class="ev-input {if $fields[site][need]} need{/if}"><input type="text" name="site" id="site"/></span></li>
+{/if}
+{if $fields[job][have]} 
+<li><span class="ev-label"><label for="job">职业：</label></span><span class="ev-input{if $fields[job][need]} need{/if}"><input type="text" name="job" id="job" /></span></li>
+{/if}
+{if $fields[identity][have]} 
+<li><span class="ev-label"><label for="identity">身份证：</label></span><span class="ev-input{if $fields[identity][need]} need{/if}"><input type="text" name="identity" id="identity"/></span></li>
+{/if}
+{if $fields[company][have]} 
+<li><span class="ev-label"><label for="company">公司：</label></span><span class="ev-input{if $fields[company][need]} need{/if}"><input type="text" name="company" id="company"/></span></li>
+{/if}
+{if $fields[aid][have]} 
+<li><span class="ev-label"><label for="aid">附件：</label></span><span class="ev-input{if $fields[aid][need]} need{/if}"><input type="file" name="aid" id="aid" size="12" class="event-input" /></span></li>
+{/if}
+{if $fields[note][have]} 
+<li><span class="ev-label"><label for="note">附言：</label></span><span {if $fields[note][need]}class="need"{/if}><textarea name="note" class="textarea" id="note"></textarea></span></li>
+{/if}	
+<li><span class="ev-label"><label for="seccode">验证码：</label></span><span class="ev-input"><input type="text" name="seccode" id="seccode" size="6" style="margin-right:2px"/><img src="{APP_URL}?app=system&controller=seccode&action=image" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5;" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="bottom"/></span></li>
+<li><input type="submit" name="submit"  class="joinBtn" id="submit" value="我要报名"/></li>			</ul>
+</form>
+			</div>
+			<div class="ejBottom"></div>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="hr-h10"></div>
+<!--{template 'system/footer.html'}-->
+
+<script type="text/javascript">
+function copyToClipboard(txt) {  //复制网址
+	if(window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+		alert("复制链接成功！");
+	} else if(navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert(" 被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode",str,copytext.length*2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans,null,clipid.kGlobalClipboard);
+		alert("复制链接成功！");
+	}
+}
+</script>
+
+<script type="text/javascript" src="{IMG_URL}apps/activity/js/validate.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/imagesbox.css" media="screen" />
+<script type="text/javascript">
+$(function(){
+   $('.need').each(function(){
+      	  $(this).prev().prepend('<em>*</em>');
+      }
+   );
+   $.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){});
+   $('#signform')[0].reset();
+});
+
+window.onload = function(){
+	var options = {
+		imageLoading:IMG_URL+'js/lib/lightBox/lightbox-ico-loading.gif',
+		imageBtnPrev:IMG_URL+'js/lib/lightBox/lightbox-btn-prev.gif',
+		imageBtnNext:IMG_URL+'js/lib/lightBox/lightbox-btn-next.gif',
+		imageBtnClose:IMG_URL+'js/lib/lightBox/lightbox-btn-close.gif',
+		imageBlank:IMG_URL+'js/lib/lightBox/lightbox-blank.gif'
+	};
+	$('#eventDetail').find('img').each(function(){
+		var img = this;
+		if (img.width>430) {
+			img.style.width = '420px';
+			$(img).removeAttr('height');
+			var aTag = document.createElement('a');
+			aTag.href = img.src;
+			$(aTag).addClass('bPic')
+			.insertAfter(img).append(img)
+			.lightBox(options);
+		}
+	});
+}
+</script>
+<!--{if $address}-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?key={setting('system','baidumapkey')}&v=1.2&services=false" ></script>
+<script type="text/javascript">
+var pointval = '{$point}';
+if(pointval){
+	function addMarker(point)
+	{
+		var marker = new BMap.Marker(point);
+		map.addOverlay(marker);
+	}
+	var map = new BMap.Map("map"),
+	a = pointval.split(',');
+	point = new BMap.Point(parseFloat(a[0]),parseFloat(a[1]));
+	map.enableScrollWheelZoom();
+	map.addControl(new BMap.NavigationControl());
+	map.centerAndZoom(point, 12);
+	addMarker(point);
+}
+</script>
+<!--{/if}-->
+</body>
+</html>

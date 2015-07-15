@@ -1,0 +1,61 @@
+/* cmstop-toolbar */
+.cmstop-toolbar{position:fixed;z-index:99998;margin:0;padding:0}
+.cmstop-toolbar div,a{margin:0;padding:0}
+.cmstop-toolbar a{color:#06c;text-decoration:none}
+.cmstop-toolbar-btn{background-image:url(images/ct-toolbox-boxico2.png);display:block;height:40px;margin:0 auto 8px;position:relative;top:20px;width:40px}
+.cmstop-toolbar-btn:hover{background-image:url(images/ct-toolbox-box-hover.png)}
+.cmstop-toolbar div{position:relative}
+.cmstop-toolbar .cmstop-toolbar-body{padding-bottom:20px;top:-20px;width:60px}
+.cmstop-toolbar-body .cmstop-toolbar-bg{background-color:#036;height:100%;left:5px;position:absolute;width:48px}
+.cmstop-toolbar-foot{background:none repeat scroll 0 0 #036;height:16px;left:5px;top:-20px;width:48px}
+.cmstop-toolbar-ico1{background-position:-10px -4px}
+.cmstop-toolbar-ico1:hover{background-position:-7px -4px}
+.cmstop-toolbar-ico2{background-position:-59px -3px}
+.cmstop-toolbar-ico2:hover{background-position:-141px -4px}
+.cmstop-toolbar-ico3{background-position:-58px -56px}
+.cmstop-toolbar-ico3:hover{background-position:-233px -4px}
+.cmstop-toolbar-ico4{background-position:-14px -56px}
+.cmstop-toolbar-ico4:hover{background-position:-186px -4px}
+.cmstop-toolbar-ico5{background-position:-179px -7px}
+.cmstop-toolbar-ico5:hover{background-position:-95px -4px}
+.cmstop-toolbar-ico6{background-position:-182px -59px}
+.cmstop-toolbar-ico6:hover{background-position:-52px -4px}
+.cmstop-toolbar-logo{background:url(images/ct-toolbox-boxico2.png) no-repeat scroll -110px top transparent;height:70px;position:relative;width:60px;z-index:999999}
+.cmstop-toolbar-shadow-radius{background:url(images/ct-toolbox-boxico.png) no-repeat scroll -152px -62px transparent;float:left;height:10px;top:-4px;width:48px}
+.cmstop-toolbar-size-switch-drop{margin:4px 6px 0 8px}
+.cmstop-toolbar-size-switch-drop,.cmstop-toolbar-size-switch-close{background:url(images/ct-toolbox-boxico.png) no-repeat scroll 0 0 transparent;display:block;float:left;height:16px;width:16px}
+.cmstop-toolbar-size-switch-drop:hover{background-position:-147px -20px}
+.cmstop-toolbar-min-status{background-position:-117px -4px}
+.cmstop-toolbar-min-status:hover{background-position:-117px -20px}
+.cmstop-toolbar-open-status{background-position:-147px -4px}
+.cmstop-toolbar-size-switch-close{background-position:-176px 0}
+.cmstop-toolbar-size-switch-close:hover{background-position:-176px -16px}
+/* cmstop-messagebox */
+.cmstop-messagebox{position:fixed;z-index:99998}
+.cmstop-messagebox .cmstop-messagebox-body-content{background:#FFF;margin:0 6px;overflow:hidden}
+.cmstop-messagebox .cmstop-messagebox-foot-center{background-color:#0062AB;height:8px;margin:0 5px}
+.cmstop-messagebox .cmstop-messagebox-head-content{background-position:0 -189px;margin:0 10px}
+.cmstop-messagebox a{color:#06c;text-decoration:none}
+.cmstop-messagebox div,a{margin:0;padding:0}
+.cmstop-messagebox-body{background:#0062AB}
+.cmstop-messagebox-body-statusbar{background-image:url("images/ct-toolbox-bar.png");height:40px;width:100%}
+.cmstop-messagebox-body-statusbar-ok{color:#FFF;background:url("images/ct-toolbox-boxico.png") no-repeat scroll -202px top transparent;border-width:0;display:block;height:32px;width:72px;position:relative;float:right}
+.cmstop-messagebox-body-statusbar-cancel{background:url("images/ct-toolbox-boxico.png") no-repeat scroll -202px -34px transparent;color:#666;height:32px;width:72px;top:5px;line-height:30px;position:relative;float:right}
+.cmstop-messagebox-foot-left{background-position:-99px -78px;left:0}
+.cmstop-messagebox-foot-left,.cmstop-messagebox-foot-right{background-image:url(images/ct-toolbox-boxico.png);bottom:0;height:8px;overflow:hidden;position:absolute;width:5px}
+.cmstop-messagebox-foot-right{background-position:-142px -78px;right:0}
+.cmstop-messagebox-head{height:32px;overflow:hidden}
+.cmstop-messagebox-head .cmstop-messagebox-head-ico{background:url(images/ct-toolbox-boxico2.png) -127px -69px;float:left;width:28px}
+.cmstop-messagebox-head .cmstop-messagebox-head-title{background:url(images/ct-toolbox-boxico2.png) -227px -40px no-repeat}
+.cmstop-messagebox-head .cmstop-messagebox-size-control{background:none;position:absolute;right:0;top:6px;width:66px}
+.cmstop-messagebox-head div{background-image:url(images/ct-toolbox-bar.png);height:32px}
+.cmstop-messagebox-head-closepanel{background-position:-60px -35px}
+.cmstop-messagebox-head-closepanel:hover{background-position:-60px -6px}
+.cmstop-messagebox-head-fullsize{background-position:-34px -35px}
+.cmstop-messagebox-head-left{background-position:0 -157px;left:0}
+.cmstop-messagebox-head-left,.cmstop-messagebox-head-right{position:absolute;top:0;width:10px}
+.cmstop-messagebox-head-minsize{background-position:0 -35px}
+.cmstop-messagebox-head-minsize:hover{background-position:1px -6px}
+.cmstop-messagebox-head-right{background-position:-10px -157px;right:0}
+.cmstop-messagebox-head-title h2{color:#FFF;float:left;font-size:1em;line-height:35px;margin:0;padding:0}
+.cmstop-messagebox-size-control a{background-image:url(images/ct-toolbox-boxico.png);float:left;height:22px;width:28px}

@@ -1,0 +1,18 @@
+.content-list-orange-a ul {
+	padding:8px 10px 0;
+}
+.content-list-orange-a li {
+	line-height:22px;
+	padding-left:8px;
+	background:url("images/point.gif") no-repeat 0 10px;
+}
+.content-list-orange-a a {
+	font-size:14px;
+	color:#630;
+}
+.content-list-orange-a a:hover{ color:#c00;}
+.content-list-orange-a .date{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #999999;
+}

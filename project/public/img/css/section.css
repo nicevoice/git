@@ -1,0 +1,12 @@
+﻿.section_model{
+	border: 1px solid rgb(204, 204, 204); 
+	position: absolute; 
+	z-index: 100; 
+	background-color: rgb(255, 102, 102); 
+	cursor: pointer; 
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	opacity:0.5
+}
+
+.section{position:absolute; border:1px solid #9C6;}

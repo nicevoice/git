@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="请输入模型名称">
+		<required event="submit">请输入模型名称</required>
+	</name>
+	<alias tips="请输入模型别名">
+        <required event="submit">请输入模型别名</required>
+        <regex args="/[a-z]\w*$/" event="submit">模型别名格式不正确</regex>
+	</alias>
+    <mainindex tips="请输入主索引名称">
+		<required event="submit">请输入主索引名称</required>
+	</mainindex>
+    <deltaindex tips="请输入增量索引名称">
+	</deltaindex>
+</root>

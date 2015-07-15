@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="请填写规则名称">
+		<required event="submit">必填</required>
+	</name>
+	<enterPattern tips="请填写匹配该记录的规则">
+		<required event="submit">必填</required>
+	</enterPattern>
+	<listUrl tips="填写一个确定的列表页面所在地址，以便测试">
+	</listUrl>
+	<charset tips="选择列表页及内容页的编码"></charset>
+	<listStart tips="列表范围开始"></listStart>
+	<listEnd tips="列表范围结束"></listEnd>
+	<urlPattern tips="从列表页中 匹配 内容页链接地址 的规则"></urlPattern>
+	<listNextPage tips="列表分页下一页位置"></listNextPage>
+	<listLimitLength tips="列表最大条数"></listLimitLength>
+	<contentUrl tips="填写一个确定的内容页链接地址，以便测试">
+	</contentUrl>
+	<rangeStart tips="文章内容范围开始">
+	</rangeStart>
+	<rangeEnd tips="文章内容范围结束">
+	</rangeEnd>
+	<titleStart tips="标题开始前置内容">
+		<required event="submit">必填</required>
+	</titleStart>
+	<titleEnd tips="标题结束后置内容">
+		<required event="submit">必填</required>
+	</titleEnd>
+	<contentStart tips="正文开始前置内容">
+		<required event="submit">必填</required>
+	</contentStart>
+	<contentEnd tips="正文结束后置内容">
+		<required event="submit">必填</required>
+	</contentEnd>
+	<nextPage tips="文章分页下一页位置">
+	</nextPage>
+	<authorStart tips="作者开始前置内容">
+	</authorStart>
+	<authorEnd tips="作者结束后置内容">
+	</authorEnd>
+	<sourceStart tips="来源开始前置内容">
+	</sourceStart>
+	<sourceEnd tips="来源结束后置内容">
+	</sourceEnd>
+	<pubdateStart tips="发布时间开始前置内容">
+	</pubdateStart>
+	<pubdateEnd tips="发布时间结束后置内容">
+	</pubdateEnd>
+	<allowTags tips="正文内容需要保留的html标签">
+	</allowTags>
+	<replacementsource tips="正文需要被替换的内容，支持通配符“(*)”">
+	</replacementsource>
+	<replacementtarget tips="替换结果">
+	</replacementtarget>
+</root>

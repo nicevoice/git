@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>访谈_{$SYSTEM[sitename]}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="expires" content="0" />
+<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+<meta name="description" content="{$SYSTEM[seodescription]}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<base target="_blank">
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+		<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+	</head>
+	
+	<body>
+		<!--{template 'system/header_channel.html'}-->
+			<div class="hr-h10"></div>
+			<div class="column">
+			<div class="menu-cir nosubmenu">
+				<div class="menu-cir-main">
+					<div class="mode-menu">
+							<ul id="common-menu">
+				<li><a href="{WWW_URL}" target="_self">首页</a></li>
+				<li><a href="http://news.cmstop.loc/" target="_self">新闻</a></li>
+				<li><a href="http://photo.cmstop.loc/" target="_self">图片</a></li>
+				<li><a href="http://video.cmstop.loc/" target="_self">视频</a></li>
+				<li id="nav-cur"><a href="http://talk.cmstop.loc/" target="_self">访谈</a></li>
+				<li><a href="http://special.cmstop.loc/" target="_self">专题</a></li>
+				<li><a href="http://space.cmstop.loc/" target="_self">专栏</a></li>
+				<li><a href="{WWW_URL}paper/" target="_self">报纸</a></li>
+				<li><a href="{WWW_URL}magazine/" target="_self">杂志</a></li>
+				<li><a href="{APP_URL}roll.php" target="_self">滚动</a></li>
+				<li><a href="{APP_URL}rank.php" target="_self">排行</a></li>
+				<li><a href="{APP_URL}tags.php" target="_self">标签</a></li>
+				<li><a href="{APP_URL}digg.php" target="_self">Digg</a></li>
+				<li><a href="{APP_URL}mood.php" target="_self">心情</a></li>
+				</ul>
+					</div>
+				</div>
+				<div class="menu-cir-l"></div>
+				<div class="menu-cir-r"></div>
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+		<div class="column">
+			<div class="flashWrap">
+	<div class="col-l-main mode-flash-1 w-570 ">
+				<!--#include virtual="/section/42.html"-->
+			</div>
+	
+	<div class="interviewVideo mar-r-10">
+		<!--#include virtual="/section/43.html"-->
+	</div>
+</div>
+		</div>
+		
+		<div class="hr-h6"></div>
+		<div class="column">
+	<div class="col-l-main w-720">
+				<!-- ******************* start 频道列表    *********************** -->
+			<!--{loop channel() $c}-->
+				<div class="video-list-wrap">
+					<div class="mode-head mode-head-3">
+						<h2 class="cor-06c">{$c[name]}</h2>
+						<a title="点击进入视频列表" class="more-e" href="{$c[url]}">查看全部</a>
+					</div>
+					<div class="mode-imgtxt-video">
+				<ul>
+				
+				    <!--{content catid="$c[childids]" orderby="published desc" modelid="5" size="8"}-->
+					<li>
+						<a href="{$r[url]}"><img alt="{$r[title]}" width="140" height="105" src="{thumb($r[thumb],140,105)}"></a>
+						<p class="txtlink"><a href="{$r[url]}">{$r[title]}</a></p>
+						<p><span class="v-play-c">{$r[pv]}</span><span class="v-comment-c">{$r[comments]}</span></p>
+					</li>
+					<!--{/content}-->
+				</ul>
+			</div>
+				</div>
+			<!--{/loop}-->
+				<!-- ******************* end 频道列表    *********************** -->
+			
+			</div>
+	<div class="w_234 f-r honourBar">
+		<div class="honourCommon bor-9fc">
+			<div style="padding-right: 0pt;" class="mode-tabs mode-tabs-fs14">
+				<h2 class="cor-06c fs-12">近期访谈嘉宾</h2>
+			</div>
+			<ul>
+		<!--{db sql="SELECT * FROM #table_interview_guest ORDER BY guestid DESC" size="9"}-->
+				<li>
+					<a href="{$r[url]}"><img height="64" width="64" alt="{$r[resume]}" src="{thumb($r[photo],64,64)}"></a>
+					<h3><a href="{$r[url]}">{$r[name]}</a></h3>
+				</li>
+		<!--{/db}-->
+			</ul>
+		</div>
+		<div class="honourCommon person-clear">
+			<div style="padding-right: 0pt;" class="mode-tabs mode-tabs-fs14">
+				<h2 class="cor-06c fs-12">精彩语录</h2>
+			</div>
+			<ul class="person padd-8 ">
+			<!--{db sql="SELECT * FROM #table_interview ORDER BY endtime DESC" size="5"}-->
+			<!--{if $r[review]}-->
+				<li>
+					<a href="{table('content',$r[contentid],'url')}">{$r[review]}</a>
+					<p class="txt-r">---<a href="">王金山</a></p>
+				</li>
+			<!--{/if}-->
+			<!--{/db}-->
+			</ul>
+		</div>
+	</div>
+</div>
+	<div class="hr-h10"></div>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+
+	<!--{template 'system/footer.html'}-->

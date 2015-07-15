@@ -1,0 +1,47 @@
+body{ background-color:#fff; color:#515151; font-size:12px;font-family:"ËÎÌå", Tahoma, Arial, Helvetica, STHeiti;  padding:0px; margin:0px; position:relative; overflow-x:hidden;}
+ul,li,ol,dl,dt,dd,p,form,input,h1,h2,h3,h4{ padding:0px; margin:0px; list-style:none;}
+a img{ border:none;}
+a{color:#515151;text-decoration: none;}
+a:hover {text-decoration: none;	color: #df8e18;}
+.yahei{font-family: "Microsoft Yahei", "Î¢ÈíÑÅºÚ", Tahoma, Arial, Helvetica, STHeiti;}
+.clr{ height:0px; margin:0px; padding:0px; clear:both; overflow:hidden;}
+.space{ padding-top:10px;}
+
+.header{ background-color:#80bc32; height:46px; overflow:hidden;position:fixed;_position:absolute;top:0;left:0;width:100%;z-index:100;}
+.header .menu{ width:870px; margin:auto;}
+.header .menu li{ float:left; width:80px; text-align:center; height:46px;}
+.header .menu li a{ display:block; width:80px;height:46px; overflow:hidden; color:#ffffff; font-size:15px; line-height:46px;font-family: "Microsoft Yahei", "Î¢ÈíÑÅºÚ", Tahoma, Arial, Helvetica, STHeiti;}
+.header .menu li a:hover,.header .menu li.cur a{ background-color:#252525}
+.header .menu li#logo{ width:104px}
+.header .menu li#logo a{ background:url(../js/logo2.jpg) no-repeat; text-indent:3000px;width:104px}
+
+.mhtitle{ padding-top:80px; height:43px; font-size:30px; color:#80bc32; text-align:center;}
+
+.nav{ width:870px; margin:auto; height:26px; line-height:26px;}
+.xian{ border-top:#80bc32 solid 1px; border-bottom:#80bc32 solid 1px;}
+
+.ad1{ padding-top:13px;  height:auto; overflow:hidden; margin:auto;text-align:center;}
+
+.main{ padding-top:10px; width:870px; margin:auto; position:relative;}
+.main .mhshow{ width:870px; margin:auto; text-align:center; position:relative; overflow:hidden; }
+
+
+
+/*manhua*/
+
+.main .mhshow ul {background:#FFF !important;}
+.main .mhshow ul,li{ float:left; padding-top:2px; padding-bottom:2px;}
+.main .mhshow .left img{max-width:545px;_width:545px;text-align:left !important; clear:both; display:block;  float:left; padding-left:5px;}
+.main .mhshow .riad{ width:300px; height:250px; padding-right:10px; padding-bottom:10px; float:right}
+
+.main .page{ width:860px; margin:auto; height:20px; padding-bottom:11px; padding-top:30px; padding-left:80px; position:relative;}
+.main .page span{ width:400px; height:20px; display:block; float:left; overflow:hidden;}
+.main .page span a{ height:20px; line-height:20px; overflow:hidden;}
+
+.other{ width:866px; margin:20px auto 0px auto; border:#80bc32 solid 2px; background:#fff; height:400px;}
+.other ul { padding-top:10px; padding-left:10px;margin-bottom:10px;}
+.other ul li{ width:200px; height:185px; overflow:hidden; float:left; padding-left:9px;}
+.other ul li a img{width:200px;}
+h1{ font-weight:normal}
+
+.footer{ padding-top:30px; width:870px; text-align:center; margin:auto; padding-bottom:50px;font-family:Tahoma, Geneva, sans-serif; line-height:18px;}

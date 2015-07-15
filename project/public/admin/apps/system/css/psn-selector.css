@@ -1,0 +1,102 @@
+body {margin:0;padding:0;font-size:12px; font-family:Arial, Verdana,"宋体";}
+#head {
+	height:22px;
+	background:url(../images/psn-selector.png) repeat-x 0 -2px;
+	height:22px;
+	padding:4px 6px;
+	border-bottom:1px solid #9AC4DC;
+	clear:both;
+}
+#center {
+	overflow-y:auto; height:250px;
+	background:#fff;
+}
+#navigator { width:300px; float:left; margin-left:5px;}
+#ctrl {
+	float:right;
+}
+#ctrl span {
+	background:url(../images/psn-selector.png) no-repeat 0 -50px;
+	cursor:pointer;
+	display:inline-block;
+	float:left;
+	height:20px;
+	width:20px;
+	margin:0 2px;
+}
+#ctrl span.mkdir {
+	background-position:0 -50px;
+}
+#ctrl span.mkfile {
+	background-position:-20px -50px;
+}
+#container {
+	margin:0;padding:0;
+}
+#container li {
+	list-style:none;
+	width:64px;
+	display:inline-block;
+	vertical-align:top;
+	*display:inline-table;
+	/* for ie 7*/
+	+display:inline;
+	+zoom:1;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	background-color:#fff;
+	border:1px solid #fff;
+	padding:1px 1px 2px 2px;
+	margin:2px;
+	overflow:hidden;
+	text-align:center;
+	cursor:pointer;
+}
+#container li:hover,
+#container li.contextMenuActive {
+	background-color:#E5F3FF;
+	border:1px solid #A4D5FF;
+}
+
+#container li.checked {
+	background-color:#DDECFE;
+	border:1px solid #83AADA;
+}
+#container li div {
+	height:40px;
+	width: 40px;
+	margin:0 auto;
+	text-align:center;
+	clear:both;
+	background:url(../images/psn-selector.png) no-repeat -120px -50px;
+}
+#container li.dir div {
+	background-position: -120px -50px;
+}
+#container li.file div {
+	background-position: -160px -50px;
+}
+#container li span {
+	display:block;
+	word-break:break-all;
+	word-wrap:break-word;
+	clear:both;
+	text-align:center;
+}
+#bottom {
+	background:url(../images/psn-selector.png) repeat-x;
+	height:34px;
+	text-align:right;
+	padding:8px 2px 0 0;
+}
+#bottom button{
+	cursor:pointer; margin:0 6px 0 0;padding:0 3px 3px;
+	*padding:0 3px; height:22px;
+	line-height:22px; vertical-align:middle;
+	border:1px solid #94C5E5; background:url(../images/psn-selector.png) repeat-x 0 -95px;
+	color:#077AC7;
+}
+#bottom button:hover{
+	background-position:0 -125px;border:1px solid #FDCD99;color:#f60;
+}

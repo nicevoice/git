@@ -1,0 +1,50 @@
+<style type="text/css">
+    .member-login * { margin: 0; padding: 0; line-height: normal; border: 0; font-size: 12px; }
+    .member-login .input-item { margin: 15px 0; zoom: 1; }
+    .member-login label { display: inline-block; float: left; margin-right: 15px; text-align: right; width: 60px; font-size: 14px; line-height: 30px; vertical-align: baseline; }
+    .member-login .remember { cursor: pointer; font-size: 12px; display: inline; width: auto; text-align: left; float: none; margin: 0; color: #666 }
+    .member-login .item-captcha input,
+    .member-login .basic-input { width: 200px; padding: 5px; height: 18px; font-size: 14px;vertical-align:middle; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #c9c9c9 }
+    .member-login .item-captcha input:focus,
+    .member-login .basic-input:focus { border: 1px solid #a9a9a9 }
+    .member-login .item-captcha input { width:100px; }
+    .member-login .pl { color:#666; }
+    .member-login .error-tip { margin-left:10px; display: inline; }
+    .member-login .error-tip, .member-login .error { color:#fe2617; }
+    .member-login .submit { position: absolute; bottom: 0; }
+    .member-login .hide { display: none; }
+    .member-login .remember input { float: left; margin-top: 8px; *margin-top: 4px; }
+    .member-login .remember label { margin-left: 5px; *margin-left: 0; }
+    #member_login_seccodeimg { vertical-align: middle; margin: 0 10px; }
+</style>
+<div class="member-login">
+    <div class="input-item">
+        <label for="member_login_username">用户名</label>
+        <input tabindex="1" class="basic-input" type="text" id="member_login_username" name="username" value="" />
+        <span class="error-tip hide">请输入用户名</span>
+    </div>
+    <div class="input-item">
+        <label for="member_login_password">密码</label>
+        <input tabindex="2" class="basic-input" type="password" id="member_login_password" name="password" value="" />
+        <span class="error-tip hide">请输入密码</span>
+    </div>
+    <div id="member_login_seccode_box" class="input-item"{if !$needseccode } style="display: none;"{/if}>
+        <label for="member_login_seccode">验证码</label>
+        <input tabindex="3" class="basic-input" type="text" id="member_login_seccode" name="seccode" value="" style="width: 50px;" />
+        <img id="member_login_seccodeimg" style="cursor:pointer;" width="48" height="20" align="absmiddle" class="img_mar"/>
+        <a tabindex="4" href="javascript:void(0);" class="ch-yzm">换一张</a>
+    </div>
+    <div>
+        <label>&nbsp;</label>
+        <p class="remember">
+            <input tabindex="5" type="checkbox" tabindex="4" id="member_login_remember" name="cookietime" value="1296000"{if $rememberusername} checked="checked"{/if}>
+            <label class="remember" for="member_login_remember">下次自动登录</label>&nbsp;|&nbsp;<a tabindex="6" href="{APP_URL}{url('member/index/getpassword')}" target="_blank">忘记密码了</a>
+        </p>
+    </div>
+    <!--{if !empty($oauth_token)}-->
+    <div class="input-item" style="margin-bottom: 0;">
+        <label>站外登陆</label>
+        <a tabindex="7" href="{$sinaurl}" target="_blank"><img src="{APP_URL}apps/member/images/btn_sina.gif" class="top-rss" /></a>
+    </div>
+    <!--{/if}-->
+</div>

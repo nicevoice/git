@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="请输入标题">
+		<max args="50">名字不得超过50个字节</max>
+	</name>
+	<tags tips="多个Tag用空格隔开，最多5个">
+	<required event="submit">Tags 不得为空</required>
+	<max args="60">Tags 不得超过60个字节</max>
+	</tags>
+	<identity tips="请输入身份证号码">
+	<max args="20">身份证号码不得超过20个字节</max>
+	<regex args="/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/">身份证格式不正确</regex>
+	</identity>
+	<company tips="请输入所在单位名称">
+	<max args="50">所在单位名称不超过50个字节</max>
+	</company>
+	<job tips="请输入职业">
+	<max args="50">活动地址不超过50个字节</max>
+	</job>
+	<telephone tips="请输入电话号码">
+	<max args="15">电话号码不超过15个字节</max>
+	<regex args="/^(86)?(\d{3,4}-)?(\d{7,8})$/">电话号码格式不正确</regex>
+	</telephone>
+	<mobile tips="请输入手机号码">
+	<max args="11">手机号码不超过11个字节</max>
+	<regex args="/^1\d{10}$/">手机号码格式不正确</regex>
+	</mobile>
+	<email tips="请输入电子邮箱地址">
+	<max args="40">邮箱地址不超过40个字节</max>
+	<regex args="/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/">邮箱地址格式不正确</regex>
+	</email>
+	<qq tips="请输入qq号码">
+	<max args="15">qq号码不超过15个字节</max>
+	<regex args="/^[1-9]\d{4,20}$/">qq号码格式不正确</regex>
+	</qq>
+	<msn tips="请输入MSN">
+	<max args="40">MSN不超过40个字节</max>
+	<regex args="/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/">MSN格式不正确</regex>
+	</msn>
+	<site tips="请输入主页地址如http://www.cmstop.com">
+	<max args="100">主页地址不超过100个字节</max>
+	<regex args="/^[a-zA-z]{2,5}:\/\/(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\S*)?$/">主页地址格式不正确</regex>
+	</site>
+	<address tips="请输入地址">
+	<max args="100">地址不超过100个字节</max>
+	</address>
+	<zipcode tips="请输入邮编">
+	<max args="6">邮编不超过6个字节</max>
+	<regex args="/^[0-9]\d{5}$/">邮编格式不正确</regex>
+	</zipcode>
+	<note tips="请输入个人说明">
+	<max args="10000">个人说明不超过10000个字节</max>
+	</note>
+</root>

@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+/***********
+	*@Description: login框架 （项目名可写中文）
+	*@Author:      silen(原人)
+	*@Update:                (修改人)
+	*@time     (2011-08-09 17:22)（修改时间）
+***********/  
+
+/*login*/
+.zfLayer .layerBox .title .close,.infoForm .zf_but .but_login,.hezuo_login .Other .weibo,.hezuo_login .Other .QQ,.hezuo_login .Other .renren,.zf_right .reg_now a{background:url(../../images/exam/zf_login_01.png) no-repeat;}
+
+.zfLayer{position:absolute;top:30%;left:30%; text-align:left;}
+.zfLayer .zf_c{width:840px;height:450px;padding:6px;-moz-border-radius:6px;-webkit-border-radius:6px; background:url(../../images/exam/layer_bg.png) repeat; }
+.zfLayer .layerBox{width:838px;height:446px; background:#FFF; border:1px solid #dddddd;}
+.zfLayer .layerBox .title{height:32px;padding:0 0 0 10px;color:#333; border-bottom:2px solid #60a710; background:#f3f3f3;}
+.zfLayer .layerBox .title h3{ float:left;font:700 14px/32px "sinSun";}
+.zfLayer .layerBox .title .close{float:right;margin:6px 6px 0 0;padding:4px;width:12px;height:11px; overflow:hidden; background-position: 4px 4px;}
+.zfLayer .layerBox .title .close:hover{ background-position:-16px 4px;}
+
+.infoForm{padding: 10px;}
+
+
+.tk-tooltitle{color:#999;font-size:14px}
+.fc-blue{color:#0088cc}
+.tk-taolun{background:url('../../images/exam/bbs.png') no-repeat;display:inline-block;width:28px;height:25px;vertical-align:middle;margin-right:5px}
+.tk-edit{background:url('../../images/exam/biji.png') no-repeat;display:inline-block;width:28px;height:25px;vertical-align:middle;margin-right:5px}
+.tk-lidef li{background:url('../../images/exam/gbg.png') no-repeat 0 1px;float:left;width:28px;height:28px;vertical-align:middle;margin-right:8px;text-align:center;color:#666}
+.tk-lidef li.greenli{background:url('../../images/exam/grbg.png') no-repeat 0 1px}
+.tk-lidef li.redli{background:url('../../images/exam/rbg.png') no-repeat 0 1px}
+.tk-lidef li.redli a,.tk-lidef li.greenli a{color:#FFF; line-height: 28px;}
+
+/* 常用的风格设置，主要在布局上 以fn开头；功能细化*/
+
+/*清除浮动*/
+.clearfix:after{
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:'.';
+    clear:both;
+    height:0;
+}
+.clearfix{
+    *zoom:1 /*IE6 IE7*/
+}
+
+.fn-fl{float:left;}
+
+.fn-fr{float:right;}
+
+.fn-ib{display:inline-block;*display:inline;*zoom:1}/* 行内块 */
+
+.fn-dn{display:none} /*设置元素隐藏*/
+
+.fn-db{display:block} /*设置块；显示元素*/
+
+.fn-pr{position:relative} /*设置相对定位*/
+
+.fn-oh{overflow:hidden}/*超出隐藏*/
+
+.fn-fwn{font-weight:normal}/*字体正常显示*/
+
+.fn-fwb{font-weight:bold} /*字体加粗*/
+
+.fn-tal{text-align:left}/*左对齐*/
+
+.fn-tac{text-align:center} /*居中对齐*/
+
+.fn-tar{text-align:right}/*右对齐*/
+
+.mt20{margin-top:20px}
+.ml20{margin-left:20px}
+.mr20{margin-right:20px}
+.mb20{margin-bottom:20px}
+
+.pt5{padding-top:5px}
+.pl5{padding-left:5px}
+.pr5{padding-right:5px}
+.pb5{padding-bottom:5px}
+
+.pt10{padding-top:10px}
+.pl10{padding-left:10px}
+.pr10{padding-right:10px}
+.pb10{padding-bottom:10px}
+
+.pt15{padding-top:15px}
+.pl15{padding-left:15px}
+.pr15{padding-right:15px}
+.pb15{padding-bottom:15px}
+
+.pt20{padding-top:20px}
+.pl20{padding-left:20px}
+.pr20{padding-right:20px}
+.pb20{padding-bottom:20px}
+
+
+
+

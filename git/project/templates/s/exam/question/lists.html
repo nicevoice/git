@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+<link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+<title>{if $knowledgeid}{$propertys[$knowledgeid]['name']}{else}全部知识点{/if}_{$propertys[$subjectid]['name']}_会计网题库_会计网</title>
+<meta name="keywords" content="{$propertys[$knowledgeid]['name']},{$propertys[$knowledgeid]['name']}试题列表，{$propertys[$knowledgeid]['name']}练习">
+<meta name="description" content="会计网题库{$propertys[$subjectid]['name']}有关{$propertys[$knowledgeid]['name']}所有试题列表。">
+<link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+<script type="text/javascript" src="{JS_URL}jquery.js"></script>
+{include_tpl('section/605.html')}
+</head>
+
+<body>
+<!--{template 'exam/header_mini'}-->
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+        	<div class="tk-bnav">当前位置：<a href="{kuaiji_url('question/action_id' , array('action'=>'lists','id'=>$subjectid) , 'exam')}" target="_blank"> {$propertys[$subjectid]['name']} </a> >  {$propertys[$knowledgeid]['name']}试题大全 > 知识点详细</div>
+        	<div class="tk-exam clearfix">
+            	<div class="tk-examleftarea">
+            	<div class="tk-examtitle pl20 fn-fwb">{$propertys[$knowledgeid]['name']}所有试题</div>
+                <div class="pt10 pr10 pl10 pb20">
+                <table width="100%">
+                    {if $lists}
+                    {loop $lists $list}
+                    <?php
+
+                    $knowid = $list['knowledgeid'];
+                    $showid = $list['bandid'] ? $list['bandid'] : $list['questionid'];
+                    $showid = md5($showid.'exam');
+                    ?>
+                    <tr>
+                        <td  class="bbdashed pt10">
+                        	<div><span class="tk-span tk-circle"></span><a href="{kuaiji_url('question/show' , array('id'=>$showid) , 'exam')}" target="_blank" class="fc-333 fts14">{str_cut($list['subject'], 60)}</a></div>
+                        	<div class="fc-999 pl20 ml5">知识点：{$propertys[$knowid]['name']}</div>
+                        </td>
+                    </tr>
+                    {/loop}
+                    {else}
+                    <tr>
+                        <td  class="bbdashed pt10">
+                            <div><span class="tk-span" style="margin: 4px;"></span>没有数据...</div>
+                        </td>
+                    </tr>
+                    {/if}
+                </table>
+                    {if $pages}
+                    <div class="tk-pagenav">
+                        {$pages}
+                    </div>
+                    {/if}
+				</div>
+                
+            	</div>
+            	<div class="tk-examrightarea">
+                	<div class="tk-areatitle fn-fwb">{$propertys[$subjectid]['name']}知识点</div>
+                    <div class="tk-lineStyle"></div>
+					<div class="pt10 pr10 pl10 pb20">
+                        {loop $knowledge $k $know}
+                    	<table class="tk-sectionboxnone" width="100%">
+                            <tr>
+                                <td>
+                                    <table width="100%">
+                                        <tr class="knowledgeid_{$know['proid']}">
+                                            <td class="bbdashed f-1em"><span class="{if $know['childs']}tk-one-table tk-add{else}tk-reduce{/if} tk-span"></span><a title="{$know['name']}" href="{WWW_URL}exam/question/lists_{$know['proid']}_{$subjectid}_1.html" {if $knowledgeid == $know['proid']}style="color:red;"{/if}>{str_cut($know['name'],24, '')}</a></td>
+                                        </tr>
+                                        {if $know['childs']}
+                                        {loop $know['childs'] $k1 $know1}
+                                        <tr class="fn-dn tk-add-tr">
+                                            <td>
+                                                <table width="100%">
+                                                    <tr class="knowledgeid_{$know1['proid']}">
+                                                        <td  class="bbdashed f-3em"><span class="{if $know1['childs']}tk-two-table tk-add{else}tk-circle{/if} tk-span"></span><a title="{$know1['name']}" href="{WWW_URL}exam/question/lists_{$know1['proid']}_{$subjectid}_1.html" {if $knowledgeid == $know1['proid']}style="color:red;"{/if}>{str_cut($know1['name'],22, '')}</a></td>
+                                                    </tr>
+                                                    {if $know1['childs']}
+                                                    <tr class="fn-dn">
+                                                        <td>
+                                                            <table width="100%">
+                                                                {loop $know1['childs'] $K2 $know2}
+                                                                <tr class="knowledgeid_{$know2['proid']}">
+                                                                    <td  class="bbdashed f-5em"><span class="tk-span tk-circle"></span><a title="{$know2['name']}" href="{WWW_URL}exam/question/lists_{$know2['proid']}_{$subjectid}_1.html" {if $knowledgeid == $know2['proid']}style="color:red;"{/if}>{str_cut($know2['name'],20, '')}</a></td>
+                                                                </tr>
+                                                                {/loop}
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    {/if}
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        {/loop}
+                                        {/if}
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        {/loop}
+                    </div>
+                </div>
+        	</div>
+        
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+
+    var knowledgeid = "{$knowledgeid}";
+    $(function(){
+        if (knowledgeid) {
+            var knowtr = $('.knowledgeid_'+knowledgeid);
+            knowtr.find('.tk-span').removeClass('tk-add');
+            knowtr.find('.tk-span').addClass('tk-reduce');
+            knowtr.parents('tr').removeClass('fn-dn');
+            knowtr.parents('table').find('.tk-one-table').attr('data-id', '1');
+            knowtr.parents('table').find('.tk-one-table').removeClass('tk-add');
+            knowtr.parents('tr').find('.tk-add-tr').removeClass('fn-dn');
+            knowtr.parents('table').find('.tk-one-table').addClass('tk-reduce');
+        }
+        $('#searchKnowledge').blur(function(){
+            txt = $(this).val();
+            if (txt == '')return '';
+            $('.tk-sectionboxnone a').each(function(i){
+
+            })
+        })
+        $('.tk-two-table').click(function(){
+            if ($(this).attr('data-id')){
+                $(this).parent().parent().next('tr').hide();
+                $(this).removeAttr('data-id')
+                $(this).removeClass('tk-reduce');
+                $(this).addClass('tk-add');
+            }else{
+                $(this).parent().parent().next('tr').show();
+                $(this).attr('data-id', '1')
+                $(this).addClass('tk-reduce');
+                $(this).removeClass('tk-add');
+
+            }
+        })
+        $('.tk-one-table').click(function(){
+            if ($(this).attr('data-id')){
+                $(this).parent().parent().parent().find('.tk-add-tr').hide();
+                $(this).removeAttr('data-id')
+                $(this).removeClass('tk-reduce');
+                $(this).addClass('tk-add');
+
+            }else{
+                $(this).parent().parent().parent().find('.tk-add-tr').show();
+                $(this).attr('data-id', '1')
+                $(this).addClass('tk-reduce');
+                $(this).removeClass('tk-add');
+
+            }
+        })
+    })
+
+</script>
+<!--{template 'exam/footer.html'}-->

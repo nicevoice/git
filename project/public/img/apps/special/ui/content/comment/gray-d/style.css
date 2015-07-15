@@ -1,0 +1,62 @@
+.content-comment-gray-d .mod-comment {
+	padding:10px;
+	font-size:12px;
+	background:#FFF;
+}
+.content-comment-gray-d dl {
+
+}
+.content-comment-gray-d .user-info {
+	color:#c00;
+}
+.content-comment-gray-d .post-time {
+	color:#999;
+	float:right;
+}
+.content-comment-gray-d  dd {
+	border-bottom:1px dotted #ccc;
+	padding:6px 0 10px;
+	font-size:14px;
+	color:#333;
+}
+.content-comment-gray-d .view-comment {
+	padding:8px 0;
+	text-align:right;
+	color:#c00;
+}
+.content-comment-gray-d .view-comment a{
+	color:#c00;
+	text-decoration:none;
+}
+.content-comment-gray-d .view-comment span{
+	color:#333;
+}
+.content-comment-gray-d textarea {
+	width:100%;
+	overflow:auto;
+	height:120px;
+	font-size:14px;
+}
+.content-comment-gray-d .user-writeinfo {
+	margin:5px 0;
+	font-size:12px;
+	color:#333;
+}
+.content-comment-gray-d .user-writeinfo .quickLogout a{
+	color:#c00;
+	text-decoration:none;
+}
+.content-comment-gray-d input.input-submit {
+	background:#fff url("images/submit.gif") no-repeat 0 0;
+	color:#fff;
+	height:23px;
+	width:72px;
+	border:0;
+}
+
+.citation{padding: 4px 4px 0 4px; line-height: 24px; margin-bottom: 4px;  border: 1px solid #ffe1a4;  color: #444;}
+.citation-title,.citation-title a{ color: #CC0000; font-size: 12px;}
+.mode-comment dd .citation p{ padding: 8px 0; font-size: 12px; }
+.citation-number{ margin-right: 4px; font-size: 10px; color: #999; font-family: Arial; }
+
+.diy-widget a:hover {color:#000;text-decoration:none}

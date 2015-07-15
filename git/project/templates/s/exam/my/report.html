@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+    {if $status == 6}
+    {if $propertys[$typeid]['child']}
+    <title>{$category[$catid]['name']}{$title}_会计网题库_会计网 </title>
+    <meta name="keywords" content="{$category[$catid]['name']},{$category[$catid]['name']}每日一练,{$category[$catid]['name']}在线练习">
+    <meta name="description" content="会计网题库{$category[$catid]['name']}{$title}">
+    {else}
+    <title>{$title}在线答题_会计网题库_会计网 </title>
+    <meta name="keywords" content="{$title}在线答题,{$title}答案">
+    <meta name="description" content="会计网题库{$title}在线答题_会计网题库_会计网  ">
+    {/if}
+    {else}
+
+    <?php
+        $pos = strpos($title, '专项练习');
+        if ($pos !== false) {
+            $pos1 = strpos($title, $propertys[$typeid]['name']);
+            $knowledge_title = substr_replace($title, '', $pos1,strlen($propertys[$typeid]['name']));
+            $knowledge_title = str_replace('专项练习', '', $knowledge_title);
+        }
+    ?>
+    {if $pos !== false}
+    <title>{$propertys[$typeid]['name']}{$knowledge_title}试题练习_会计网题库_会计网 </title>
+    <meta name="keywords" content="{$propertys[$typeid]['name']},{$knowledge_title}">
+    <meta name="description" content="会计网题库{$propertys[$typeid]['name']}“{$knowledge_title}”试题专项练习，在线练习。 ">
+    {else}
+    <title>{$propertys[$typeid]['name']}在线模考_在线答题_会计网题库_会计网 </title>
+    <meta name="keywords" content="{$propertys[$typeid]['name']}模考,{$propertys[$typeid]['name']}模拟试卷">
+    <meta name="description" content="会计网题库在线{$propertys[$typeid]['name']}考试卷，在线答题.  ">
+    {/if}
+    {/if}
+
+    <link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+    <script type="text/javascript" src="{JS_URL}jquery.js"></script>
+    <script type="text/javascript" src="{JS_URL}dialog.js"></script>
+    <script type="text/javascript" src="{JS_URL}exam/exam.js"></script>
+    <script type="text/javascript">
+        var contentid = "{$contentid}";
+        var title = "{$title}";
+    </script>
+	{include_tpl('section/605.html')}
+</head>
+
+<body>
+<?php
+    $template = & factory::template('exam');
+    $template->assign('subjectid', $typeid);
+?>
+<!--{template 'exam/header_mini'}-->
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+        	<div class="tk-exam clearfix">
+        	<div class="tk-examleft">
+            	<ul>
+                	<li class="tk-timeDetail fn-tac"></li>
+                    <li class="tk-control ontab" href="{kuaiji_url('my/action_id' , array('action'=>'report','id'=>$id) , 'exam')}"><a href="{kuaiji_url('my/action_id' , array('action'=>'report','id'=>$id) , 'exam')}">查看报告</a></li>
+                    <li class="tk-control " href="{kuaiji_url('my/action_id' , array('action'=>'analyze','id'=>$id) , 'exam')}"><a href="{kuaiji_url('my/action_id' , array('action'=>'analyze','id'=>$id) , 'exam')}">查看解析</a></li>
+                    <script>
+
+                        $(function(){
+                            $('.tk-control').click(function(){
+                                var url = $(this).attr('href');
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            })
+                        })
+                    </script>
+                </ul>
+            </div>
+            <div class="tk-examright">
+                <div class="pl20">模考练习：{$title}</div>
+                <div class="pl20">交卷时间：{date('Y年m月d日 H:i', $my_answer['created'])}</div>
+                <div class="tk-examtimu">
+                	<div class="tk-examtimuinner" style="background:#FFF"></div>
+                </div>
+                
+                <div class="tk-result">
+                	<div class="fn-fl tk-resultLeft">
+                    	<div class="tk-resultLeftTop">您在本次考试中，答对了：</div>
+                       {if $isday} <div class="tk-resultM mt20">{if !$is_answer}得到<span class="tk-jinbi"><?php echo $integral*$my_answer['right'];?></span>个金币奖励<a href="{BBS_URL}thread-13890-1-1.html" target="_blank" class="fc-blue">（金币有什么用?）</a>
+                        {else}<span>你已获过金币奖励</span>
+                            {/if}
+                        </div>{/if}
+                    </div>
+                    
+                    <div class="tk-score">
+                    	<div class="tk-scorebox">{$my_answer['right']}</div>
+                        <div class="tk-dao fn-tar">道题</div>
+                    </div>
+                    
+                    <div class="tk-counts pt20 mt10">
+                    	<div class="clearfix tk-countstop">
+                            <?php $answertime = $examtime*60-$my_answer['examtime'];?>
+                        	<div class="fn-fl fc-999">答题时间：</div><div class="fn-fr fc-blue"><?php echo ceil($answertime/60);?>/{$examtime}分钟</div>
+                        </div>
+                        <div class="pl5 pr5 pt10">
+                        	<div class="fn-fl fc-999">答题量：</div><div class="fn-fr fc-blue">{$my_answer['_n']}/{$qcount}道题</div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="clearfix pl20 pr20">
+                	<div class="tk-tleft">
+                    	<div class="tk-tright">本次考试情况</div>
+                    </div>
+                </div>
+                
+                <div class="tk-section">
+                	<table class="tk-sectionbox">
+                    	<tr>
+                        	<th width="550" class="bged th bdr">考点</th>
+                            <th width="100" class="bged th bdr">答题情况</th>
+                            <th width="100" class="bged th bdr">正确率</th>
+                        </tr>
+
+                        <!--{loop $_knowarr $k $val}-->
+                        <?php
+                            $on = $right = $op =  0;
+                            foreach(array_keys($knowledges) as $_ky){
+                                if (in_array($_ky, explode(',', $val['childids']))){
+                                    $on = $on + $knowledges[$_ky]['count'];
+                                    if ($_wrongs[$_ky]){
+                                        $right = $right + $_wrongs[$_ky];
+                                    }
+                                    if ($_options[$_ky]){
+                                        $op = $op + $_options[$_ky];
+                                    }
+                                }
+                            }
+                        ?>
+                        <tr>
+                            <td class="bdr" colspan="3" >
+                                <table width="100%">
+                                    <tr>
+                                        <td class="bdb f-1em bdr" width="550" style="cursor:pointer";><span class="tk-add tk-span tk-one-table"></span>{$val['name']}(点击展开)</td>
+                                        <td class="bdb fn-tac  bdr">{$op}/{$on}</td>
+                                        <td class="bdb fn-tac">{$right}/{$on}</td>
+                                    </tr>
+
+                                    <!--{loop $val['childs'] $k1 $val1}-->
+                                    <?php
+                                        $on = $right = $op =  0;
+                                        foreach(array_keys($knowledges) as $_ky){
+                                            if (in_array($_ky, explode(',', $val1['childids']))){
+                                                $on = $on + $knowledges[$_ky]['count'];
+                                                if ($_wrongs[$_ky]){
+                                                    $right = $right + $_wrongs[$_ky];
+                                                }
+                                                if ($_options[$_ky]){
+                                                    $op = $op + $_options[$_ky];
+                                                }
+                                            }
+                                        }
+                                        if (!$val1['childs']){
+                                            $on = $knowledges[$k1]['count'];
+                                            $right = $_wrongs[$k1] ? $_wrongs[$k1] : 0;
+                                            $op = $_options[$k1] ? $_options[$k1] : 0;
+
+                                        }
+                                    ?>
+                                    <tr class="tk-add-tr fn-dn">
+                                        <td colspan="3" >
+                                            <table width="100%">
+                                                <tr>
+                                                    <td style="cursor:pointer"; class="bdb {if $val1['childs']}f-3em{else}f-1em{/if}  bdr" width="550"><span class="{if $val1['childs']}tk-add tk-two-table{/if} tk-span"></span>{$val1['name']}</td>
+                                                    <td class="bdb fn-tac  bdr">{$op}/{$on}</td>
+                                                    <td class="bdb fn-tac">{$right}/{$on}</td>
+                                                </tr>
+                                                {if $val1['childs']}
+                                                <tr class="fn-dn">
+                                                    <td colspan="3" >
+                                                        <table width="100%">
+                                                            <!--{loop $val1['childs'] $k2 $val2}-->
+                                                            <tr>
+                                                                <td  class="bdb  f-5em bdr" width="550"> {$val2['name']}</td>
+                                                                <td class="bdb fn-tac bdr">{if $_options[$k2]}{$_options[$k2]}{else}0{/if}/{$knowledges[$k2]['count']}</td>
+                                                                <td class="bdb fn-tac">{if $_wrongs[$k2]}{$_wrongs[$k2]}{else}0{/if}/{$knowledges[$k2]['count']}</td>
+                                                            </tr>
+                                                            <!--{/loop}-->
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {/if}
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!--{/loop}-->
+                                </table>
+                            </td>
+                        </tr>
+                        <!--{/loop}-->
+                    </table>
+                </div>
+                
+                
+                <div class="clearfix pl20 pt20">
+                	<div class="tk-tleft">
+                    	<div class="tk-tright">答题卡</div>
+                    </div>
+                </div>
+                <?php $_id = 1;?>
+                {loop $question $_val}
+                <?php $qid = $_val['qid'];?>
+                <div class="tk-tooltitle pl20 pt10 pb10">
+                	{$propertys[$qid]['name']}
+                </div>
+                <div>
+                     <div class="tk-lidef clearfix">
+                        <ul>
+                            <!--{loop $_val['question'] $an}-->
+                            {if $an['type'] == 'read'}
+                            <!--{loop $an['questions'] $an}-->
+                            <li data="{$an['questionid']}" class="{if $my_answer['option'][$an['questionid']]['wrong'] == 1}greenli{elseif $my_answer['option'][$an['questionid']]['wrong'] == 0}redli{/if}"  {if $_id % 5 ==0} style="margin-right:15px;"{/if}><a>{$_id}</a></li>
+                            <?php ++$_id;?>
+                            <!--{/loop}-->
+                            {else}
+                            <li data="{$an['questionid']}" class="{if $my_answer['option'][$an['questionid']]['wrong'] == 1}greenli{elseif $my_answer['option'][$an['questionid']]['wrong'] == 0}redli{/if}"  {if $_id % 5 ==0} style="margin-right:15px;"{/if}><a>{$_id}</a></li>
+                            <?php ++$_id;?>
+                            {/if}
+                            <!--{/loop}-->
+                        </ul>
+                    </div>
+                </div>
+                {/loop}
+
+                {if $rewards}
+                <div class="clearfix pl20 pt20">
+                	<div class="tk-tleft">
+                    	<div class="tk-tright">获得奖励会员</div>
+                    </div>
+                    <!--<div class="fn-fl fc-blue ml20 fts14">奖励条件：3题全对</div>-->
+                </div>
+                
+                <div class="tk-users pl20 pt20 clearfix">
+                	<ul>
+                    	<!--{loop $rewards $k $r}-->
+                        <li><a target="_blank" href="{BBS_URL}space-uid-{$k}.html"><img src="{$r}"></a></li>
+                        <!--{/loop}-->
+
+                    </ul>
+                </div>
+                {/if}
+                
+                <div class="tk-sectionfoot">
+                	<div class="shareicon fn-fl"></div>
+                    <div class="sharelist clearfix">
+                        <ul>
+                            <li>分享报告:</li>
+                            <li>
+                                <div class="bdsharebuttonbox bdshare-button-style0-24" data-bd-bind="1398670643923" style="width: 300px;padding-top: 3px;"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+                                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdUrl":"http://www.kuaiji.com/exam","bdText":"我在会计网题库参与了{if $isday}{$title}{else}{$_subject[$typeid]['name']}{/if}练习，答对了{$my_answer['right']}道题（￣︶￣）","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                                </script>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        
+        
+        
+    </div>
+</div>
+<!--{template 'exam/footer'}-->
+
+<script type="text/javascript">
+
+
+    $(function(){
+        $('.tk-two-table').click(function(){
+            if ($(this).attr('data-id')){
+                $(this).parent().parent().next('tr').hide();
+                $(this).removeAttr('data-id')
+                $(this).removeClass('tk-reduce');
+                $(this).addClass('tk-add');
+            }else{
+                $(this).parent().parent().next('tr').show();
+                $(this).attr('data-id', '1')
+                $(this).addClass('tk-reduce');
+                $(this).removeClass('tk-add');
+
+            }
+        })
+        $('.tk-one-table').click(function(){
+            if ($(this).attr('data-id')){
+                $(this).parent().parent().parent().find('.tk-add-tr').hide();
+                $(this).removeAttr('data-id')
+                $(this).removeClass('tk-reduce');
+                $(this).addClass('tk-add');
+
+            }else{
+                $(this).parent().parent().parent().find('.tk-add-tr').show();
+                $(this).attr('data-id', '1')
+                $(this).addClass('tk-reduce');
+                $(this).removeClass('tk-add');
+
+            }
+        })
+    })
+</script>

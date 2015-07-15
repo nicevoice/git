@@ -1,0 +1,17 @@
+<rss version="2.0">
+<channel>
+	<title><!--{$title}-->_<!--{$sitename}--></title>
+	<link><!--{$rssurl}--></link>
+	<description><!--{$title}--></description>
+	<language><!--{$CONFIG['lang']}--></language>
+	<!--{loop $list $item}-->
+	<item>
+		<title><![CDATA[<!--{$item['title']}-->]]></title>
+		<link><!--{$item['url']}--></link>
+		<category><![CDATA[<!--{$item['category']}-->]]></category>
+		<description><![CDATA[<!--{$item['description']}-->]]></description>
+		<pubDate><!--{$item['published']}--></pubDate>
+	</item>
+	<!--{/loop}-->
+</channel>
+</rss>

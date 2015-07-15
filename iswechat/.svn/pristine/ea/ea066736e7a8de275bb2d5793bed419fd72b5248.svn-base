@@ -1,0 +1,20 @@
+<?php
+namespace Home\Model;
+
+use Think\Model;
+
+class QuestionModel extends Model {
+    protected $tablePrefix = 'cms_';
+    protected $tableName = 'exam_question';
+
+
+
+    public function getQuestion2Key($key)
+    {
+        $data = M()->where('')->find();
+
+        printR($data);
+    }
+
+
+}

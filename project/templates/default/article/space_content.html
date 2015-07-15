@@ -1,0 +1,17 @@
+<div class="cont-space">
+	<a href="{space_url($space[spaceid])}"><img src="{if $space['photo']} {thumb($space['photo'],74,74)} {elseif $space['userid']} {element::member_photo($space['userid'],74,74)} {/if}" width="74" height="74" class="photo"/></a>
+	<div>
+		<div class="info">
+		<h3><a href="{space_url($space[spaceid])}" class="spacename">{$space[name]}</a>（文章：<span>{$space[posts]}</span> 人气：<span>{$space[pv]}</span>）</h3>
+		<p class="description">{str_cut($space['description'],110)}</p>
+		</div>
+		<div class="list">
+			<h3>专栏最新文章</h3>
+			<ul>
+				<!--{loop $article $r}-->
+				<li><a href="{$r[url]}" target="_blank">{str_cut($r[title],36,'')}</a></li>
+				<!--{/loop}-->
+			</ul>
+		</div>
+	</div>
+</div>

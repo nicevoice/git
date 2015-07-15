@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="栏目名称">
+		<required event="submit">必填</required>
+	</name>
+	<alias tips="英文名">
+	    <required event="submit">必填</required>
+	</alias>
+	<template_index tips="栏目首页模板">
+	    <required event="submit">必选</required>
+    </template_index>
+	<template_list tips="列表页模板">
+	    <required event="submit">必选</required>
+	</template_list>
+	<path tips="发布点">
+	    <required event="submit">必填</required>
+	</path>
+	<urlrule_index tips="栏目首页URL规则">
+	    <required event="submit">必填</required>
+	</urlrule_index>
+	<urlrule_list tips="列表页URL规则">
+	    <required event="submit">必填</required>
+	</urlrule_list>
+	<urlrule_show tips="内容页URL规则">
+	    <required event="submit">必填</required>
+	</urlrule_show>
+	<sort tips="排序">
+	    <number event="submit">必须是整数</number>
+	</sort>
+</root>

@@ -1,0 +1,10 @@
+/*
+ @name 蓝色经典
+ @notes 每条规则 以 .widget-{风格包文件夹名} 开头
+*/
+.widget-blue .diy-inner {
+	border:1px solid #DFEFFF;
+	background:#fff;
+	margin-top:5px;
+	margin-bottom:5px;
+}

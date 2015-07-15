@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<name>
+		<required>请填写专栏标题</required>
+	</name>
+	<author>
+		<required>请填写作者名</required>
+	</author>
+	<alias>
+		<required>请填写密码</required>
+		<ajax args="?app=space&amp;controller=panel&amp;action=validate" event="blur"></ajax>
+	</alias>
+	<description>
+		<required>请填写简介</required>
+	</description>
+</root>

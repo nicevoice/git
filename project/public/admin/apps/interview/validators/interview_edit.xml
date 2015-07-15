@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<title tips="请输入标题">
+	  	<required event="submit">标题不能为空</required>
+	  	<min args="2">标题不能少于2个字</min>
+	   	<max args="100">标题不能大于100个字</max>
+    </title>
+    <number tips="请输入期号">
+	  	<required event="submit">期号不能为空</required>
+	  	<number>请输入数字</number>
+    </number>
+ 	<tags tips="多个Tag用空格隔开，最多5个">
+	  	<min args="2">Tags 不能少于2个字</min>
+	   	<max args="60">Tags 不能大于100个字</max>
+    </tags>
+    <address tips="请输入地点">
+	  	<required event="submit">地点不能为空</required>
+	   	<max args="100">地点不能大于100个字</max>
+    </address> 
+    <compere tips="输入主持人">
+	  	<required event="submit">主持人不能为空</required>
+	  	<min args="2">主持人不能少于2个字</min>
+	   	<max args="100">主持人不能大于100个字</max>
+    </compere> 
+    <editor tips="请输入责任编辑">
+	   	<max args="40">编辑不能大于40个字</max>
+    </editor> 
+    <description tips="请输入访谈介绍">
+	  	<required event="submit">访谈介绍不能为空</required>
+	   	<max args="255">访谈介绍不能大于255个字</max>
+    </description> 
+	<starttime tips="请选择访谈开始时间">
+	  	<required event="submit">访谈开始时间不能为空</required>
+    </starttime>
+	<endtime tips="请选择访谈结束时间">
+	  	<required event="submit">访谈结束时间不能为空</required>
+    </endtime>
+	<startchat tips="请选择网友发言开始时间">
+	  	<required event="submit">网友发言开始时间不能为空</required>
+    </startchat>
+	<endchat tips="请选择网友发言结束时间">
+	  	<required event="submit">网友发言结束时间不能为空</required>
+    </endchat>
+</root>

@@ -1,0 +1,12 @@
+a{color:#077AC7; font-size:12px; text-decoration:none;}
+a:hover{color:#f30;}
+
+.tag_list li{display:inline; float:left;}
+.tag_list a,.tag_list a.s_3,.tag_list li.s_3 a,.tag_list li.active a {background:url(../img/bg_x.gif) repeat-x 0 -144px; border:1px solid #94C5E5; border-width:0 1px; display:block; *float:left; padding:0 10px; margin-right:6px;height:26px;line-height:26px;outline:none}
+.tag_list a,.comm_pd h3{background-position:0 -170px;}
+.tag_list.s_3 a,.tag_list.active a {cursor:default;}
+
+.tag_1{margin:0 0 5px;}
+.tag_1 form{bottom:3px; right:0;}
+.tag_1{background:url(../img/bg_x.gif) repeat-x 0 -196px;height:26px;}
+.tag_1 .tag_list a,.c_077ac7 label{color: #077AC7;}

@@ -1,0 +1,238 @@
+.clear {height:1px; overflow:hidden; clear:both;}
+.clearfix:after {content:""; display:block; clear:both;}
+* html .clearfix {height:1px;}
+*+html .clearfix {min-height:1px;}
+.hide {display: none;}
+/*  paper index */
+div.paperItem {
+	width: 160px;
+	margin: 8px 8px 0 0;
+	float: left;
+}
+
+/* edition index */
+#search select {
+	width: 100px;
+}
+#paperid {
+	width: 140px;
+}
+#paper {
+	width: 120px;
+}
+div.ct_selector {
+	float: left;
+	margin-right: 5px;
+}
+input.input_calendar {
+	width: 80px;
+}
+
+/* page index */
+div.item {
+	margin: 8px 8px 0 0;
+	float: left;
+	border: 1px solid #ccc;
+	padding: 6px;
+	width: 160px;
+	z-index: 0;
+	position: relative;
+}
+div.item ul li{
+	height: 24px;
+}
+div.item ul li.yes {
+	background: url(/images/yes.png) no-repeat 0 8px;
+}
+div.item ul li.edit {
+	background: url(/images/edit.gif) no-repeat 138px 0;
+}
+div.item ul li input {
+	width: 80px;
+}
+div.item ul li.page_pic {
+	text-align: center;
+	width: 160px;
+	height: 170px;
+	margin: 3px 0;
+}
+li.page_pic img{
+	border: 1px solid #CCC;
+	margin: 0 auto;
+}
+#okBtn {
+	position: absolute;
+	left: 0;
+	cursor: pointer;
+	display: none;
+}
+#stateUl {
+	border: 1px solid #ccc;
+	background: #EFF;
+	width: 64px;
+	left: 104px;
+	*width: 70px;
+	*left: 107px;
+	top: 21px;
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+#stateUl li {
+	padding: 4px 6px;
+	cursor: pointer;
+	z-index: 99;
+}
+#stateUl li.over {
+	background: #abc;
+	color: #fff;
+	font-weight: bold;
+}
+#pageDiv .delete {
+	cursor: pointer;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	display: none;
+}
+
+
+/* imgmap */
+h3.title {
+	border: 1px solid #9AC4DC;
+	border-bottom: none;
+	position: relative;
+}
+h3.title .tips {
+	position: absolute;
+	left: 375px;
+	top: 4px;
+	cursor: pointer;
+}
+#addArea {
+	position: absolute;
+	left: 225px;
+	top: 4px;
+	cursor: pointer;
+}
+#imgMain {
+	float: left;
+}
+#mapContainer {
+	padding: 6px;
+}
+#area {
+	margin-left: 5px;
+	width: 250px;
+	float: left;
+}
+#pic_div {
+	float: left;
+}
+#storeDiv {
+	float: left;
+}
+#store {
+	border: 1px solid #cde;
+	width: 250px;
+	min-height: 24px;
+}
+#store input {
+	width: 24px;
+	display: none;
+}
+#store li {
+	margin: 1px;
+	cursor: pointer;
+	height: 20px;
+	margin: 3px;
+	width: 230px;
+	line-height: 20px;
+	background: #f1f1f1;
+	padding: 0 6px;
+}
+#store li a {
+	color: #d00;
+}
+#store li.selected {
+	background: #abc;
+	color: #fff;
+}
+#store li.over {
+	background: #def;
+}
+#data {
+	clear: both;
+	margin-top: 48px;
+	*margin-top: 24px;
+}
+#data h2 span {
+	color: #d00;
+	font-weight: normal;
+}
+#imgMain div.mark {
+	background: #310;
+	border: 3px solid #F88;
+	position: absolute;
+	cursor: move;
+	overflow: hidden;
+	font-size: 14px;
+	line-height: 18px;
+	color: #fff;
+	font-weight: bold;
+	z-index: 1;
+}
+#imgMain div.over {
+	background: #770;
+}
+
+div.over {
+	background: #300;
+	border-color: #f00;
+}
+
+/* 右键菜单 */
+#rmenu {
+	background: #fff;
+	border: 1px solid #CCCCCC;
+	cursor: pointer;
+	display: none;
+	margin: 0;
+	left: 680px;
+	padding: 1px;
+	position: absolute;
+	width: 80px;
+	z-index: 99999;
+}
+#rmenu li{
+	margin: 0;
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	display: block;
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	padding: 1px 0 1px 29px;
+}
+#rmenu li.hover {
+	background-color: #EBF4F6;
+}
+
+
+#tips {
+	background: #FFFFCB;
+	border: 1px solid #E8DDA5;
+	color: #060300;
+	display: none;
+	left: 680px;
+	padding: 3px;
+	position: absolute;
+	width: 200px;
+	z-index: 99999;
+}
+#pic, div.imgareaselect-outer {
+	cursor: crosshair;
+}
+ul li.remove{background-image: url(/images/delete.gif);}
+ul li.mark{background-image: url(/images/edit.gif);}

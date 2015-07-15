@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>{$name}_{$SYSTEM[sitename]}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+</head>
+
+<body>
+<!-- ******************* start box    *********************** -->
+<!--{template 'system/header.html'}-->
+<!-- *******************  end box   *********************** -->
+<div class="hr-h10"></div>
+
+<!-- *******************  start box   *********************** -->
+<div class="column ad-area-1">
+	<div class="col-l-main"><?php include WWW_PATH."section/24.html";?><!--内容页顶部banner1 --></div>
+	<div class="col-r-extra"><?php include WWW_PATH."section/25.html";?><!--内容页顶部banner2 --></div>
+</div>
+<!-- *******************  end box   *********************** -->
+<div class="hr-h10"></div>
+<!-- *******************  start box   *********************** -->
+<div class="column" style="height: 22px; overflow: hidden; zoom: 1;">
+	<div class="mode-position f-l">
+		<span>
+			<a href="{WWW_URL}">首页</a>
+			  <!--{loop $pos $cat}-->
+			  <a href="{$cat[url]}">{$cat[name]}</a>
+			  <!--{/loop}-->
+		</span>
+	</div>
+	<div class="f-r">
+		 <form name="search" id="search" method="GET" action="{APP_URL}{url('search/index/search')}">
+	    <input type="hidden" name="app" value="search"/>
+	    <input type="hidden" name="controller" value="index"/>
+	    <input type="hidden" name="action" value="search"/>
+		<input type="hidden" name="type" value="all"/>
+	   	<p class="mode-sear"><input type="input" onfocus="this.value=(this.value=='全文检索')?'':this.value" onblur="this.value=(this.value=='')?'全文检索':this.value" name="wd" value="全文检索" class="sear-box" /> <input type="submit" value="检索" class="sear-btn f-r" title="去搜索" /> </p>
+    	</form>
+	</div>
+</div>
+<!-- *******************  end box   *********************** -->
+<div class="hr-h6"></div>
+<!-- *******************  start box   *********************** -->
+<div class="column">
+	<div class="col-l-main w-650">
+        <!-- *******************  start 列表   *********************** -->
+		<div class="bor-9fc">
+			<div class="fs-14 cor-06c padd-20" style="overflow:hidden;">
+		   <ul class="mode-txtlink c-lists">
+		       <?=element::property_show(URL)?>
+		       <!--{content catid="$catid" proid="$proid" orderby="published desc" size="$pagesize" page="$page"}-->
+	           <li><a href="{$r[url]}" target="_blank" style="color:{$r[color]}">{$r[title]}</a><span class="date">{date('n月j日 G:i', $r['published'])}</span></li>  {if $i>0 && $i%5==0} <li class="hr-h10"></li>{/if}
+			   <!--{/content}-->
+			</ul>
+			<div class="page mar-l-8">
+				<ul class="inline">
+  				  <!--{pages($total, $page, $pagesize, 2, $urlrule)}--> 
+				</ul>
+				<div class="clear"></div>
+				</div>
+			</div>
+		</div> 
+        <!-- *******************  end 投票列表   *********************** -->  	
+	</div>
+	<!-- *******************  start 右侧   *********************** -->
+	<!--{template 'system/right.html'}-->
+	<!-- *******************  end 右侧   *********************** -->
+</div>
+<!-- *******************  end box   *********************** -->
+
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>	
+<!--{template 'system/footer.html'}-->
+</body>
+</html>

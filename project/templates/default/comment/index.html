@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>评论：{$title}_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ajax_Page.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.pagination.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.form.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/cmstop.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/comment/js/comment.table.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/comment/js/comment.js"></script>
+</head>
+<body>
+<!--{template 'system/header.html'}-->
+<div class="hr-h10"></div>
+<div class="column ad-area-1">
+	<div class="col-l-main"><?php include WWW_PATH."section/24.html";?><!--内容页顶部banner1 --></div>
+	<div class="col-r-extra"><?php include WWW_PATH."section/25.html";?><!--内容页顶部banner2 --></div>
+</div>
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="mode-position">
+		<span>
+			<a href="{WWW_URL}">首页</a>
+			{loop $pos $cat}
+			<a href="{$cat[url]}">{$cat[name]}</a>
+			{/loop}
+		</span>
+		评论
+	</div>
+</div>
+<div class="hr-h6"></div>
+		<div class="column">
+			<div class="col-l-main w-720 bor-9fc">
+				<div class="comment-title"><h1>评论：<a href="{$url}" target="_blank">{$title}</a></h1></div>
+				<div id="comment_box">
+					<div class="mar-tb-10 padd-lr-20 pl-post">
+						<a href="#comment" class="italk-pl f-l" id="commentFormTop">我要评论</a>
+						<span class="f-l mar-t-10 mar-l-10">(评论<cite id="commentTotal">{$comments}</cite>条)</span>
+						<div style="clear:both;"></div>
+						<form action="?app=comment&controller=comment&action=comment" method="POST" class="commentForm" style="display:none;">
+							<div class="hr-h10"><a name="comment"></a></div>
+							<input type="hidden" name="topicid" value="{$topicid}"/>
+							<textarea class="textarea textarea-w663" name="content" id="commentContent" cols="58" rows="6"></textarea>
+							<div class="user-writeinfo">
+								<span class="f-r"><input type="submit" value="发表评论" class="post-btn" /></span>
+								<span class="f-l">用户名： <b class="nickname"></b></span>
+								<span class="f-l mar-l-10 padd-3 anonymous"><label><input type="checkbox"  name="anonymous" value="1" title="选中后，你将以匿名方式发布留言，不会显示你的用户名"/> 匿名发表</label></span>
+								<span class="f-l mar-l-10 padd-3 quickLogin"><a class="quickLogin-a" href="javascript:;">快速登录</a> <a href="{url('member/index/login')}" target="_blank">快速注册</a></span>
+								<span class="f-l mar-l-10 padd-3 quickLogout" style="display:none;"><a href="javascript:;">退出</a></span>
+							</div>
+							<div style="display: none;" class="fast-login" id="fastLoginDiv1" value="0">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<th><label class="cor-ccc">用户名：</label></th>
+										<td><input type="text" class="input-text bor-gray loginUsername" name="username" /></td>
+									</tr>
+									<tr>
+										<th><label>密码：</label></th>
+										<td><input type="password" class="input-text bor-gray loginPassword" name="password" /></td>
+									</tr>
+									<tr>
+										<th></th>
+										<td><input type="button" class="fast-login-btn" onclick="login('fastLoginDiv1'); return false;" value="登录" /></td>
+									</tr>
+								</table>
+							</div>
+							<div class="hr-h10"></div>
+						</form>
+						<div class="pagination f-r" id="paginationTop"><!--上部分页--></div>
+						<div class="clear"></div>
+					</div>
+					<!--{if $hiHot != 1 && $total > $pagesize}-->
+					<div class="padd-lr-20">
+						<h2 class="hot-pl-title">热门评论</h2>
+						<div class="hr-h10"></div>
+						<dl class="mode-comment" id="hotcomment"><!-- 热门评论加载区 --></dl>
+					</div>
+					<!--{/if}-->
+					<div class="padd-lr-20">
+						<h2 class="hot-pl-title">全部评论</h2>
+						<div class="hr-h10"></div>
+						<div id="commentList"><!-- 全部评论列表区 --></div>
+					</div>
+					<div class="padd-lr-20">
+						<div class="pagination f-r" id="pagination"><!--下部分页--></div>
+					</div>
+					
+					<div class="hr-h10"></div>
+					<div class="post-comment-area padd-lr-20">
+						<form action="?app=comment&controller=comment&action=comment" method="POST" class="commentForm">
+							<div class="hr-h10"><a name="comment"></a></div>
+							<input type="hidden" name="topicid" value="{$topicid}"/>
+							<textarea class="textarea textarea-w663" name="content" id="commentContent" cols="58" rows="10" onfocus="seccodeInit(this);"></textarea>
+							<div class="user-writeinfo">
+								<span class="f-r"><input type="submit" value="发表评论" class="post-btn" /></span>
+								<span class="f-l">用户名： <b class="nickname"></b></span>
+								<span class="f-l mar-l-10 padd-3 anonymous"><label><input type="checkbox"  name="anonymous" value="1" title="选中后，你将以匿名方式发布留言，不会显示你的用户名"/> 匿名发表</label></span>
+								<span class="f-l mar-l-10 padd-3 quickLogin"><a class="quickLogin-a" href="javascript:;">快速登录</a> <a href="{url('member/index/login')}" target="_blank">快速注册</a></span>
+								<span class="f-l mar-l-10 padd-3 quickLogout" style="display:none;"><a href="javascript:;">退出</a></span>
+							</div>
+							<div style="display: none;" class="fast-login" id="fastLoginDiv2" value="0">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<th><label class="cor-ccc">用户名：</label></th>
+										<td><input type="text" class="input-text bor-gray loginUsername"  name="username" /></td>
+									</tr>
+									<tr>
+										<th><label>密码：</label></th>
+										<td><input type="password" class="input-text bor-gray loginPassword" name="password" /></td>
+									</tr>
+									<tr>
+										<th></th>
+										<td><input type="button" class="fast-login-btn" onclick="login('fastLoginDiv2'); return false;" value="登录" /></td>
+									</tr>
+								</table>
+							</div>
+							<div class="hr-h10"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- rightSide -->
+			<div class="col-r-extra w-230">
+				<!-- start 热门评论 -->
+				<div class="bor-9fc">
+					<div class="mode-tabs padd-r-0">
+						<h2 class="cor-c00">新闻排行</h2>
+						<ul id="tab-title-4" class="fs-12 f-r">
+							<li><a class="tabs-focus" href="#rank_day">日</a></li>
+							<li><a href="#rank_week">周</a></li>
+							<li><a href="#rank_month">月</a></li>
+						</ul>
+					</div>
+					<div id="tab-cont-4" class="padd-tb-8">
+						<div class="hot-subject-wrap" id="rank_day">
+							<ul>
+							<!--{content published="1" orderby="comments desc" size="10"}-->
+								<li>
+									<span>{$r['comments']}</span>
+									<p><a href="{$r['url']}">{$r['title']}</a></p>
+									<div class="hr-dotted hr-h6 hot-subject-hr"></div>
+								</li>
+							<!--{/content}-->
+							</ul>
+						</div>
+						<div class="hot-subject-wrap" style="display: none;" id="rank_week">
+							<ul>
+								<!--{content published="7" orderby="comments desc" size="10"}-->
+								<li>
+									<span>{$r['comments']}</span>
+									<p><a href="{$r['url']}">{$r['title']}</a></p>
+									<div class="hr-dotted hr-h6 hot-subject-hr"></div>
+								</li>
+								<!--{/content}-->
+							</ul>
+						</div>
+						<div class="hot-subject-wrap" style="display: none;" id="rank_month">
+							<ul>
+								<!--{content published="30" orderby="comments desc" size="10"}-->
+								<li>
+									<span>{$r['comments']}</span>
+									<p><a href="{$r['url']}">{$r['title']}</a></p>
+									<div class="hr-dotted hr-h6 hot-subject-hr"></div>
+								</li>
+								<!--{/content}-->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- end 热门评论 -->
+				<div class="hr-h10"></div>
+			</div>
+			<!-- //rightSide -->
+		</div>
+
+<div class="hr-h6"></div>
+<script type="text/javascript">
+var topicid = {$topicid};
+var islogin = {$islogin};
+var ischeck = {$ischeck};
+var userid =  {intval($_userid)};
+var username =  '{$_username}';
+var defaultname = '{$SETTING[defaultname]}';
+var wordage = '{$SETTING[wordage]}';
+var total = {$total} + 0;
+var pageSize = <?=$pagesize?>;
+
+$(function(){
+	comment.page(topicid,1, pageSize);
+	$("#pagination").pagination(total, {
+		prev_text: '上一页',
+		next_text: '下一页',
+		items_per_page: pageSize,
+		num_display_entries: 5,
+		num_edge_entries: 2,
+		callback: function(index){
+			comment.page(topicid, (index+1), pageSize);
+		}
+	});
+	//评论提交
+	$('.commentForm').submit(function() {
+		if ($(this).find('textarea[name=content]').val() == '') {
+			alert('评论内容不能为空');
+			return false;
+		}
+		if (islogin == 1 && !$.cookie(COOKIE_PRE+'auth')) {
+			alert('请登录后再发表评论');
+			return false;
+		}
+		return comment.post(this);
+	});
+});
+
+$(function() {
+	$('#tab-title-4 >li >a').hover(function(){
+		var id = $(this).attr('href');
+		$('.tabs-focus').removeClass('tabs-focus');
+		$(this).addClass('tabs-focus');
+		$('.hot-subject-wrap').hide();
+		$(id).show();
+	});
+});
+
+$(function() {
+	if ($.cookie(COOKIE_PRE+'auth')) {
+		//已登录
+		username = $.cookie(COOKIE_PRE+'username');
+		if(username == null) username = defaultname;
+		$('.nickname').html(username);
+		$('.quickLogout').show();
+		$('.quickLogin').hide();
+	} else {
+		if(islogin == 1) {
+			//需要登录才能评论
+			$('.nickname').html('请登录后再发表评论');
+			$('.anonymous').hide();
+		} else {
+			//不需要登录
+			$('.anonymous').hide();
+			$('.nickname').html(defaultname);
+		}
+	}
+	
+	$('.quickLogin > a').click(function() {
+		var _t = $(this).parent().find('a.quickLogin-a');
+		var _d  = $(this).parent().parent().next();
+		var _lp = _t.offset().left;
+		var _tp = _t.offset().top;
+		var _v = _d.attr('value');
+			_d.css({'position':'absolute','left':_lp+50+'px','top':_tp-50+'px'})
+			
+		if(_v == 0) {
+            $('.fast-login').hide().attr('value',0);
+            $('.quickLogin > a.quickLogin-a').html('快速登录');
+			_d.fadeIn();
+			_d.attr('value',"1");
+			_t.html('关闭登录');
+            _d.find('.loginUsername').focus();
+		} else {
+			_d.fadeOut();
+			_d.attr('value',"0");
+			_t.html('快速登录');
+		}
+	});
+	$('.quickLogout > a').click(function() {
+		$.getJSON(APP_URL+'?app=member&controller=index&action=ajaxlogout&jsoncallback=?', function(json){
+			if(json.state) {
+				if(islogin == 1) {
+					//需要登录
+					$('.nickname').html('请登录后再发表评论');
+				} else {
+					$('.nickname').html(defaultname);
+				}
+				$('.anonymous,.quickLogout').hide();
+				$('.quickLogin').show();
+				username = '';
+                rsync(json.rsync);
+			} else {
+				alert('退出失败');
+			}
+		});
+	});
+});
+
+function rsync(scripts) {
+    if (! scripts) return;
+    scripts = scripts.match(/src=\s*['"]?([^'"\s]+)/gim);
+    var script;
+    while (script = scripts.shift()) {
+        (function(src) {
+            src = src.replace(/^src=\s*['"]?/, '');
+            if (/^https?:\/\//i.test(src) && src.indexOf(APP_URL) !== 0) $.getScript(src);
+        })(script);
+    }
+}
+
+function login(obj) {
+    var formobj = $('#'+obj);
+	var username = $('.loginUsername', formobj).val();
+	var password = $('.loginPassword', formobj).val();
+	if ( username == '') {
+		alert('用户名不能为空');
+		return false;
+	}
+	if ( password == '') {
+		alert('密码不能为空');
+		return false;
+	}
+
+	$.getJSON(APP_URL+'?app=member&controller=index&action=ajaxlogin&username='+encodeURIComponent(username)+'&password='+encodeURIComponent(password)+'&jsoncallback=?', function(json){
+		if(json.state) {
+			username = json.username;
+			$('.nickname').html(username);
+			$('.fast-login,.quickLogin').hide();
+			$('.quickLogout,.anonymous').show();
+            rsync(json.rsync);
+		} else {
+			alert(json.error);
+		}
+	});
+}
+var seccodeInit = function(obj) {
+<!--{if $isseccode}-->
+	if (!$(obj).hasClass('seccodeShow')) {
+		$(obj).addClass('seccodeShow').after(new Array('<span class="seccode user-writeinfo" style="display:none;">',
+				'<label for="seccode">验证码： </label>',
+				'<input type="text" name="seccode" id="seccode" size="4" maxlength="4" style="ime-mode:disabled;width:65px;"/>',
+				'<img class="seccode_image" src="<?=APP_URL?>?app=system&controller=seccode&action=image&='+Math.random()*5+'" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="absmiddle" onclick="this.src=\'<?=APP_URL?>?app=system&controller=seccode&action=image&=\'+Math.random()*5;" onload="$(this).parent(\'span\').slideDown(\'fast\');" />',
+			'</span>').join('\r\n'));
+	}
+<!--{/if}-->	
+};
+$('#commentFormTop').toggle(function() {
+	seccodeInit($('#commentFormTop').parent().find('form').slideDown(500).find('textarea'));
+}, function() {
+	$('#commentFormTop').parent().find('form').slideUp(500);
+});
+</script>
+<div class="hr-h10"></div>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+<!--{template 'system/footer.html'}-->

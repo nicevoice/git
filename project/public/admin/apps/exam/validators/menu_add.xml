@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<name tips="请输入名称">
+	  	<required event="submit">名称不能为空</required>
+	  	<min args="2">标题不能少于2个字</min>
+	   	<max args="50">标题不能大于50个字</max>
+    </name>
+    <link tips="链接不能为空">
+	  	<required event="submit">别名不能为空</required>
+    </link>
+    <sort tips="一定要有排序">
+	  	<required event="submit">一定要有排序</required>
+    </sort>
+
+</root>

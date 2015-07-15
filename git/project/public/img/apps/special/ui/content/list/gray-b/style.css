@@ -1,0 +1,18 @@
+.content-list-gray-b ul {
+	padding:8px 10px 0;
+}
+.content-list-gray-b li {
+	line-height:22px;
+	padding-left:8px;
+	background:url("images/point.gif") no-repeat 0 10px;
+}
+.content-list-gray-b a {
+	font-size:14px;
+	color:#333;
+}
+.content-list-gray-b a:hover{ color:#da2c83;}
+.content-list-gray-b .date{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #999999;
+}

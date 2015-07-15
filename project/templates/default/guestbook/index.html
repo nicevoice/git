@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$SETTING['guestbookname']}_{$SYSTEM['sitename']}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/cmstop.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+</head>
+<body>
+<!--{template 'system/header.html'}-->
+<div class="hr-h10"></div>
+<!-- *******************  start banner   *********************** -->
+<div class="column ad-area-1">
+	<div class="col-l-main"><a href=""><img src="{IMG_URL}templates/{TEMPLATE}/images/ads/03.gif" alt="" height="80" width="650" /></a></div>
+	<div class="col-r-extra"><a href=""><img src="{IMG_URL}templates/{TEMPLATE}/images/ads/04.gif" height="80" width="300" /></a></div>
+</div>
+<!-- *******************  end banner   *********************** -->
+<div class="hr-h10"></div>
+<div class="column lmessage-bg">
+	<div class="bor-9fc">
+		<!-- start  留言列表 -->
+		<div class="leaveMessage-wrap">
+		<div class="leave-t-wrap"><h1>{$SETTING['guestbookname']}</h1><a href="#guestbook_form">发表留言</a></div>
+		<div class="padd-20">
+			<!--{if count($data)}-->
+			<!--{loop $data $k $v}-->
+				<div class="mode-imgtxtsummary leaveMessage-box">
+					<ul>
+						<li id="li_{$v['gid']}">
+							<div class="imgtxt">
+							<img src="{element::member_photo($v['userid'],72,72)}" alt="{$v['userid']}" title="{$_username}" height="72" width="72" />
+							<p>{$v['username']}</p></div>
+							<h3 class="summary-h3 fs-14 bold cor-06c">{$v['title']} <em>{$v['addtime']}</em></h3>
+							<p class="summary-no2em">{$v['content']}</p>
+							<!--{if !empty($v['reply'])}-->
+								<div class="admin-reply">
+									<p class="admin-title"><strong>【管理员{$v['replyer']}回复】</strong> <em>{$v['replytime']}</em></p>
+									<div><p>{$v['reply']}</p></div>
+								</div>
+							<!--{/if}-->
+						</li>
+					</ul>
+				</div>
+				<!--{if !$setting['repliedshow'] || ($setting['repliedshow'] && !empty($v['reply'])) }--><!--{/if}-->
+				<div class="hr-dotted hr-h10"></div>
+			<!--{/loop}-->
+			<!--{else}-->
+				暂无留言
+			<!--{/if}-->
+			<div class="hr-h6"></div>
+			<div class="page">
+				<ul style="width:400px;margin:0 auto;">
+					{$multipage}
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		</div>
+		<!-- end 留言列表 -->
+		<div class="padd-20">
+			<p class="mode-bg-dott"><span class="span-bg-blue fs-14 bold">请您留言</span></p>
+			<div class="eventJoin leavemessage-post-wrap">
+				<!--{if !$_userid && $SETTING['memberguest'] }-->
+				<p class="leave-other">您需要登录后才能留言 &nbsp;<a href="{url('member/index/login')}">登录</a>&nbsp;<a href="{url('member/index/register')}" class="c_blue u">注册</a></p>
+				
+				<!--{/if}-->
+				<div class="ejCont">
+				<form method="POST" id="guestbook_form" action="{url('guestbook/index/add')}" <!--{if !$_userid && $SETTING['memberguest'] }-->style="display:none;"<!--{/if}--> >
+					<ul>
+						<li><span class="ev-label"><em>*</em><label for="typeid">类型：</label></span><span class="ev-input"><?=element::guestbook_type_radio()?>  <em class="info cor-f00"></em></span></li>
+						<li><span class="ev-label"><em>*</em><label for="title">标题：</label></span><span class="ev-input"><input type="text" name="title" class="required" id="istitle" size="60" /> <em class="info cor-f00"></em></span></li>
+						<li><span class="ev-label"><em>*</em><label for="content">内容：</label></span><textarea cols="45" class="required" id="content" name="content" style="width: 400px; height: 80px; "></textarea> <span id="content_length"><b>{$SETTING['replymax']}字</b></span> <em class="info cor-f00"></em></li>
+						<li><span class="ev-label"><em>*</em><label for="name">姓名：</label></span><span class="ev-input"><input type="text" name="username" class="required" value="{$_username}" /> <em class="info cor-f00"></em></span></li>
+						<!--{if $SETTING['option']['gender']}-->
+						<li><span class="ev-label"><!--{if $SETTING['option']['isgender']}--> <em>*</em><!--{/if}--><label for="tel">性别：</label></span><span class="ev-input"><input type="radio" name="gender" value="1" checked="checked" />男
+								<input type="radio" name="gender" value="0" />女</span>  <em class="info cor-f00"></em></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['email']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['isemail']}--> <em>*</em><!--{/if}--><label for="email">E-mail：</label></span><span class="ev-input"><input name="email" type="text" <!--{if $SETTING['option']['isemail']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['telephone']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['istelephone']}--> <em>*</em><!--{/if}--><label for="telephone">电话：</label></span><span class="ev-input"><input name="telephone" type="text" <!--{if $SETTING['option']['istelephone']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['homepage']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['ishomepage']}--> <em>*</em><!--{/if}--><label for="homepage">个人主页：</label></span><span class="ev-input"><input name="homepage" type="text" <!--{if $SETTING['option']['ishomepage']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['address']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['isaddress']}--> <em>*</em><!--{/if}--><label for="address">地址：</label></span><span class="ev-input"><input name="address" type="text" <!--{if $SETTING['option']['isaddress']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['qq']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['isqq']}--> <em>*</em><!--{/if}--><label for="homepage">QQ：</label></span><span class="ev-input"><input name="qq" type="text" <!--{if $SETTING['option']['isqq']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['option']['msn']}-->
+							<li><span class="ev-label"><!--{if $SETTING['option']['ismsn']}--> <em>*</em><!--{/if}--><label for="homepage">MSN：</label></span><span class="ev-input"><input type="text" name="msn" <!--{if $SETTING['option']['ismsn']}--> class="required" <!--{/if}--> /> <em class="info cor-f00"></em></span></li>
+						<!--{/if}-->
+						<!--{if $SETTING['iscode']}-->
+						<li><span class="ev-label"><em>*</em><label for="pertinent">验证码：</label></span><span><input name="seccode" id="seccode"  class="required" type="text" value="" size="5" maxlength="4"/></span> <img src="?app=system&controller=seccode&action=image" id="seccodeimg" onclick="this.src='?app=system&controller=seccode&action=image&id='+Math.random()*5;" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="absmiddle"/> <em class="info cor-f00"></em></li>
+						<!--{/if}-->
+						<li><span class="ev-label">&nbsp;</span><input type="submit" id="submit" class="post-btn" name="" value="提 交"></li>
+					</ul>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hr-h10"></div>
+<script type="text/javascript">
+//JS
+var maxText = {$SETTING['replymax']};
+var needReply = {$SETTING['repliedshow']};
+var needLogin = {$SETTING['memberguest']};
+var userid = {intval($_userid)};
+var $regexs = {
+	email : /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+	telephone : /^((\(\d{2,3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}(\-\d{1,4})?$/,
+	mobile : /^((\(\d{2,3}\))|(\d{3}\-))?((13\d{9})|(15[389]\d{8}))$/,
+	homepage : /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"])*$/,
+	qq : /^[1-9]\d{4,8}$/,
+	msn : /^[1-9]\d{4,8}$/
+};
+
+function validateGuesetBook(jQ) {
+	var inputs = jQ.find('input,textarea');
+	var name;
+	var counter = inputs.length+1;
+	inputs.each(function(){
+		name = this.name;
+		var d = $(this);
+		var value = d.val()
+		if(d.hasClass('required') && value == '') {
+			d.siblings('.info').html('必须填写');
+			counter--;
+		} else if(value != '' && $regexs[name] != undefined) {
+			if(!$regexs[name].test(value)) {
+				d.siblings('.info').html(name+'格式不正确');
+				counter--;
+			}
+		} else if(name == 'seccode') {
+			//验证码
+			$.getJSON(
+				'?app=guestbook&controller=index&action=seccode&seccode='+value,
+				function(json){
+					if(json.state) {
+						
+					} else {
+						d.siblings('.info').html('验证码不正确');
+						counter--;
+					}
+				}
+			); 
+		}
+		if(name == 'content') {
+			if(parseInt($('#content_length > b').html()) > maxText) {
+				$('#content_length').siblings('.info').html('留言过长');
+				counter--;
+			}
+		}
+	});
+	
+	if(counter < inputs.length+1) return false;
+	else return true;
+}
+$(function() {
+	$('#submit').click(function(){
+		if(needLogin==1 && userid == 0) {
+			alert('请登录后留言');
+			return false;
+		}
+		if(!validateGuesetBook($('#guestbook_form'))) {
+			return false;
+		} else {
+			return true;
+		}
+	});
+	$('input,textarea').focus(function(){
+		$(this).siblings('.info').html('');
+	});
+});
+</script>
+<!--{template 'system/footer.html'}-->
+</body>
+</html>

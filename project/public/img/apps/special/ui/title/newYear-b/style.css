@@ -1,0 +1,15 @@
+/*
+ @name 灰色轨迹
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-newYear-b {
+	overflow: hidden;
+	background:url("images/newyear-b.png") repeat-x;
+	height:28px;
+	line-height:28px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:12px;
+}
+.title-newYear-b a,
+.title-newYear-b span{color:#FFF;}

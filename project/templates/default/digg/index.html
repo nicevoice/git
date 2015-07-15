@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>Digg排行榜_{$SYSTEM[sitename]}</title>
+<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+<meta name="description" content="{$SYSTEM[seodescription]}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/index.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+</head>
+
+<body>
+<!--{template 'system/header_channel_php.html'}-->
+<div class="hr-h10"></div>			
+<div class="menu-cir nosubmenu">
+	<div class="menu-cir-main">
+		<div class="mode-menu">
+				<ul id="common-menu">
+				<li><a href="{WWW_URL}" target="_self">首页</a></li>
+				<li><a href="http://news.cmstop.loc/" target="_self">新闻</a></li>
+				<li><a href="http://photo.cmstop.loc/" target="_self">图片</a></li>
+				<li><a href="http://video.cmstop.loc/" target="_self">视频</a></li>
+				<li><a href="http://talk.cmstop.loc/" target="_self">访谈</a></li>
+				<li><a href="http://special.cmstop.loc/" target="_self">专题</a></li>
+				<li><a href="http://space.cmstop.loc/" target="_self">专栏</a></li>
+				<li><a href="{WWW_URL}paper/" target="_self">报纸</a></li>
+				<li><a href="{WWW_URL}magazine/" target="_self">杂志</a></li>
+				<li><a href="{APP_URL}roll.php" target="_self">滚动</a></li>
+				<li><a href="{APP_URL}rank.php" target="_self">排行</a></li>
+				<li><a href="{APP_URL}tags.php" target="_self">标签</a></li>
+				<li id="nav-cur"><a href="{APP_URL}digg.php" target="_self">Digg</a></li>
+				<li><a href="{APP_URL}mood.php" target="_self">心情</a></li>
+				</ul>
+		</div>
+		
+	</div>
+	<div class="menu-cir-l"></div>
+	<div class="menu-cir-r"></div>
+</div>
+	
+</div>
+<!-- *******************  end box   *********************** -->
+<div class="hr-h6"></div>
+<div class="column">
+	<!-- *******************  start box   *********************** -->
+	<div class="col-l-main w-160">
+    	<div class="channels-title ">
+        	Digg排行榜
+        </div>
+        <div class="channels-list bor-9fc">
+            <ul class="fs-14 ">
+                 <li class="on"><a href="{APP_URL}digg.php">全部</a></li>   
+          	     <!--{loop channel() $key $m}--> 
+				 <li><a href="{APP_URL}digg.php?catid={$m[catid]}">{$m[name]}</a></li>
+		   		 <!--{/loop}-->
+            </ul>
+        </div>
+    </div>
+    <!-- *******************  end box   *********************** -->
+<div class="col-r-extra w-790">
+      <!-- ******************* start 详细显示    *********************** -->
+	  <div class="bor-9fc" >
+        <div class="mode-tabs">
+          <h2 class="cor-c00">全部</h2>
+                <ul class="fs-12 mar-l-20 f-l" id="tab-title-digg">
+                    <li><a href="javascript:;" class="tabs-focus">今日</a></li>
+                    <li><a href="javascript:;">本周</a></li>
+                    <li><a href="javascript:;">本月</a></li>
+                    <li><a href="javascript:;" style="border-right: 1px solid #9FCCE9;">全部</a></li>
+                </ul>
+         </div>
+         <div class="cont-list fs-14 cor-06c padd-20 background-none" id="tab-cont-digg">
+         	<div>
+         		<ul>
+				<!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+				  <li><span class="date">{date('Y-m-d', $r[published])}</span><span class="traffic">{$r[supports]}</span><span class="cont-list02"><a href="{$r[url]}">{$r[title]}</a></span></li>              
+	              <!--{if $i%5==0 && $i<20}-->
+		            <li class="hr-dotted hr-h12 mar-tb-6 clear"></li>
+				  <!--{/if}-->
+				<!--{/db}-->
+			    </ul>
+            <div class="hr-dotted hr-h12 mar-tb-6 clear"></div>
+         	</div>
+			<div style="display: none;">
+         		<ul>
+				<!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-7*24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+				   <li><span class="date">{date('Y-m-d', $r[published])}</span><span class="traffic">{$r[supports]}</span><span class="cont-list02"><a href="{$r[url]}">{$r[title]}</a></span></li>              
+	               <!--{if $i%5==0 && $i<20}-->
+	               <li class="hr-dotted hr-h12 mar-tb-6 clear"></li>
+				   <!--{/if}-->
+				<!--{/db}-->
+			</ul>
+            <div class="hr-dotted hr-h12 mar-tb-6 clear"></div>
+         	</div>
+			<div style="display: none;">
+         		<ul>
+				 <!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-30*24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+				 <li><span class="date">{date('Y-m-d', $r[published])}</span><span class="traffic">{$r[supports]}</span><span class="cont-list02"><a href="{$r[url]}">{$r[title]}</a></span></li>              
+	             <!--{if $i%5==0 && $i<20}-->
+	             <li class="hr-dotted hr-h12 mar-tb-6 clear"></li>
+				 <!--{/if}-->
+				 <!--{/db}-->
+			</ul>
+            <div class="hr-dotted hr-h12 mar-tb-6 clear"></div>
+         	</div>
+			<div style="display: none;">
+         		<ul>
+				<!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+				 <li><span class="date">{date('Y-m-d',$r[published])}</span><span class="traffic">{$r[supports]}</span><span class="cont-list02"><a href="{$r[url]}">{$r[title]}</a></span></li>              
+	             <!--{if $i%5==0 && $i<20}-->
+	             <li class="hr-dotted hr-h12 mar-tb-6 clear"></li>
+				 <!--{/if}-->
+				<!--{/db}-->
+			</ul>
+            <div class="hr-dotted hr-h12 mar-tb-6 clear"></div>
+         	</div>
+	</div>
+            
+	<div>
+	</div>
+</div>
+<!-- ******************* end 详细显示    *********************** -->
+	</div>
+</div>
+<!--{template 'system/footer.html'}-->
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+<script type="text/javascript">
+	cmstopTabs({tabStyle:'tabs-focus',title: '#tab-title-digg',cont: "#tab-cont-digg"});
+</script>
+</body>
+</html>

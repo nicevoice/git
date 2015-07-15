@@ -1,0 +1,17 @@
+p{text-indent:2em}
+.p_img{ text-align:center; text-indent:0; margin:10px auto;}
+#moreread,#vote{border:1px dotted #ccc;padding-left:5px;}
+input[type='hidden'], .hidden{
+	width:0;height:0;padding:0;border:none;margin:0;font-size:0;
+}
+
+.mceContentBody p{line-height: 24px; font-size: 14px;color:#333;}
+.mceContentBody, 
+.mceContentBody p {white-space:normal; word-break:break-all; word-wrap:break-word;}
+#vote dt{font-weight:bold; line-height: 26px;}
+#vote dd{margin-left: 4px; line-height: 28px;}
+
+
+#moreread h3{margin-bottom: 6px;}
+#moreread ul{margin-top: 0px;}
+#moreread li{ text-indent:0;}

@@ -1,0 +1,38 @@
+<div style="width:480px;line-height:24px;">
+	<img src="{IMG_URL}images/logo.jpg"/><br/>
+	<!--{if $action == 'submit'}-->
+		感谢您的投稿。
+		<p style="border:1px solid #ccc;padding:20px;">
+		稿件标题：{$data['title']}<br/>
+		当前状态：审核中
+		<!--{if $data[createdby]}--> 
+			<a href="{APP_URL}?app=member">查看</a>
+		<!--{/if}-->
+		</p>
+	<!--{elseif $action == 'publish'}-->
+		您的稿件已发表。
+		<p style="border:1px solid #ccc;padding:20px;">
+		稿件标题：{$data['title']}<br/>
+		当前状态：已发表<br/>
+		<!--{if $data[createdby]}--> 
+			<a href="{APP_URL}?app=member">查看</a>
+		<!--{/if}-->
+		</p>
+	<!--{elseif $action == 'reject'}-->
+		您的稿件已被退回。
+		<p style="border:1px solid #ccc;padding:20px;">
+		稿件标题：{$data['title']}<br/>
+		当前状态：已退稿<br/>
+		退稿原因：<br/>
+		<!--{if $data[createdby]}--> 
+			<a href="{APP_URL}?app=member">查看</a>
+		<!--{/if}-->
+		</p>
+	<!--{/if}-->
+	<!--{if $data[createdby]}--> 
+		您可以登录会员中心查看更多的信息<br/>
+		<a href="{APP_URL}?app=member">{APP_URL}?app=member</a>
+	<!--{else}-->
+		您可以注册为本站会员，享受更多会员服务。点击此处注册会员。
+	<!--{/if}-->
+</div>

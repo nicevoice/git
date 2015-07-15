@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta name="keywords" content="{$tags}" />
+<meta name="description" content="{$description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<title>{$title}_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};
+</script>
+</head>
+
+<body>
+<!-- ******************* start header   *********************** -->
+<!--{template 'system/header.html'}-->
+<!-- *******************  end header   *********************** -->
+
+<div class="hr-h10"></div>
+<!-- *******************  start banner   *********************** -->
+<div class="column ad-area-1">
+	<div class="col-l-main"><!--#include virtual="/section/24.html"--><!--内容页顶部banner1--></div>
+	<div class="col-r-extra"><!--#include virtual="/section/25.html"--><!--内容页顶部banner2--></div>
+</div>
+<!-- *******************  end banner   *********************** -->
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="mode-position">
+		<span>
+			<a href="{WWW_URL}">首页</a>
+			{loop $pos $cat}
+			<a href="{$cat[url]}">{$cat[name]}</a>
+			{/loop}
+		</span>
+		组图
+	</div>
+</div>
+<div class="hr-h6"></div>
+<div class="column gallery-wrap">
+	<div class="gallery-head">
+		<div class="gall-pageNumber"><strong >{$page}</strong> / {$total}</div>
+		<div class="gall-title">
+			<h1 style="width:630px;">{$title}</h1><br /> <span>{$published}</span>
+                <!--{if $source_name}-->
+                <span>来源：<!--{if $source_url}--><a href="{$source_url}" target="_blank">{$source_name}</a><!--{else}-->{$source_name}<!--{/if}--></span>
+                <!--{/if}-->
+
+            <!--{if str_cut($description,180) != $description}-->
+            <p class="pic-title-summary">{str_cut($description, 200)}<a href="javascript:;" onclick="description(this);" rel="f">[详细]</a></p>
+            <p class="pic-title-summary" style="display:none;">{$description}<a href="javascript:;" onclick="description(this);" rel="s">[收起]</a></p>
+            <!--{else}-->
+            <p class="pic-title-summary">{$description}</p>
+            <!--{/if}-->
+			<p class="pic-tit-info">
+                <span>分享到：<a href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('{$title}'+'{$description}')+'&url='+encodeURIComponent(location.href)+'&appkey='+SINA_APPKEY,'_blank','width=450,height=400');})()"><img src="{IMG_URL}templates/{TEMPLATE}/images/sina.gif" title="新浪微博"/></a>
+                <a href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent('{$title}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&source='+QQ_SOURCEID+'&pic=','转播到腾讯微博', 'width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no'); })()"><img src="{IMG_URL}templates/{TEMPLATE}/images/qq.png" title="腾讯微博"/></a>
+                
+						<a href="javascript:u=location.href;t='{$title}';c = %22%22 + (window.getSelection ? window.getSelection() : document.getSelection ? document.getSelection() : document.selection.createRange().text);var url=%22http://cang.baidu.com/do/add?it=%22+encodeURIComponent(t)+%22&iu=%22+encodeURIComponent(u)+%22&dc=%22+encodeURIComponent('{$description}')+%22&fr=ien#nw=1%22;window.open(url,%22_blank%22,%22scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes%22); void 0"><img src="{IMG_URL}templates/{TEMPLATE}/images/baidu.gif" title="百度搜藏"/></a>
+						<a href="javascript:u='http://share.xiaonei.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'xiaonei','toolbar=0,resizable=1,scrollbars=yes,status=1,width=626,height=436');void(0)" title="人人网"/></a>
+						<a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent('{$title}'.substring(0,76))+'&uri='+encodeURIComponent(location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/qzone.gif" title="Qzone" /></a>
+						<a href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(kaixin=window.open('http://www.kaixin001.com/~repaste/repaste.php?&rurl='+escape(d.location.href)+'&rtitle='+escape('{$title}')+'&rcontent='+escape('{$description}'),'kaixin'));kaixin.focus();"><img src="{IMG_URL}templates/{TEMPLATE}/images/kaixin.gif" title="开心网"/></a>
+						<a href="javascript:var%20u='http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/douban.gif" title="豆瓣网"/></a>
+					</span>
+            </p>
+		</div>
+		<div class="view-other"><a href="{$all[url]}" class="view-all-pic">全部图片</a><a href="{APP_URL}{url('comment/comment/index', 'topicid=' . $topicid)}">评论 <span class="comments">{$comments}</span></a></div>
+	</div>
+	<div class="hr-h10"></div>
+	<div class="gallery-inner-wrap">
+		<div id="bigImg-wrap" class="bigImg-wrap"><img id="photo" src="{thumb($pages[$page][image], 940, null)}" alt="{$pages[$page][note]}" /></div>
+		<div class="hr-h10"></div>
+		<p class="view-primal"><a href="{$pages[$page][image]}" target="_blank">查看原图</a></p>
+		<p class="curr-summary">{$pages[$page][note]}</p>
+	</div>
+	
+	<div class="gallery-slide"> 
+  		<div class="focimg_movieWindow" id="thumbs-wrap">
+     		 <ul class="foc_pos" value="movieWrap">
+					 <!--{loop $pages $k $pic}-->
+  					<li {if $page==$k}class="nowstyle"{/if}><a href="{$pic[url]}"><img src="{thumb($pic[image], 136, 92)}" border="0" alt="{$pic[note]}" /></a></li>
+						 <!--{/loop}-->
+			</ul>
+    	</div>
+       <div class="gall-slide-console"><a href="javascript:;" class="gall-slide-next" title="下一张" id="button-r" onfocus="$(this).blur()">下一张</a><a href="javascript:;" onfocus="$(this).blur()" class="gall-slide-prev" title="上一张" id="button-l">上一张</a><a href="{$all[url]}" class="gall-slide-all">图片全部列出</a></div>
+	 	</div>
+</div>
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="bor-9fc">
+		<div class="mode-head">
+		<h2 class="cor-c00">幻灯片精选</h2>
+	    </div>
+	    <div class="mode-imgtxt gall-imgs">
+      <!--#include virtual="/section/36.html"--><!--组图页精选-->
+		</div>
+	</div>
+	
+</div>
+<div class="hr-h10"></div>
+<div class="column">
+	<!--{if $allowcomment}-->
+		<!--{template 'picture/comment.html'}-->
+	<!--{/if}-->
+</div>
+
+<div class="hr-h10"></div>
+<style type="text/css">
+#photo_area{position:absolute;z-index:99;}
+#photo_left_area{width:50%;height:100%;position:absolute;left:0;top:0;z-index:9;background:#fff;opacity:0;filter:Alpha(Opacity=0);}
+#photo_right_area{width:50%;height:100%;position:absolute;right:0;top:0;z-index:9;background:#fff;opacity:0;filter:Alpha(Opacity=0);}
+.photo_left{cursor:url({IMG_URL}images/mouse_left.cur),auto;}
+.photo_right{cursor:url({IMG_URL}images/mouse_right.cur),auto;}
+
+</style>
+<div id="photo_area">
+  <div id="photo_left_area" class="photo_left" title="上一张"></div>
+  <div id="photo_right_area" class="photo_right" title="下一张"></div>
+</div>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.jcarousellite.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+	var desc_state = $.cookie(COOKIE_PRE + 'p_' + contentid + '_desc');
+	if (desc_state) {
+		description($('a[rel=' + desc_state + ']', '.pic-title-summary'));
+	}
+
+	var photo = $('#bigImg-wrap');
+	var offset = photo.offset();
+	$('#photo_area').attr('style', "left:" + offset.left + "px; top:" + offset.top + "px; width:" + photo.width() + "px; height:" + photo.height() + "px");
+	{$page}!=1 && window.scrollTo(0,window.innerHeight>photo.height()?offset.top-(window.innerHeight-photo.height())/2:offset.top);
+
+});
+
+$(function() {
+	function prev(){
+		{if $prevpage}
+		   window.location.href = "{$pages[$prevpage][url]}";
+		{else}
+		   $(this).attr('title', '已经是第一张了');
+		{/if}
+	}
+	function next(){
+		{if $nextpage}
+	        window.location.href = "{$pages[$nextpage][url]}";
+		{else}
+		    $(this).attr('title', '已经是最后一张了');
+		 {/if}
+	}
+	$('#photo_left_area').click(prev);
+	$('#photo_right_area').click(next);
+	$(document).keydown(function(e){
+		e.keyCode == 39 && next();
+		e.keyCode == 37 && prev();
+	});
+	/**
+	 * Update: 2012-4-11
+	 * Author: shaoshengqiang
+	 */
+	var thumbWidget = $("#thumbs-wrap");
+	if(thumbWidget.find('li').size() >= 5 ) {
+		$("#thumbs-wrap").jCarouselLite({
+		    btnNext: "#button-r",
+		    btnPrev: "#button-l",
+		    circular:true,
+	    	speed: 1000,
+		    scroll: 2,
+		    visible: 5,
+			start: {$page}-1
+		}).attr('height','94px');
+	};
+});
+
+$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){
+});
+function description(obj) {
+    var obj = $(obj);
+    if (obj.size()) {
+        var type = obj.attr('rel');
+        if (type == 'f') {
+            obj.parent().hide().next('p').show().css({
+                height: 'auto',
+                overflow: 'auto'
+            });
+        } else {
+            obj.parent().hide().prev('p').show();
+        }
+        $.cookie(COOKIE_PRE + 'p_' + contentid + '_desc', type);
+    }
+}
+</script>
+<!--{template 'system/footer.html'}-->

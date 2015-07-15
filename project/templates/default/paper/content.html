@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>{$paper[name]}_{$edition[total_number]}期_在线报纸_{$SYSTEM[sitename]}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="expires" content="0" />
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="description" content="{$meta_description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/index.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+    <link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+		<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/paper/js/paper.js"></script>
+<script type="text/javascript">
+	var pid = "{$paperid}";
+	var mapid = "{$mapid}";
+	var eid = "{$editionid}";
+	var contentid = "{$contentid}";
+	var total_number = "{$edition[total_number]}";
+</script>
+<style type="text/css">
+.map{position:absolute;display:block;background:#FFF;opacity:0;filter:alpha(opacity=0);}
+.current{border:3px solid #ff847b;background:#FFFF88;opacity:0.5;filter:alpha(opacity=50);}
+.hilight{border:3px solid #ff847b;background:#DDD;opacity:0.5;filter:alpha(opacity=50);}
+#eBack {
+	list-style: none;
+	text-align: left;
+	background: #eff;
+	border: 1px solid #ccc;
+	width: 150px;
+	position: absolute;
+	display: none;
+	top:20px;
+	left:100px;
+}
+.e-red{color:red;};
+</style>
+	</head>
+	
+	<body>
+		<!--{template 'system/header.html'}-->
+		<div class="hr-h10"></div>
+		
+		<!-- *******************  start box   *********************** -->
+		<div class="column ad-area-1">
+			<div class="col-l-main"><!--#include virtual="/section/24.html"--></div>
+			<div class="col-r-extra"><!--#include virtual="/section/25.html"--></div>
+		</div>
+		<!-- *******************  end box   *********************** -->
+		<div class="hr-h10"></div>
+
+		<div class="column">
+        	<!-- *******************  start 标题  *********************** -->
+        	<div class="paper-title">
+            	<h1>{$paper[name]}</h1>
+                <ul class="line-h18">
+                	<li>{$date}</li>
+                    <li>总共<strong class="cor-c00"> {$edition[total_number]} </strong>期， 第<strong class="cor-c00"> {$edition[number]} </strong>期</li>
+                </ul>
+                <div class="f-r w-260" style="margin-top:5px;position:relative">
+                	<!--#include virtual="/section/paper/paper_select.html"-->
+                	<script type="text/javascript">
+					$(function(){$('#paper-select').find('option[value="{$paper[paperid]}"]').attr('selected',true)});
+					</script>
+                	<div class="f-l next-page"><a href="javascript:;" class="prevE">上一期</a><a class="nextE" href="javascript:;">下一期</a><a class="eList" href="javascript:;">往期回顾</a>
+					<!--#include virtual="/section/paper/{$paper[alias]}_select.html"-->
+					</div>
+                </div>
+            </div>
+            <!-- *******************  send 标题   *********************** -->
+            <div class="paper-middle column" >
+              <!-- *******************  左侧详细   *********************** -->
+           	  <div class="paper-l f-l">
+                  <div>
+                        <div class="tab-01">
+                          <div class="tab-title cor-c00">版面列表</div>
+                        </div>
+                        <div id="page-printed" class="page-printed" style="height:200px;">
+                        	<ul>
+							{db sql="SELECT p.*, c.contentid FROM #table_paper_edition_page p LEFT JOIN #table_paper_content c ON p.pageid = c.pageid WHERE p.editionid = $editionid GROUP BY p.pageno"}
+                            	<li{if $r[pageid] == $pageid} class="c-red"{/if}>{if $r[pdf]}
+								<a href="{UPLOAD_URL}{$r[pdf]}"><img src="{IMG_URL}images/pdf.gif" title="下载pdf版" width="16" height="16" /></a>
+							{/if}
+								<span class="cor-666 paper-list01">第{(++$k)}版
+									{if $mod == 'html'}
+									<a href="{$r[url]}">
+									{else}
+									{preg_match('#([\d]+)\.shtml#', $r[url], $temp)}
+										{if $temp[1]}
+										<a href="{ADMIN_URL}?app=paper&controller=content&action=prevView&cid={$temp[1]}&pageid={$r[pageid]}">
+										{else}
+										<a href="javascript:;">
+										{/if}
+									{/if}
+									{$r[name]}
+									</a>
+								</span></li>                  
+                            {/db}
+                           </ul>
+                        </div>
+                    </div>
+                    <div class="hr-h10"></div>
+                    <div id="paper-screenshot" class="paper-screenshot" style="position:relative"><img src="{UPLOAD_URL}{$page[image]}" title="{$paper[name]}-{$edition[number]}期-{$page[pageno]}版" width="396" height="576"/>
+					{db sql="SELECT c.*, a.title FROM #table_paper_content c LEFT JOIN #table_content a ON c.contentid = a.contentid WHERE c.pageid = $pageid"}
+			<a href="{$SETTING['www_root']}/{$paper[alias]}/{$editionid}/{$pageid}/{$r[contentid]}<?=SHTML?>" rel="{$r[contentid]}" title="{$r[title]}"
+		 		class="map{if $r[contentid] == $contentid} current{/if}" style="{coords($r[coords])}"></a>
+					{/db}
+					
+					</div>
+                    <div class="hr-h10"></div>
+                    <div>
+                    	<div class="tab-01">
+                          <div class="tab-title"><strong>第 {$pageno} 版</strong></div>
+                          <span class="f-r paper-next"><a class="prev" href="javascript:;" onclick="prevNextPage(this);">上一版</a><a class="next" href="javascript:;" onclick="prevNextPage(this);">下一版</a></span>
+                        </div>
+                        <ul id="conList" class="mode-txtlink cor-06c padd-10">
+									{db sql="SELECT pc.contentid, c.title FROM #table_paper_content pc LEFT JOIN #table_content c ON pc.contentid = c.contentid WHERE pc.pageid = $pageid"}
+				<li rel="{$r[contentid]}"><a href="{$SETTING['www_root']}/{$paper[alias]}/{$editionid}/{$pageid}/{$r[contentid]}<?=SHTML?>">{$r[title]}</a></li>
+									{/db}
+						</ul>
+                    </div>
+              </div>
+              <!-- *******************  end 左侧详细   *********************** -->
+              
+              <!-- *******************  start右侧详细  *********************** -->
+                <div class="f-r paper-r">
+                	<div class="content-wrap" style="background:none">
+					<h1>{$title}</h1>
+					<!--{if $subtitle}--><h3>$subtitle</h3><!--{/if}-->
+					<div class="arti-atttibute">
+						
+						<span>记者：{$editor}</span>
+						<span><a href="{APP_URL}?app=comment&controller=comment&action=index&topicid={$topicid}">我要评论</a>( <em id="comments" class="cor-c00">..</em> )</span>
+					</div>
+					<div id="f-middling" class="cont-detail">
+						{$content}
+					</div>
+                    	{if $allowcomment}
+						<!--comment start-->
+						{template 'paper/comment.html'}
+						<!--comment end-->
+						{/if}
+					<div class="clear"></div>
+				</div>
+                </div>
+                <!-- *******************  end右侧详细  *********************** -->
+                <div class="clear"></div>
+            </div>
+            <div class="column paper-bottom"></div>
+        </div>
+	<div class="hr-h10"></div>
+      
+<!--{template 'system/footer.html'}-->

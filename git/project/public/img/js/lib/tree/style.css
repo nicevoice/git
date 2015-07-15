@@ -1,0 +1,132 @@
+.tree {
+    font-size:12px;
+}
+.tree ul { list-style:none; margin-top:0; margin-left:1px; padding-left:16px; display:none;}
+.tree>ul{padding-left:5px}
+.tree li { list-style:none;margin:0; padding:1px 0; white-space:nowrap;}
+.tree .itemarea {
+	cursor:pointer;
+	display:inline-block;
+	*display:inline-table;
+	/* for ie 7*/
+	+display:inline;
+	+zoom:1;
+	padding:2px 8px 2px 0px;
+	border:1px solid #fff;
+	background-color:#fff;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	height:16px;
+    line-height:16px;
+}
+.tree .itemarea:hover {
+	border-color:#A4D5FF;
+	background-color:#E5F3FF;
+}
+.tree .active {
+	border-color:#83AADA;
+	background-color:#DDECFE;
+}
+.tree .active:hover {
+	border-color:#83AADA;
+	background-color:#E7F7FE;
+}
+.tree .hitarea,
+.tree .bitarea {
+	display:inline-block;
+	height:16px;
+	width:15px;
+	background:url(tree.png) no-repeat;
+	vertical-align:middle;
+}
+.tree .bitarea {
+	background-position:-30px 0;
+}
+.tree .itemarea:hover .bitarea,
+.tree .itemarea.active .bitarea {
+	background-position:-30px -15px;
+}
+.tree .expandable .hitarea {
+	cursor:pointer;
+	background-position:0 0;
+}
+.tree .expandable .hitarea:hover {
+	background-position:0 -15px;
+}
+.tree .expanded .hitarea {
+	background-position:-15px 0;
+}
+.tree .expanded .hitarea:hover {
+	background-position:-15px -15px;
+}
+.tree .txtarea {
+    display:inline-block;
+    _zoom:1;
+	vertical-align:middle;
+}
+.tree div.expandable .txtarea {
+
+}
+.tree div.expanded .txtarea {
+	
+}
+.tree div.active .txtarea {
+	
+}
+
+a.selectree {
+	border-width:1px;
+	border-style:solid;
+	border-color:#888 #ddd #ddd #888;
+	display:inline-block;
+	line-height:16px;
+	padding:2px 16px 2px 5px;
+	background:#fff url(tree.png) no-repeat right -30px;
+	cursor:pointer;
+	min-width:35px;
+	outline:none;
+	vertical-align:middle;
+}
+a.selectree:hover,
+a.selectree:focus {
+	border-color:#555 #bbb #bbb #555; background-position: right -52px;
+}
+.selectree span,
+.placetree span {
+	display:block;
+	line-height:16px;
+	font-size:12px;
+	white-space:nowrap;
+}
+.selectree em,
+.placetree em, {
+	font-weight:bold;
+}
+.tree.selectree {
+	background-color:#fff;
+	border:#94C5E5 1px solid;
+	display:none;
+	z-index:999998;
+	position:absolute;
+	margin:0;
+	padding:2px;
+    overflow:auto;
+    max-height:300px;
+}
+.tree.placetree {
+    background-color:#fff;
+    margin:0;
+}
+.tree.selectree .txtarea input,
+.tree.placetree .txtarea input {
+    float:left;
+	margin:1px 0 2px;
+    margin-top:-2px\9;
+	vertical-align:middle;
+}
+.tree.selectree .txtarea span,
+.tree.placetree .txtarea span {
+    float:left;
+    margin-left: 2px;
+}

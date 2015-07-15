@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>财务管理_会员中心_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--<link href="{IMG_URL}apps/pay/pay.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />-->
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.validator.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+$.validate.setConfigs({
+	xmlPath:'apps/pay/validators/'
+});
+$(function(){
+	$('li[rel="pay"]').addClass('now');
+
+	var platid = $.cookie("pid");
+	if(platid) {
+		$("#platname_"+platid).attr("checked", true);
+	}
+
+	$('#pay_deposit').validate({
+		infoHandler:function(jq,message,type){
+			if(type == 'error') {
+				jq.siblings('.tipinfo').hide();
+				jq.siblings('.warn').html(message).show();
+			}
+		}
+	});
+
+	$("#pay_deposit input:radio").click(function() {
+		var _this = $(this);
+		_this.siblings('.warn').hide();
+		_this.siblings('.tipinfo').show();
+		$.cookie("pid", _this.val());
+	});
+});
+
+</script>
+</head>
+<body class="person-theme">
+<div class="person-wrap">
+  <!--{template 'member/panel/header.html'}-->
+  <div class="clear"></div>
+  <div class="person-cont">
+    <!--{template 'pay/left.html'}-->
+    <div class="p-rightbar">
+      <div class="hr-h10"></div>
+      <form method="post" name="pay_deposit" id="pay_deposit" action="?app=pay&controller=account&action=pay">
+        <ul class="formFormat">
+			<li>
+				<span class="info f-l txt-r">收款方：</span>
+				<span>{$SYSTEM[sitename]}</span><hr />
+			</li>
+			<li>
+				<span class="info f-l txt-r">您账户余额：</span>
+				<span>{$balance} 元</span>
+			</li>
+			<li><span class="info f-l txt-r">可选支付方式</span></li>
+			{loop $platform $val}
+			<li>
+				<span class="info f-l txt-r">{$val['name']}：</span>
+				<input type="radio" name="apiid" id="platname_{$val['apiid']}" value="{$val['apiid']}" />
+				<label for="platname_{$val['apiid']}"><img src="{$val['logo']}" title="{$val['name']}" /></label>
+			</li>
+			{/loop}
+			<li>
+				<span class="info f-l txt-r">充值金额：</span>
+				<input type="text" name="amount" id="amount" value="{$amount}" class="input-text f-l input-w100" />&nbsp;元
+				<span class="warn" style="display:none;"></span>
+			</li>
+          <li><input type="submit" id="button" class="zl-btn zl-ok f-l" value="确定" /></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

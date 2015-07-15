@@ -1,0 +1,122 @@
+div,form,ul,ol,li,span,input,h1,h2,h3,p,b,strong{margin:0;padding:0;margin:0;}
+ul,ol,li{
+            list-style:none;
+}
+.inputnew{
+            padding:2px;
+            border:1px solid #ACD6F6;
+            height:23px;
+            line-height:23px;
+            border-radius: 5px;
+}
+.textarea{
+            padding:2px;
+            border:1px solid #ACD6F6;
+            line-height:23px;
+            border-radius: 5px;
+}
+body{
+            text-align:center;
+            font-size:14px;
+}
+#header{
+            width:960px;
+            margin:0 auto;
+            text-align:left;
+            margin-top:20px;
+            margin-bottom:10px;
+}
+#header h1{font-size:30px;}
+#header p{color:#666;}
+ 
+#main{
+            width:960px;
+            margin:0 auto;
+            text-align:left;
+            overflow:auto;
+            zoom:1;
+}
+#m_left{
+            width:660px;
+}
+#m_right{
+            float:right;
+            width:280px;
+            background:#FFF7D2;
+            border:1px solid #FFCC01;
+}
+#m_right h2{
+            font-size:16px;
+            padding:10px;
+}
+#m_right p{
+            line-height:150%;
+            padding:10px 20px;
+}
+#add{
+            padding:20px;
+            background:#EEF7FF;
+            color:#666;
+            border:1px solid #D0E7FA;
+}
+#add label{
+            color:#666;
+            font-size:14px;
+            font-weight:bold;
+            line-height:30px;
+}
+#add span{
+            display:block;
+            padding-top:5px;
+}
+#footer{
+            width:960px;
+            margin:0 auto;
+            text-align:center;
+            margin-top:20px;
+}
+.button{
+            border:1px solid #389407;
+            background:#47AD0D;
+            color:#fff;
+            height:25px;
+            line-height:20px;
+            padding:2px 5px;
+            cursor:pointer;
+}
+#list{
+            padding:10px 0;
+}
+#list li{
+            padding:5px;
+            border-bottom: 1px solid #ACD6F6;
+}
+#list strong{
+            font-size:14px;
+            font-weight:bold;
+            color:#0066CC;
+}
+#list em{
+            font-size:12px;
+            color:#FF9933;
+}
+#list span{
+            float:right;
+}
+#list p{
+            padding:10px;
+}
+#list .reply{
+            background:#EEF7FF;
+}
+.more {
+            display:none;
+}
+.loading{
+            border:1px solid #ACD6F6;
+            background:#EEF7FF;
+            text-align:center;
+            height:50px;
+            line-height:50px;
+            display:block;
+}
