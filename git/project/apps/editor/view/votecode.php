@@ -1,1 +1,0 @@
-<div id="vote"><?=$code?></div>

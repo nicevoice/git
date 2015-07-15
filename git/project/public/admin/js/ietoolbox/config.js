@@ -1,1 +1,0 @@
-var ADMIN_URL	= location.protocol + '//' + location.host;

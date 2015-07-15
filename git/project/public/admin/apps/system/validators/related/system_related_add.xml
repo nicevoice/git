@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<title>
-		<required event="submit">标题不得为空</required>
-	</title>
-	<url>
-		<required event="submit">链接不得为空</required>
-	</url>
-</root>

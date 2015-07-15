@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<name tips="输入关键词" pass="">
-		<required event="submit">必填</required>
-	</name>
-    <url tips="输入链接" pass="">
-		<not args="0," event="submit">不允许0值 空值</not>
-	</url>
-</root>

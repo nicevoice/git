@@ -1,5 +1,0 @@
-.treeTable q {quotes:"" "";	visibility:hidden;}
-.treeTable .hitarea {height:16px;width:20px;background:url(tree.gif) no-repeat 0 -32px;display:inline-block; margin-bottom:-3px;}
-.treeTable tr.parent .hitarea {background-position:0 0;}
-.treeTable tr.role .hitarea {background-position:0 -48px;}
-.treeTable tr.parent.collapsed .hitarea {background-position:0 -16px;}

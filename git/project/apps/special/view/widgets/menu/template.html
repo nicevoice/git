@@ -1,6 +1,0 @@
-<div class="menu-list">
-	{loop $data $k $v}
-	{if $k!=0}<span class="sepr">|</span>{/if}
-	<a href="{$v['url']}" {if $v['blank']}target="_blank" {/if}class="item-{($k+1)}">{$v['title']}</a>
-	{/loop}
-</div>

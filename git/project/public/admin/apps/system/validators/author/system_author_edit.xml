@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<name pass="">
-		<required event="blur submit">必填</required>
-	</name>
-</root>

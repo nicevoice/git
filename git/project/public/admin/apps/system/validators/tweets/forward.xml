@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<text tips="">
-	    <required event="submit">内容不得为空</required>
-	    <max args="140" event="submit">内容超过最大允许长度</max>
-	</text>
-</root>

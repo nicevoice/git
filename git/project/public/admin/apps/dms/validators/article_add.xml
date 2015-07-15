@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<title>
-		<required>标题不得为空</required>
-		<max args="120">标题不得超过120个字节</max>
-	</title>
-</root>

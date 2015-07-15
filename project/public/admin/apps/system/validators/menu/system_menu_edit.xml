@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<name pass="">
-		<required event="blur submit">必填</required>
-	</name>
-    <url pass="">
-		<not args="0," event="*">不允许0值 空值</not>
-	</url>
-</root>	

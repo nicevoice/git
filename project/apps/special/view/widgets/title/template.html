@@ -1,5 +1,0 @@
-<ul class="title-list">
-	{loop $data $k $v}<li class="item-{($k+1)}">
-		{loop $v $t}<a href="{$t['url']}" target="_blank">{str_cutword($t['title'], $length)}</a>{/loop}
-	</li>{/loop}
-</ul>

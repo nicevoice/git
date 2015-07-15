@@ -1,8 +1,0 @@
-<ul class="pic-list">
-	{loop $data $k $v}<li class="item-{($k+1)}" style="width:{$width}px">
-		<a href="{$v[url]}" target="_blank">
-			<img style="height:{$height}px;width:{$width}px;" src="{$v[thumb]}" />
-			{str_cutword($v[title], $length)}
-		</a>
-	</li>{/loop}
-</ul>

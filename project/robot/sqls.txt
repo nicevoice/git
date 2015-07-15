@@ -1,5 +1,0 @@
-SET FOREIGN_KEY_CHECKS=0;
-TRUNCATE TABLE cmstop_content;
-TRUNCATE TABLE cmstop_article;
-TRUNCATE TABLE cmstop_article_btinfo;
-

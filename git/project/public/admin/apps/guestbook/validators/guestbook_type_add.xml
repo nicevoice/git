@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-    <name tips="请填写类型名称">
-		<required event="blur submit">必填</required>
-	</name>
-	<sort tips="请填写排序">
-		<integer>请输入整数</integer>
-	</sort>
-</root>

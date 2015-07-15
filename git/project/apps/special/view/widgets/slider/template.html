@@ -1,8 +1,0 @@
-<ul class="slider-content" style="width:{$width}px;height:{$height}px;">
-	{loop $data $k $v}<li class="item-{($k+1)}">
-		<a class="pic" href="{$v['url']}" target="_blank">
-			<img src="{$v['thumb']}" />
-		</a>
-		<a class="title" href="{$v['url']}" target="_blank">{str_cutword($v['title'], $length)}</a>
-	</li>{/loop}
-</ul>

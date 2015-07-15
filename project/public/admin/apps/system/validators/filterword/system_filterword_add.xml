@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<pattern tips="请填写过滤词语" pass="">
-		<required event="blur submit">过滤词语不能为空</required>
-	</pattern>
-</root>

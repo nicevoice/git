@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<rules>
-		<required event="submit">不得为空</required>
-	</rules>
-</root>

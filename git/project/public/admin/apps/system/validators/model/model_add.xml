@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<name tips="请输入标题">
-		<required event="submit">标题不得为空</required>
-	</name>
-	<alias tips="请输入英文名">
-		<required event="submit">英文名不得为空</required>
-	</alias>
-</root>

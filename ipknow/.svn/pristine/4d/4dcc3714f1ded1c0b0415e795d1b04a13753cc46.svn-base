@@ -1,7 +1,0 @@
-<?php
-
-include 'sWechat/swechat.php';
-
-$tousername = 'o3XbwjkBy__6VqMRXKrKsWxN7DEQ';
-
-\sWechat\Core\ResponseInitiative::text($tousername, '文本消息内容');

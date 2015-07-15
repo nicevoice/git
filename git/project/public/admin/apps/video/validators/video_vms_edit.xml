@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<tags tips="多个tag用空格隔开，填几个精确的词，更容易被推荐">
-		<max args="100">视频标签不能超过100个字节</max>
-	</tags>
-</root>

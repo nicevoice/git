@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<ip pass="">
-		<required event="blur submit">必填</required>
-		<ip event="*">请填写正确的IP地址</ip>
-	</ip>
-</root>
