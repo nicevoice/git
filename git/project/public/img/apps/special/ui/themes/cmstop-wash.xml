@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+	<reserved>1</reserved>
+	<name><![CDATA[水墨]]></name>
+	<define>
+		<page><![CDATA[wash]]></page>
+		<title><![CDATA[wash-a]]></title>
+		<widget><![CDATA[wash-a]]></widget>
+		<content>
+			<code><![CDATA[vision-a]]></code>
+			<title><![CDATA[shuimo]]></title>
+			<list><![CDATA[orange-a]]></list>
+			<piclist><![CDATA[shuimo]]></piclist>
+			<palist><![CDATA[orange-a]]></palist>
+			<slider><![CDATA[gray-a]]></slider>
+			<menu><![CDATA[shuimo]]></menu>
+			<comment><![CDATA[orange-a]]></comment>
+			<activity><![CDATA[orange-a]]></activity>
+			<survey><![CDATA[shuimo]]></survey>
+			<vote><![CDATA[shuimo]]></vote>
+		</content>
+	</define>
+</theme>

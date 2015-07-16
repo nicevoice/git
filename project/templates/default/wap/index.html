@@ -1,0 +1,25 @@
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<wml>
+<head> 
+<meta http-equiv="Expires" content="0"/> 
+<meta http-equiv="Cache-Control" content="no-cache"/> 
+<meta http-equiv="Pragma" content="no-cache"/> 
+</head>
+<card title="{$SETTING[webname]}">
+	<p align="center"><a href="{WAP_URL}"><img src="{$SETTING[logo]}" alt="{$SETTING[webname]}" title="{$SETTING[webname]}"/></a></p>
+	<p align="center">
+		<!--{loop $channel $c}-->
+		<a href="{WAP_URL}?action=category&amp;catid={$c[catid]}" title="{$c[name]}">{$c[name]}</a>
+		<!--{/loop}-->
+	</p>
+	<p>
+		<!--{loop $channel $catid $c}-->
+		<p>【<a href="{WAP_URL}?action=category&amp;catid={$catid}">{$c[name]}</a>】</p>
+		<!--{content modelid="$modelids" catid="$catid" weight="$index_weight," orderby="`published` DESC" size="$pagesize" page="$page"}-->
+		<!--{if $r[modelid] == 2}-->[图]<!--{/if}--><a href="{WAP_URL}?action=show&amp;contentid={$r[contentid]}">{$r[title]}</a><br />
+		<!--{/content}-->
+		<!--{/loop}-->
+	</p>
+	<p align="center">Copyright CmsTop.com<br />{date('Y年m月d日 H:i:s')}</p>
+</card>
+</wml>

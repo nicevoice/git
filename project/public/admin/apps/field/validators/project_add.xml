@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<name tips="请输入列表页名称">
+	  	<required event="submit">名称不能为空</required>
+    </name>
+</root>

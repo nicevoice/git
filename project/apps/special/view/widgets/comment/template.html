@@ -1,0 +1,52 @@
+<style type="text/css">
+.hide {display: none}
+</style>
+<div class="mod-comment">
+	<input type="hidden" name="options" value="{htmlspecialchars($options)}" />
+	<dl class="comment-list"></dl>
+	<div class="view-comment"><p><a class="viewall" href="#" title="点击查看全部评论">点击查看全部评论</a></p><span>--观点不统一，请勿人身攻击</span></div>
+	<div class="post-comment-area">
+		<form class="comment-form" action="{$commentUrl}" method="post">
+			<textarea class="content" name="content" onfocus="seccodeInit(this);"></textarea>
+			<input name="topicid" value="{$topicid}" type="hidden">
+			<div class="user-writeinfo">
+				<span>用户名：<b class="nickname"></b></span>
+				<span class="anonymous"><label><input type="checkbox"  name="anonymous" value="1"/> 匿名发表</label></span>
+				<span class="quickLogin"><a class="showlogin" href="#">快速登录</a></span>
+				<span class="quickLogout" style="display:none;"><a class="logout" href="#">退出</a></span>
+				<span><input type="submit" value="发表评论" class="input-submit" /></span>
+			</div>
+		</form>
+		<div style="display: none;" class="fast-login">
+			<form class="login-form">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<th><label for="username">用户名：</label></th>
+					<td><input type="text" class="input-text"  name="username" value="" /></td>
+				</tr>
+				<tr>
+					<th><label for="password">密码：</label></th>
+					<td><input type="password" class="input-text" name="password" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="submit" class="input-button" value="登录" /></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var seccodeInit = function(obj) {
+<!--{if $isseccode}-->
+	if (!$(obj).hasClass('seccodeShow')) {
+		$(obj).addClass('seccodeShow').after(new Array('<span class="seccode user-writeinfo" style="display:none;">',
+				'<label for="seccode">验证码： </label>',
+				'<input type="text" name="seccode" id="seccode" size="4" maxlength="4" style="ime-mode:disabled;width:65px;"/>',
+				'<img class="seccode_image" src="<?=APP_URL?>?app=system&controller=seccode&action=image&='+Math.random()*5+'" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="absmiddle" onclick="this.src=\'<?=APP_URL?>?app=system&controller=seccode&action=image&=\'+Math.random()*5;" onload="$(this).parent(\'span\').slideDown(\'fast\');" />',
+			'</span>').join('\r\n'));
+	}
+<!--{/if}-->	
+};
+</script>

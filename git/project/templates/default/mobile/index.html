@@ -1,0 +1,70 @@
+<!doctype html>
+<html manifest="cache.manifest">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="apple-touch-icon" href="/ui/images/cmstop.png" />
+		<title>{$SETTING[webname]}</title>
+		
+		<script type="text/javascript">
+			//window.scrollTo( 0 , 1);
+		</script>
+		
+		<link rel="stylesheet" type="text/css" href="/ui/css/cmstopmobile.css"  />
+		
+		<script type="text/javascript" src="zeptojs/zepto-min.js"></script>
+		<script type="text/javascript" src="plugins/iscroll.js"></script>
+		<script type="text/javascript" src="plugins/jstorage.min.js"></script>
+		<script type="text/javascript" src="app/config.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$.WIDTH = $(window).width() , $.HEIGHT = $(window).height();
+			});
+			window.GlobalData = {$global_json};
+			
+		</script>
+		<script type="text/javascript" src="app/app.js"></script> 
+		
+	</head>
+	
+	<body class="x-desktop" id="desktop">
+		
+		
+		<!-- 最外层fullscreen -->
+		<div id="x-fullscreen" class="x-fullscreen" style="height: 2000px;">
+			<!-- Buttom Tab Menu -->
+			<div class="x-tabbar x-docked-bottom" id="main-tab"></div>
+			
+			<!-- Card -->
+			<div class="x-card x-card-active" id="R">
+				
+				<!-- Topbar -->
+				<div class="x-topbar x-docked-top x-ui-blue-topbar">
+					<div class="x-logo x-docked-left"><img alt="" id="logo" /></div>
+					<div class="x-cate-ui category_toggle" id="select_cate_home">首页<span class="arrow">▼</span></div>
+					<div class="x-button x-button-blue x-docked-right x-button-round" id="about" style="visibility:hidden;">
+						<span class='x-button-label'>&nbsp;关于&nbsp;</span>
+					</div>
+					<div class="recommend-refresh"></div>
+				</div>
+				<!-- Menu -->
+				<div class="x-recommend-menu x-docked-top x-ui-menu" id="recommend-category">
+					<div class="x-menu-more">
+						<span class="x-menu-button-label">更多</span>
+					</div>
+				</div>
+				<!-- 主体区域 -->
+				<div id="x-scroll-card-recommend" class="x-panel x-layout-fit x-no-scroll-xy x-recommend-list-panel">
+					<div class="x-inner">
+						<!-- Banner -->
+						<!-- List -->
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

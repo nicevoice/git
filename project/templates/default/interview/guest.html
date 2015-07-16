@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>嘉宾列表_{$SYSTEM[sitename]}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="expires" content="0" />
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="description" content="{$meta_description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<link href="{IMG_URL}css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#letters a').mouseover(function(){
+		$(this).siblings('a').attr('class', '');
+		$(this).attr('class', 's_3');
+		$('#guests_'+this.id).siblings('ul').hide();
+		$('#guests_'+this.id).show();
+	});
+});
+</script>
+</head>
+<body>
+
+<!--{template 'system/header.html'}-->
+
+<div class="mar_t_5 main">
+  <div id="position" class=" f_l">
+	  <a href="{WWW_URL}">首页</a>
+	  <a href="http://{WWW_URL}/talk">访谈</a>
+	  <a href="http://{WWW_URL}/interview/guests<?=SHTML?>">嘉宾列表</a>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="box_1 main mar_t_5">
+
+    <div id="title">
+      <h2>嘉宾列表</h2>
+      <div id="letters" class="tab_3">
+          <a href="javascript:;" id="all" class="s_3">全部</a>
+      <!--{loop $letters $letter}-->
+	      <a href="javascript:;" id="{$letter}">{strtoupper($letter)}</a>
+      <!--{/loop}-->
+      </div>
+    </div>
+  <div class="pad_10" id="guests">
+      <ul id="guests_all" class="inline w_125">
+        <!--{db sql="SELECT * FROM `#table_interview_guest` ORDER BY `guestid` DESC" size="100"}-->
+        <li><a href="{$r[url]}"><img src="{thumb($r[photo], 92, 92)}" height="92" width="92" alt="{$r[resume]}"/></a><a href="{$r[url]}" style="color:{$r[color]}"><h3>{$r[name]}</h3></a></li>
+        <!--{/db}-->
+      </ul>
+      <!--{loop $letters $letter}-->
+      <ul id="guests_{$letter}" class="inline w_125" style="display: none">
+        <!--{db sql="SELECT * FROM `#table_interview_guest` WHERE `initial`='$letter' ORDER BY `guestid` DESC" size="100"}-->
+        <li><a href="{$r[url]}"><img src="{thumb($r[photo], 92, 92)}" height="92" width="92" alt="{$r[resume]}"/></a><a href="{$r[url]}" style="color:{$r[color]}"><h3>{$r[name]}</h3></a></li>
+        <!--{/db}-->
+      </ul>
+      <!--{/loop}-->
+      <div class="clear"></div>
+   </div>
+</div>
+<div class="bk_10"></div>
+<!--{template 'system/footer.html'}-->

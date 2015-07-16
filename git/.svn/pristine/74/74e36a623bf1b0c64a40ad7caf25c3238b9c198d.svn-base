@@ -1,0 +1,17 @@
+.content-menu-shuimo {
+	background:url("images/bg.jpg");
+	padding:0px 10px;
+}
+.content-menu-shuimo a {
+	color:#663300;
+	font-size:12px;
+}
+.content-menu-shuimo a:hover {
+	color:#c00;
+	text-decoration:none;
+}
+.content-menu-shuimo span.sepr {
+	margin:0 4px;
+	color:#663300;
+	font-size:12px;
+}

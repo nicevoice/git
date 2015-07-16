@@ -1,0 +1,482 @@
+@charset "utf-8";
+/* CSS Document */
+textarea{outline:none}
+.tk-mini{width:100%;height:32px;background:#313030;line-height:32px;font-size:12px}
+.tk-minibox{width:960px;margin:0 auto}
+
+.tk-home{background:url("../../images/exam/home.png") no-repeat left center;padding:0 0 0 30px;float:left}
+.tk-menu, .tk-menu a ,.tk-home a{color:#b9b9b9}
+.tk-home a{ margin-right: 10px;}/*yzl修改*/
+.tk-menu{float:right}
+.tk-menu li{float:left;height:30px;width:70px}
+.tk-menu ul .tk-appdow{width:100px;}
+.tk-search{background:url("../../images/exam/search.png") no-repeat left center;padding:0 0 0 30px;}
+.tk-cart{background:url("../../images/exam/card.png") no-repeat left center;padding:0 0 0 30px;}
+.tk-reg{background:url("../../images/exam/user.png") no-repeat left center;padding:0 0 0 30px;}
+.tk-menu li.tk-reg{width:auto}
+.tk-mainbg{background:url("../../images/exam/tkbg.png") no-repeat top center}
+.tk-mainmenu{background:url("../../images/exam/tkmenu.png") repeat-x;}
+.tk-maintitle{width:960px;margin:0 auto;height:59px;position:relative}
+.tk-base{width:960px;position:absolute;left:0;top:59px;height:491px;background:url('../../images/exam/basebg.png') repeat-x;border:1px solid #c7c7c7;box-shadow:0 3px 4px #cdcccc;z-index:10;}
+.tk-basebox{/*float:left;width:137px;text-align:center;height:96px;padding:20px 0 0 0;overflow:hidden*/}
+.tk-base li{margin:0 15px;border-bottom:1px solid #c5c5c5;width:930px;padding:15px 0 12px 0}
+.tk-base li div.lititle{padding:30px 20px 0 0;font-size:18px;font-family:'微软雅黑'}
+.tk-base li div.divbox{padding:0 20px 0 0;text-align:center;font-size:14px}
+.tk-base li div .imagebox{height:65px}
+.tk-base li div.divbox a{color:#787878}
+.tk-base li div{float:left;}
+.tk-tip{background:url("../../images/exam/tip.png") repeat-x;width:15px;height:8px;position:absolute;top:52px;left:320px;z-index:99}
+.tk-baseimg img{width:40px}
+.tk-basetitle a{color:#787878;font-size:14px}
+
+/*
+.tk-items{float:right;width:160px;padding-top:18px} yzl修改
+*/
+.tk-items{float:right;width:161px;padding-top:18px}/*yzl修改*/
+
+.tk-items li{float:left}
+.tk-stk{background:url("../../images/exam/icon_03.png") no-repeat;padding:0 0 0 30px}
+/*
+.tk-stk{background:url("../../images/exam/pc.png") no-repeat;padding:0 0 0 35px}
+.tk-bbs{background:url("../../images/exam/bbs.png") no-repeat;padding:0 0 0 35px;margin-left:20px}
+*/
+/*yzl修改开始*/
+.tk-bbs{background:url("../../images/exam/icon_05.png") no-repeat;padding:0 0 0 35px;margin-left:20px; position:relative;}
+.tk-weixin{border: 3px solid #40b019;position:absolute;width:204px;background:#FFF;text-align:center;display: none;z-index:100; padding:30px 0;left:-70px;color: #f55c0c; font-size:16px;}
+.tk-weixin span{margin-top:4px; display:block;}
+/*yzl修改结束*/
+
+.tk-ad{width:960px;margin:15px auto 0}
+.tk-adarea{background:url("../../images/exam/ad.png") no-repeat;width:680px;height:36px;float:left;line-height:36px}
+.tk-public{margin:0 0 0 35px }
+
+.tk-publicArea{width:600px;height:32px;overflow:hidden}
+.tk-publicArea .tk-parea li{float:left;width:290px;padding-left:10px;background:url("../../images/exam/listbg.png") no-repeat left center;white-space:nowrap;overflow:hidden}
+.tk-publicArea .tk-parea li a{color:#9e9e9e}
+
+.tk-share{float:right;}
+.tk-share a{display:block;float:left;margin:5px 0 0 5px}
+.tk-title{width:960px;margin:40px auto 10px}
+.tk-titleleft{font-size:20px;font-weight:bold;font-family:'微软雅黑'}
+.tk-titleright{color:#999999;vertical-align:baseline}
+.tk-join{font-family:Verdana, Geneva, sans-serif;font-weight:bold;font-size:24px;color:#ff8c00}
+
+.tk-content{background:url("../../images/exam/block.png") no-repeat;width:1015px;height:600px;margin:0 auto}
+.tk-contentb{width:960px;height:600px;margin:0 auto;border-left:1px solid #c7c7c7;border-right:1px solid #c7c7c7}
+.tk-area{background:url("../../images/exam/blockline.png") repeat-x;width:960px;margin:0 auto;height:600px}
+.tk-areatop{padding:30px 30px 0 30px;height:185px;}
+.tk-areatop .tk-areatopleft{float:left;width:600px}
+.tk-areatop .tk-toptitle{font-size:24px;font-family:'微软雅黑';float:left;height:34px;line-height:34px}
+.tk-areatop .tk-qd{background:url("../../images/exam/grayqd.png") no-repeat;display:block;width:163px;height:34px;float:right}
+.tk-areatop .tk-qda{background:url("../../images/exam/start.png") no-repeat;display:block;width:163px;height:34px;float:right}
+
+.tk-lists{margin-top:30px}
+.tk-lists li{float:left;margin-right:45px}
+.tk-lists li.answerright{background:url("../../images/exam/right.png") no-repeat;width:175px;height:103px}
+.tk-lists li.joinactive{background:url("../../images/exam/join.png") no-repeat;width:175px;height:103px}
+.tk-itemtitle a{ color:#999999}
+.tk-itemright{font-size:36px;font-weight:bold;font-family:Verdana, Geneva, sans-serif;text-align:center;color:#ff8c00;height:35px;line-height:35px}
+.tk-type{padding:0 0 0 120px;text-align:center;font-size:14px}
+.tk-areatopright{width:252px;float:right;padding-left:30px;border-left:1px dashed #d8d8d8;color:#999999;padding-bottom:10px;}
+.tk-users ul li{float:left;height:47px;width:47px;margin:0 2px 2px 0}
+.tk-areamiddle{padding:30px 3px 0 3px}
+.tk-books li{width:158px;height:200px;border-right:1px dashed #c7c7c7;float:left}
+.tk-nleft{background:url("../../images/exam/bgleft.png") no-repeat;padding-left:15px;display:inline-block;*zoom:1;height:26px}
+.tk-nright{background:url("../../images/exam/bgright.png") no-repeat top right;padding-right:15px;display:inline-block;*zoom:1;height:26px;color:#b6e3ff}
+.fc-9e{color:#9e9e9e}
+.tk-booklink{display:block;position:absolute;width:175px;height:220px}
+.tk-booklink:hover{background:url('../../images/exam/lishadow.png') no-repeat left 8px}
+.tk-booklink:hover .tk-nright{color:#FFF}
+.bookon .tk-nright{color:#FFF}
+.bookon .fc-9e{color:#60beff}
+.tk-areafooter{padding:30px 30px 0 30px}
+.w450{width:450px}
+.w400{width:400px}
+.tk-mlist li a,.tk-vedio li a{color:#999999}
+.tk-vedio li{float:left;background:url('../../images/exam/vedio.png') no-repeat left center;padding:0 0 0 20px;width:200px;height:28px;overflow:hidden}
+.tk-mlist li{float:left;background:url('../../images/exam/listbg.png') no-repeat left center;padding:0 0 0 15px;width:185px;height:28px;overflow:hidden}
+.tk-mlistbox{padding-left:30px;border-left:1px dashed #c7c7c7}
+
+.tk-footer{height:180px;background:url('../../images/exam/footer.png') repeat-x left bottom;width:100%}
+.tk-footercontent{width:960px;margin:0 auto;padding-top:80px}
+.tk-footermenu span{color:#a2a2a2;margin:0 10px}
+.tk-copyright,.tk-footermenu a,.tk-copyright a{color:#a2a2a2}
+
+.tk-shadow{width:100%;height:50px;background:url('../../images/exam/shadow.png') no-repeat center top}
+.tk-contentbg{background:url("../../images/exam/cbg.png") repeat-y center top;}
+.tk-contentbox{width:960px;margin:0 auto;}
+.tk-contentitle{width:700px;height:118px;background:url('../../images/exam/titlebg.png') no-repeat center top;margin:0 auto;padding:15px 30px 0}
+.tk-contentitileLeft{width:460px;float:left}
+.tk-btnleft{background:url('../../images/exam/btnleft.png') no-repeat;display:inline-block;*zoom:1;height:22px;padding-left:12px;margin-left:20px}
+.tk-btnRight{background:url('../../images/exam/btnright.png') no-repeat top right;display:inline-block;*zoom:1;height:22px;padding-right:12px;line-height:22px;color:#FFF}
+.tk-time ul li{float:left;margin-right:10px}
+.itembg{background:url('../../images/exam/rainbow.png') no-repeat top left;width:107px;height:63px}
+.itembg1{background:url('../../images/exam/rainbow1.png') no-repeat top left;width:87px;height:63px}
+.tk-itemfont{font-size:36px;font-weight:bold;font-family:Arial, Helvetica, sans-serif;margin:15px 0 0 0;text-align:center}
+.tk-tiemnum{text-align:center;height:22px;line-height:22px;font-size:12px;width:35px;margin-left:72px}
+.tk-tiemnum1{text-align:center;height:22px;line-height:22px;font-size:12px;width:35px;margin-left:52px}
+
+.tk-contentitileRight{float:left;margin-left:20px}
+.tk-listarea{/*margin:50px auto 0*/margin:0 auto;padding-top:50px;width:960px;}
+.tk-listarea li{float:left;width:408px;padding:20px 50px 20px 20px;height:135px}
+
+.alinkbg{background:url('../../images/exam/alinkbg.png') no-repeat;padding-left:10px ;height:30px;display:inline-block;*zoom:1;color:#FFF;text-shadow:1px 1px 0 #000;font-size:14px}
+.alinkbg span{background:url('../../images/exam/alinkbgr.png') no-repeat top right;padding-right:10px ;height:30px;display:inline-block;*zoom:1;cursor:pointer}
+
+
+.ksmk{background:url('../../images/exam/ksmk.gif') no-repeat;width:87px;height:30px;display:block}
+.ksztmk{background:url('../../images/exam/ksztmk.gif') no-repeat;width:114px;height:30px;display:block}
+.h44{height:44px}
+.m60{width:60px}
+.m308{width:308px}
+
+.tk-count{color:#ff8c00;font-family:Arial, Helvetica, sans-serif;font-size:40px;vertical-align:middle;*height:40px;*line-height:40px}
+.tk-blue{color:#3a8ffb}
+.tk-grayborderright{border-right:1px solid #c5c5c5}
+.tk-grayborderbottom{border-bottom:1px solid #c5c5c5}
+
+.tk-mtitle{font-size:20px;color:#666}
+.tk-text{color:#9e9e9e;margin:15px 0;line-height:22px}
+.tk-navlist ul li{float:left;}
+.tk-navlist ul li a.aLink{display:block;height:29px;font-size:14px;line-height:29px;padding:15px 17px;text-align:center;color:#999999}
+.fts20{font-size:20px!important}
+.tk-navlist ul li a.drop{background:url("../../images/exam/drop.png") no-repeat right center;color:#3a8ffb}
+.tk-navlist ul li a.tk-on{background:url("../../images/exam/abg.png") no-repeat center;color:#333333}
+.w83{width:83px}
+.tk-exam{width:960px;margin:0 auto}
+.tk-examleft{width:159px;border-top:1px solid #cacaca;border-left:1px solid #cacaca;box-shadow:-2px 3px 2px #dfdede;position:fixed;_float:left;font-size:14px}
+.ontab{background:#e4e4e4}
+.tk-timeCount{width:159px;height:40px;padding-top:100px;background:url("../../images/exam/time.png") no-repeat;border-bottom:2px solid #cacaca}
+.tk-timeDetail{width:159px;height:40px;padding-top:100px;background:url("../../images/exam/detail.png") no-repeat;border-bottom:2px solid #cacaca}
+
+
+.tk-control{text-align:center;border-bottom:2px solid #cacaca}
+.tk-timeCount,.tk-control a{color:#999}
+
+.tk-control a{display:block;padding:15px 0 ;height:29px;line-height:29px;color:#3A8FFB;}
+.tk-control a:hover{text-decoration:none;}
+
+.tk-submit{background:#d5eefe}
+.tk-examright{width:798px;float:right;box-shadow:0 2px 5px #BEBCBC;border:1px solid #cbcbcb}
+.tk-examleftarea{width:687px;float:left;box-shadow:0 2px 5px #BEBCBC;border:1px solid #cbcbcb;border-radius:5px}
+.tk-examrightarea{width:253px;float:right;box-shadow:0 2px 5px #BEBCBC;border:1px solid #cbcbcb;border-radius:5px}
+.tk-examtitle{color:#747474;font-size:16px;height:38px;line-height:38px;border-bottom:1px solid #d8d8d8}
+.tk-examitems{padding:10px 20px;font-size:14px}
+.tk-examitems ul li{float:left;margin-right:25px}
+.tk-examitems ul li a{color:#747474;display:block;border-bottom:3px solid #FFF}
+.tk-examitems ul li a:hover{text-decoration:none}
+.tk-examitems ul li.on a{color:#333333;border-bottom:3px solid #3a8ffb}
+.tk-examboxtitle{border-top:1px solid #b8b7b7}
+.tk-examboxtitleinner{border-top:2px solid #e3e3e3;color:#333333;padding:3px 0 3px 20px}
+.tk-examtimu{border-top:1px solid #b8b7b7}
+.tk-examtimuinner{border-top:2px solid #e3e3e3;padding:8px 20px;background:#f5f5f5;font-size:14px}
+.tk-listitem{font-size:24px;font-family:Arial, Helvetica, sans-serif;color:#8abaf3;vertical-align:middle;margin-right:10px}
+.tk-examselect ul li{padding:0 10px;margin:5px 0;color:#666666}
+.tk-examselect ul li:hover{background:#efefef}
+.tk-examselect ul li span{color:#cccccc}
+.tk-examselect ul li.rightanswer,.tk-examselect ul li.rightanswer span{color:#46a546}
+.tk-answerbox{height:40px;line-height:40px}
+.tk-dashline{border-top:1px dashed #c5c5c5;}
+.tk-selectitem{padding:5px 20px 5px}
+.fc-green{color:#46a546}
+.fc-red{color:#ff0000}
+.tk-selectitem li{float:left;margin-right:10px}
+.tk-selectitem li{display:inline-block;width:80px;height:40px;line-height:40px;text-align:center;*zoom:1;background:url('../../images/exam/def.png') no-repeat 10px center}
+
+.tk-selectitem li.selectmore{background:url('../../images/exam/selectmore.png') no-repeat 10px center}
+.tk-selectitem li.selected{background:url('../../images/exam/selected.png') no-repeat 10px center}
+
+.tk-selectitem li.usermouseover{background-color:#efefef}
+.tk-selectitem li:hover{background-color:#efefef}
+.tk-selectitem li.mdown{background:url('../../images/exam/defs.png') no-repeat 10px center}
+
+
+
+.tk-save{background:url('../../images/exam/save.png') no-repeat left center;padding-left:30px;height:40px;display:block;line-height:40px;color:#999999;float:left}
+.tk-detail{background:url('../../images/exam/detailhide.png') no-repeat right center;padding-right:20px;height:40px;display:block;line-height:40px;color:#999999;float:left}
+.tk-detailon{background:url('../../images/exam/detailshow.png') no-repeat right center;}
+.tk-saveon{background:url('../../images/exam/saveh.png') no-repeat left center;}
+.tk-line{float:left;display:block;height:40px;line-height:40px;color:#b299b2;padding:0 10px}
+.tk-line1{display:inline-block;height:40px;line-height:40px;color:#b299b2;padding:0 10px;*zoom:1}
+.tk-remove{background:url('../../images/exam/remove.png') no-repeat left center;}
+.tk-tagleft{height:35px;line-height:25px;padding-left:10px;background:#dcdcdc url('../../images/exam/tagleft.png') no-repeat;position:absolute;left:10px;top:26px}
+.tk-tagright{height:25px;padding-bottom:10px;line-height:25px;padding-right:10px;background:url('../../images/exam/tagright.png') no-repeat top right}
+.tk-tagicon{display:inline-block;background:url('../../images/exam/dropicon.png') no-repeat;width:11px;height:11px;vertical-align:middle;margin:0 0 0 10px}
+.tk-tagicon_u{display:inline-block;background:url('../../images/exam/dropicon1.png') no-repeat;width:11px;height:11px;vertical-align:middle;margin:0 0 0 10px}
+.tk-answert{height:10px;background:url('../../images/exam/t.png') no-repeat;overflow:hidden;}
+.tk-answerm{background:url('../../images/exam/m.png') repeat-y}
+.tk-answerb{height:10px;background:url('../../images/exam/b.png') no-repeat;overflow:hidden;}
+.tk-pos{position:relative}
+.h50{height:50px}
+.tk-selectarea{margin-left:10px}
+.tk-selectarea li{float:left;width:26px;height:26px;text-align:center;line-height:26px;background:url('../../images/exam/libg.png') no-repeat;margin-left:10px;margin-top:3px}
+.tk-selectarea li a{color:#0088cc;display:block;height:26px;line-height:26px;width:26px;}
+.tk-selectarea li a:hover{color:#005580;text-decoration:none}
+
+.tk-selectarea li.tk-select{background:url('../../images/exam/libgs.png') no-repeat;}
+.tk-selectarea li.tk-select a{color:#fff}
+
+.tk-nextbtn{background:url('../../images/exam/next.png') no-repeat;display:block;width:154px;height:32px;text-align:center;font-size:14px;text-shadow:1px 1px 0 #FFF;color:#3a8ffb}
+.tk-nextbtn:hover{background:url('../../images/exam/nexth.png') no-repeat;}
+.btngraybg,
+.btnbluebg{background:url('../../images/exam/bluebg.png') no-repeat;width:170px;height:30px;line-height:30px;display:inline-block;*zoom:1;text-align:center;font-size:14px;color:#fff;text-shadow:-1px -1px 0 #2467bf}
+
+.btngraybg{background:url('../../images/exam/graybg.png') no-repeat;color:#a29999;text-shadow:-1px -1px 0 #f2f2f2}
+.btngraybg:hover,
+.btnbluebg:hover{text-decoration:none}
+
+.loading{background:url('../../images/exam/loading.gif') no-repeat center center}
+.tk-nextbtn:hover{background:url('../../images/exam/nexth.png') no-repeat;}
+.tk-parseinfo{width:617px;height:313px;background:url('../../images/exam/pause.png') no-repeat}
+
+.tk-parsemsg{font-size:26px;text-align:center;color:#c8b176;padding:170px 0 0 0;font-family:'微软雅黑'}
+.tk-jixubtn{width:170px;height:30px;background:url('../../images/exam/jixu.png') no-repeat;border:none}
+.jixudati{background:url('../../images/exam/thx.png') no-repeat;width:170px;height:30px;border:none}
+.submitexam{background:url('../../images/exam/subexam.png') no-repeat;width:170px;height:30px;border:none}
+.startbtn{background:url('../../images/exam/starttest.png') no-repeat;width:170px;height:30px;border:none}
+.cancelbtn{background:url('../../images/exam/cancel.png') no-repeat;width:170px;height:30px;border:none;display:inline-block;*zoom:1}
+
+.tk-anylize{padding:20px 20px 0 20px;border-top:1px dashed #c5c5c5}
+.tk-anylize li{padding-bottom:20px;font-size:14px}
+.tk-laiyuan{background:url('../../images/exam/type1.png') no-repeat;padding-left:80px;line-height:27px}
+.tk-tongji{background:url('../../images/exam/type2.png') no-repeat;padding-left:80px;line-height:27px}
+.tk-jiexi{background:url('../../images/exam/type3.png') no-repeat;padding-left:80px;line-height:27px}
+.tk-yiwen{background:url('../../images/exam/type4.png') no-repeat;padding-left:80px;line-height:27px}
+.tk-kaodian{background:url('../../images/exam/type5.png') no-repeat;padding-left:80px;line-height:27px}
+.tk-biji{background:url('../../images/exam/type6.png') no-repeat;padding-left:80px;line-height:27px}
+
+.tk-laiyuanicon{background:url('../../images/exam/type1.png') no-repeat;padding-left:80px;line-height:27px;float:left;margin:8px 0 0 0}
+
+
+
+.fc-blue{color:#0088cc}
+.tk-taolun{background:url('../../images/exam/bbs.png') no-repeat;display:inline-block;width:28px;height:25px;vertical-align:middle;margin-right:5px}
+.tk-edit{background:url('../../images/exam/biji.png') no-repeat;display:inline-block;width:28px;height:25px;vertical-align:middle;margin-right:5px}
+.tk-lidef{padding-left:24px}
+.tk-lidef li{background:url('../../images/exam/gbg.png') no-repeat 0 1px;float:left;width:28px;height:28px;vertical-align:middle;margin-right:8px;text-align:center;color:#666}
+.tk-lidef li.greenli{background:url('../../images/exam/grbg.png') no-repeat 0 1px}
+.tk-lidef li.redli{background:url('../../images/exam/rbg.png') no-repeat 0 1px}
+.tk-lidef li.redli a,.tk-lidef li.greenli a{color:#FFF}
+
+.tk-result{padding:15px 20px 0 20px;position:relative;height:220px}
+.tk-resultLeft{padding:60px 0 0 0;width:335px}
+.tk-resultLeftTop{font-size:26px;font-family:'微软雅黑'}
+.tk-resultM{font-size:18px;font-family:'微软雅黑'}
+.tk-jinbi{color:#f89113;font-size:60px;vertical-align:middle;margin:0 5px}
+.tk-score{width:240px;height:210px;float:left;background:url('../../images/exam/score.png') no-repeat left bottom}
+.tk-scorebox{font-size:135px;font-family:Georgia, "Times New Roman", Times, serif;color:#e57e01;height:95px;padding:25px 0 0 0;font-style:italic }
+.tk-dao{font-size:18px;padding:10px 80px 0 0;font-family:'微软雅黑'}
+.tk-counts{float:right;width:156px;}
+.fc-999{color:#999}
+.tk-countstop{padding:0 5px 10px ;border-bottom:1px dashed #ccc}
+.tk-tleft{float:left;background:url('../../images/exam/left001.png') no-repeat;padding:0 0 0 10px;font-size:14px;font-weight:bold}
+.tk-tright{float:left;background:url('../../images/exam/left002.png') no-repeat top right;height:27px;line-height:27px;padding:0 10px 0 0}
+.tk-content{/*padding:10px 20px 有重命名*/}
+.tk-section{padding:10px 20px}
+
+.tk-sectionboxnone{font-size:14px;color:#666666;line-height:40px}
+
+.tk-sectionbox{border-top:1px solid #d1d1d1;border-left:1px solid #d1d1d1;font-size:14px;color:#666666}
+.tk-sectionbox th.th{padding:5px 0;border-bottom:1px solid #d1d1d1}
+.tk-sectionbox th.bged{background:#ededed}
+.f-0em{text-indent:0em}
+.f-1em{text-indent:1em}
+.f-2em{text-indent:2em}
+.f-3em{text-indent:3em}
+.f-4em{text-indent:4em}
+.f-5em{text-indent:5em}
+.bdr{border-right:1px solid #d1d1d1;} /*右、下边框*/
+.bdb{border-bottom:1px solid #d1d1d1;}
+
+.tk-span{display:inline-block;width:16px;height:16px;vertical-align:middle;margin:0 8px 0 0}
+.tk-add{background:url('../../images/exam/add.png') no-repeat}
+.tk-reduce{background:url('../../images/exam/reduce.png') no-repeat}
+.tk-circle{background:url('../../images/exam/list.png') no-repeat}
+.ml25{margin-left:25px}
+
+.tk-tooltitle{color:#999;font-size:14px}
+.tk-users ul li{float:left;width:47px;height:47px;overflow:hidden}
+.tk-sectionfoot{height:43px;background:url('../../images/exam/sectionbg.png') repeat-x;margin-top:80px;padding-top:7px;overflow:hidden}
+.shareicon{width:43px;height:43px;background:url('../../images/exam/share.png') no-repeat;}
+.sharelist{float:left;}
+.sharelist ul li{float:left;line-height:43px;margin-right:10px;margin-left:10px;height:43px;font-size:14px}
+
+.bbdashed{border-bottom:1px dashed #c9c9c9;}
+
+.tk-practice{padding:30px 0 27px 30px;background:#f3f3f3;border-bottom:2px solid #c9c9c9;}
+.tk-boxshadow{box-shadow:0 3px 5px #bbbaba;border:1px solid #cbcbcb}
+.mb50{margin-bottom:50px}
+.tk-practicetitle{margin:20px;border-bottom:3px solid #e5e5e5}
+.tk-practice li{float:left;font-size:14px;margin:0 15px 0 0;border-bottom:3px solid #f3f3f3}
+.tk-practice li a{color:#999}
+.tk-practice li a:hover{text-decoration:none}
+.tk-practice li.here{border-bottom:3px solid #3a8ffb}
+.tk-practice li.here a{color:#333}
+.tk-looktm{/*color:#d9d9d9*/color:#3a8ffb}
+.tk-looktm:hover{color:#0088cc}
+
+/*.tk-pagenav{margin-right:20px;border-radius:5px;text-align:center;padding:20px 0 0 0}
+.tk-pagenav a{display:inline-block;*zoom:1;height:30px;line-height:30px;padding:0 10px;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;border-left:1px solid #dddddd;color:#0088cc;}
+.tk-pagenav a.current,.tk-pagenav a.now{background:#f5f5f5;color:#999999}*/
+.bdt-c5c5c5{border-top:1px solid #c5c5c5}
+.tk-tmmore{background:url('../../images/exam/linkbg.png') no-repeat left center;width:90px;height:40px;display:block;margin:0 auto;line-height:40px;/*color:#bdbdbd*/color:#3a8ffb;text-align:center;text-indent:0}
+.tk-tmmore:hover{color:#3a8ffb}
+
+.tk-history{line-height:28px;font-size:14px}
+.fc-999{color:#999}
+.fc-d9d9d9{color:#d9d9d9}
+.tk-editbj{background:url('../../images/exam/biji.png') no-repeat left center;display:block;float:right;padding-left:30px ;color:#0088cc;font-size:14px}
+
+.editarea{padding:10px;width:700px}
+.edittile{height:30px;font-size:14px;font-weight:bold;border-bottom:1px solid #eeeeee;margin-bottom:10px}
+.editmain textarea{width:688px;height:120px;border:1px solid #999;border-radius:5px;padding:5px}
+.editmain textarea:focus{box-shadow:0 0 8px #74b9ef;border:1px solid #74b9ef;}
+.tk-confirm{background:url('../../images/exam/com.png') no-repeat;width:54px;height:30px;border:none;color:#FFF}
+.tk-cancel{background:url('../../images/exam/edit.png') no-repeat;width:54px;height:30px;border:none;color:#999}
+.edittool{padding:10px;background:#f5f5f5;border-top:1px solid #ddd}
+
+.tk-dialogtitle{padding:10px;border-bottom:1px solid #eee;font-size:14px;font-weight:bold}
+.fc-green{color:#46a546}
+
+.tk-mmtitle{border-top:1px solid #ccc;border-bottom:1px solid #ccc;background:#efefef;padding:3px 10px;font-size:14px;color:#333}
+.tk-spanwrap{display:inline-block;*zoom:1;width:260px;margin-left:10px;white-space:nowrap;overflow:hidden;vertical-align:middle}
+.tk-speed{display:inline-block;height:10px;background:#e4e4e4;*zoom:1;width:100px;margin-right:10px;border-radius:5px;text-indent:0;overflow:hidden;}
+.tk-speedinner{display:inline-block;height:10px;border-radius:5px;*zoom:1;background:#23adf2;vertical-align:middle}
+.tk-starspan{display:inline-block;*zoom:1;height:32px;vertical-align:middle}
+
+.tk-bnav{width:960px;margin:0 auto 10px}
+.tk-similar{background:#f9f9fa;border-top:1px solid #c5c5c5;padding:15px}
+.tk-similar li{background:url('../../images/exam/square.png') no-repeat 10px center;padding:0 0 0 20px;font-size:14px}
+.tk-areatitle{padding:5px 10px;font-size:16px;}
+.tk-lineStyle{border-top:1px solid #b8b7b7;height:2px;background:#dddddd;overflow:hidden}
+.tk-wrap{margin:10px}
+.tk-Vip{width:211px;height:128px;overflow:hidden;position:relative;margin:15px auto 0}
+.tk-viptab{background:url('../../images/exam/vip.png') no-repeat;width:55px;height:20px;position:absolute;left:135px;top:10px}
+
+.tk-boxl{width:46px;text-align:center}
+.tk-boxm{width:110px;text-align:center}
+.tk-boxr{width:70px;text-align:center}
+.tk-vip{font-family:Arial, Helvetica, sans-serif;color:#ff0000;font-weight:bold}
+.tk-userIcon{background:url('../../images/exam/user1.png') no-repeat center;height:28px;}
+.tk-video{background:url('../../images/exam/play.png') no-repeat left center;display:inline-block;width:14px;height:28px;vertical-align:middle;*zoom:1;margin-right:5px;}
+.tk-zip{background:url('../../images/exam/zip.png') no-repeat left center;display:inline-block;width:14px;height:28px;vertical-align:middle;*zoom:1;margin-right:5px;}
+.tk-ppt{background:url('../../images/exam/ppt.png') no-repeat left center;display:inline-block;width:14px;height:28px;vertical-align:middle;*zoom:1;margin-right:5px;}
+.tk-doc{background:url('../../images/exam/doc.png') no-repeat left center;display:inline-block;width:14px;height:28px;vertical-align:middle;*zoom:1;margin-right:5px;}
+.tk-kuaiji{width:80px;height:80px;overflow:hidden;margin:0 10px 0 0}
+.tk-fbox{width:125px;padding:10px 0 0 0}
+.tk-searchTool{width:605px;margin:0 auto;padding:50px 0 0 0;height:500px}
+.tk-searchToolBg{background:url('../../images/exam/searchbg.png') no-repeat left center;width:490px;height:46px;display:inline-block;vertical-align:middle}
+.tk-searchsubmit{background:url('../../images/exam/searbtn.png') no-repeat left center;width:106px;height:46px;border:none;vertical-align:middle}
+input.tk-searchInput{width:470px;height:25px;padding:10px 0 10px 10px;line-height:25px;background:none;border:none}
+.tk-searchMsgBar{padding:30px 0 0 0;font-size:14px;width:700px}
+.green36{color:#00ad33;font-size:36px;font-weight:bold;font-family:Arial, Helvetica, sans-serif;display:inline-block;margin-right:30px;*zoom:1}
+.tk-searcharea{width:960px;margin:0 auto}
+.tk-green{color:#46a546}
+.fc-999{color:#999}
+.fc-333,a.fc-333{color:#333333}
+.tk-toShare{display:inline-block;*zoom:1;vertical-align:middle;width:160px;}
+.ywleft{padding-left:20px;height:26px;color:#fff;background:url('../../images/exam/leftyw.png') no-repeat;float:left}
+.ywright{padding-right:10px;height:26px;background:url('../../images/exam/rightyw.png') no-repeat top right;line-height:26px;text-align:center}
+a.fc-0088cc{color:#0088cc}
+
+
+
+/** 分页样式 **/
+.tk-pagenav {
+    height: 24px;
+    zoom: 1;
+    text-align: right;
+    padding: 10px ;
+
+}
+.tk-pagenav a {
+    display: inline-block;
+    padding: 0 9px;
+    margin: 0 2px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-decoration: none;
+    background: white;
+    border: 1px solid #E3E3E3;
+    text-align: center;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: #666666;
+}
+.tk-pagenav a.now{
+    display: inline-block;
+    padding: 0 9px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-decoration: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background: #f35c03;
+    border: 1px solid #f35c03;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+.tk-pagenav .current{
+    display: inline-block;
+    padding: 0 9px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-decoration: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background: #f35c03;
+    border: 1px solid #f35c03;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    margin:1px;
+}
+.tk-pagenav .next, .tk-pagenav .prev{
+    background: none;
+    border:  1px solid #E3E3E3;
+    color: #666666;
+    font-size: 12px;
+}
+.ln-loading {
+    background-color: #fff;
+    border: 1px solid #6babdd;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 20px #999;
+    -webkit-box-shadow: 0px 0px 20px #999;
+    box-shadow: 0px 0px 20px #999;
+    display: none;
+    height: 120px;
+    position: absolute;
+    width: 300px;
+    z-index: 10001;
+}
+.ln-loading i {
+    background: url(../../images/exam/crycle54.gif) no-repeat 50% 40%;
+    display: block;
+    height: 100px;
+}
+.ln-loading i span {
+    color: #f60;
+    display: block;
+    font-style: normal;
+    padding-top: 88px;
+    text-align: center;
+}
+input{outline:none} 
+#proList{min-width:120px;margin-right:2px;}
+
+
+
+.logo{display:block;position:relative;}
+.beta{display:block;position:absolute;background:url("../../images/exam/beta.png") no-repeat;width:46px;height:23px;top:-4px;right:-46px;}
+
+.note_content_{cursor:pointer;}

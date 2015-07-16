@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<catid>
+		<required event="submit">请选择栏目</required>
+	</catid>
+</root>

@@ -1,0 +1,42 @@
+body, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, legend, input, img,sub,sup{margin:0;padding:0; font-family:Tahoma, Verdana;}
+div,img{border:0;}
+ul li,ol li{list-style:none; vertical-align:middle;}
+a{color:#03c; font-size:12px; text-decoration:none;}
+a:hover{color:#f30; text-decoration:underline;}
+#search_index{width:488px; margin:150px auto 0; position:relative;}
+ #search_index h1{ height:80px; text-align:center; margin:0 auto;}
+ #search_index div{line-height:32px;}
+#model{ margin-bottom:2px;}
+ #model a{font-size:14px; height:26px; line-height:20px; width:51px; text-align:center; display:block; float:left; margin-right:5px;}
+ #model a.now{background:url(images/bg_search.png) no-repeat 0 0; color:#fff; cursor:default;}
+ #model a.now:hover{text-decoration:none;}
+a.red,.keyword{color:#C00;}
+a.green,.green{color:#008000;}
+.blue{color:#06c;}
+.gray{color:#666;}
+
+#search_list{width:690px; padding:0 20px;}
+ #search_list dl{margin-bottom:10px;}
+  #search_list dt{line-height:28px;}
+   #search_list dt a{font-size:16px; text-decoration:underline;}
+  #search_list dd{font-size:12px;line-height:24px;}
+   #search_list dd.info{color:#555;line-height:20px; padding:2px 0; height:auto;}
+
+.search_table{width:560px;}
+ .search_table th{text-align:right; font-weight:normal;}
+ .search_table td,.search_table th{padding:5px; font-size:12px;}
+#search_result{line-height:20px; background:#f4f4f4; margin:10px 0; padding:0 10px; font-size:12px;}
+.lh_48{height:48px; line-height:48px; vertical-align:middle;}
+.mar_l_20{margin-left:20px;}
+.f_l{float:left;}
+.f_r{float:right;}
+.clear{clear:both;}
+.layout{overflow:auto;zoom:1;_height: 1%;}
+#search_box{background:url(images/bg_search.gif) no-repeat 0 -34px; padding:4px 0 0 10px; height:43px; font-size:12px; color:#f60;}
+ #search_box input{border:none; background:transparent;}
+.search_txt_1{width:310px; padding:8px 0 3px; margin-top:0; vertical-align:middle; line-height:25px; height:25px; font-size:14px;}
+.search_btn_1{width:70px; height:26px; padding:0; text-indent:-9000px; cursor:pointer; float:inherit;}
+.high_search{ margin:2px 0 0 10px; vertical-align:middle;}
+#advanced_div{background:#FFFDD7; border:1px solid #FDBD77; font-size:12px; padding:1px 8px; margin:0 7px; line-height:26px; position:absolute; top:150px; right:0;}
+#keywords{ margin:60px auto 10px; text-align:center;}
+#search_foot{ height:30px; line-height:30px; color:#999; text-align:center; margin:0 auto; font-size:12px; font-family:Arial;}

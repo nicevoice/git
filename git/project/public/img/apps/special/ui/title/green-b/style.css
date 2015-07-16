@@ -1,0 +1,15 @@
+﻿/*
+ @name 粉色系列
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-green-b {
+	overflow: hidden;
+	background:url(images/green-b.jpg);
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:20px;
+}
+.title-green-b a,
+.title-green-b span{color:#060;}

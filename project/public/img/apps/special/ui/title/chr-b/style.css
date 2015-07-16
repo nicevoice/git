@@ -1,0 +1,19 @@
+/*
+ @name 灰色轨迹
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-chr-b {
+	overflow: hidden;
+	background:url("images/title-chr-b.png") no-repeat;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+	padding-left:28px;
+}
+.title-chr-b a,
+.title-chr-b span {
+	color:#333;
+	font-size: 14px;
+}

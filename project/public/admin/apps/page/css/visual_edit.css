@@ -1,0 +1,211 @@
+.table_form{ margin:10px;}
+ .table_form th,.table_form td{ padding:0 5px;line-height:26px; height:26px;}
+ .table_form th{ width:60px; text-align:right; font-weight:normal;}
+ td input{ vertical-align:middle;}
+.section_marsker{
+	position: absolute;
+	z-index: 999;
+	cursor: pointer;
+	border:1px solid #fff;
+}
+.section_marsker.red {
+	border-color:rgb(204, 204, 204);
+	background-color:rgb(255, 102, 102);
+}
+.section_marsker.green {
+    border-color:green;
+    background-color:#D0E6EC;
+}
+.section_marsker.hover {
+    background-color:rgb(255, 200, 102);
+    border:1px solid rgb(102, 255, 102);
+}
+.section{
+    position:relative;
+    z-index:800;
+}
+.section.preview {
+	background-color:#FDE2B7;
+    border:1px dashed #FF7837;
+}
+.table_info, .table_info th, .table_info td {
+    border-color:#D0E6EC;
+    border-style:solid;
+    border-width:1px 0 0 1px;
+}
+.table_info th {
+    background:#F2F9FB;
+    color:#077AC7;
+    font-weight:normal;
+}
+.table_info th, .table_info td {
+    border-width:0 1px 1px 0;
+    padding:5px;
+}
+.dialog-box .inline li,.dialog-box .tag_list li {
+    margin:0 3px;
+    display:inline;
+    float:left;
+}
+.dialog-box a {
+	color:#077AC7;
+	font-size:12px;
+	text-decoration:none;
+}
+.dialog-box a:hover {
+	color:#f60;
+}
+.dialog-box table td {
+	text-align:left;
+}
+.w_400 {
+    width:400px;
+}
+.tips_orange {
+	text-align:left;
+}
+.tag_1{margin:0 0 5px; padding-left:10px;}
+.tag_1,.tag_list a,.tag_list a.s_3,.tag_list li.s_3 a{background:url(../images/bg_x.gif) repeat-x 0 -196px; height:26px;}
+.tag_list a,.tag_list a.s_3,.tag_list li.s_3 a{background-position:0 -144px; border:1px solid #94C5E5; border-width:0 1px; display:block; *float:left; padding:0 10px; margin-right:6px; line-height:26px;}
+.tag_list a{background-position:0 -170px;}
+.tag_list.s_3 a{cursor:default;}
+
+.dialog-box {
+	font-size:12px; font-family:Arial, Verdana,"宋体";
+}
+.dialog-box ul,.dialog-box li {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.dialog-box input, .dialog-box select {
+	vertical-align:middle;
+}
+.dialog-box input,.dialog-box textarea{
+	border:1px solid #ddd;
+	padding:3px;
+	border-color:#888 #ddd #ddd #888;
+	background-color:#fbfbfb;
+	font-size:12px;
+	font-family:Tahoma, Verdana,"宋体";
+	line-height:1.0;
+}
+.dialog-box input[type='text']:focus,
+.dialog-box input[type='password']:focus,
+.dialog-box textarea:focus {
+	border-color:#00A5D5;
+}
+.dialog-box input[type='radio'],
+.dialog-box input[type='checkbox'] {
+	border:none;outline:none;
+	margin:0;
+	padding:0;
+	background:transparent;
+}
+.dialog-box table {
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.dialog-box td{padding:4px 2px;}
+.dialog-box td table{margin:0; padding:0;}
+.dialog-box td td{border:0; color:#666; line-height:180%; padding:0;}
+.dialog-box th{
+	color:#077AC7; font-weight:normal;
+}
+.dialog-box td{text-align:left; padding-left:2px;}
+.dialog-box td.t_t{padding-top:6px;vertical-align:top;}
+.dialog-box td.t_c{text-align:center;}
+.dialog-box td.t_r,
+.dialog-box th{text-align:right; padding-right:2px;}
+
+.dialog-box td label {
+	cursor:pointer;
+	margin-right:2px;
+}
+.dialog-box td span,
+.dialog-box td label {
+	vertical-align:middle;
+}
+.dialog-box .bk_5,
+.dialog-box .bk_8,
+.dialog-box .bk_10{height:8px; clear:both; display:block; overflow:hidden;}
+.dialog-box .bk_5{height:5px;}
+.dialog-box .bk_10{height:10px;}
+.dialog-box .c_red{color:#DF0000;}
+.dialog-box .mar_l_8 {
+	margin-left:8px;
+}
+.dialog-box .hand {
+	cursor:pointer;
+}
+.dialog-box .f_l {
+	float:left;
+}
+.dialog-box .f_r {
+	float:right;
+}
+.dialog-box p {margin:0;padding:0;}
+.dialog-box .vt_m, .dialog-box .vt_m input, .dialog-box .vt_m img {
+	vertical-align:middle;
+}
+.dialog-box .search_icon {
+    background:url(../images/bg.gif) no-repeat -130px -716px;
+    padding-left:20px;
+    width:450px;
+    text-indent:0;
+    float:none;
+    height:auto;
+}
+.dialog-box .operation_area {
+	background:transparent url(../images/bg_x.gif) repeat-x scroll 0 -279px;
+	border-bottom:1px solid #D7E3F2;
+	padding:5px 0px 2px 0;
+}
+.dialog-box .thumb_cell input { float:left; margin-right:5px;}
+.dialog-box .thumb_cell object { display:inline; float:left; margin-right:5px;}
+.dialog-box .input_calendar {
+	background:#FFFFFF url(../images/bg.gif) no-repeat right -353px;
+	color:#077AC7;
+	cursor:pointer;
+	padding-right:20px;
+}
+.dialog-box .inputtit_focus {
+	background:#EEFFED url(../images/ruler.gif) repeat-x 3px 5px;
+}
+.dialog-box .t_c {
+	text-align:center;
+}
+.dialog-box .button_style_1 {
+	background:transparent url(../images/bg_x.gif) repeat-x scroll 0 -27px;
+	border:1px solid #94C5E5;
+	color:#077AC7;
+	cursor:pointer;
+	height:22px;
+	line-height:22px;
+	margin:0px 6px 0 0;
+	padding:0 5px 3px;
+	vertical-align:middle;
+}
+.dialog-box .operation_area .button_style_1 {margin-top:-5px;}
+.dialog-box .btn_area .button_style_1 {margin-top:5px;}
+
+.dialog-box .checkbox_style,
+.dialog-box .bdr_0,
+.dialog-box .radio_style{border:0;background:transparent;}
+.dialog-box .table_list{/*margin-left:6px;*/}
+.dialog-box .table_list td{border-bottom:1px dotted #D7E3F2; color:#077AC7; height:24px;}
+.dialog-box .table_list th{border:1px solid #D0E6EC; border-left-width:0;background:#fff url(../images/bg_x.gif) repeat-x 0 -110px; height:26px; line-height:26px; color:#077AC7; font-weight:normal;}
+.dialog-box .table_list td,.table_list th{padding-left:4px;}
+.dialog-box th.bdr_3{border-left:1px solid #D0E6EC;border-right:0;}
+
+.dialog-box tr.over td{background-color:#fffddd;}
+.dialog-box tr.row_chked td{background-color:#E7F2F5; border-bottom-color:#fff;}
+
+.tips_orange{position:relative; margin:10px; z-index:9999;}
+ .tips_orange .tips_left{background:#fff url(../images/bg_frame.gif) no-repeat 0 -530px; padding-left:10px; }
+  .tips_orange .tips_right{background:url(../images/bg_frame.gif) no-repeat right -530px; padding:10px 10px 10px 0;}
+ .tips_orange .tips_bottom{height:6px; background:url(../images/bg_frame.gif) no-repeat 0 -515px;}
+  .tips_orange .tips_bottom_r{height:6px; width:6px; background:url(../images/bg_frame.gif) no-repeat -594px -40px; float:right;}
+.tips_orange .tips_arrow_t,.tips_orange .tips_arrow_b{height:7px; width:7px; background:url(../images/bg_frame.gif) no-repeat -20px -17px; position:absolute;}
+.tips_orange .tips_arrow_b{background-position:-20px -45px; bottom:-4px;left:10px;}
+.tips_orange .tips_arrow_t{top:-4px; left:10px;}

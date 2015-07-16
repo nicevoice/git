@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<name tips="请输入报纸名称">
+	  	<required event="submit">名称不能为空</required>
+	  	<min args="2">标题不能少于2个字</min>
+	   	<max args="50">标题不能大于50个字</max>
+    </name>
+    <alias tips="只能有字母数字和下划线">
+	  	<required event="submit">别名不能为空</required>
+	  	<regex args="#^[\w]+$#">别名只能是字母开头,可包含字母数字及下划线.</regex>
+    </alias>
+    <pages tips="每一期的版面数">
+    	<required event="submit">版面数不能为空</required>
+	  	<integer>只能是整数</integer>
+    </pages>
+</root>

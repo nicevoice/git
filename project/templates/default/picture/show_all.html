@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="expires" content="0" />
+<meta name="keywords" content="{$tags}" />
+<meta name="description" content="{$description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<title>{$title}_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};
+</script>
+</head>
+<body>
+<!-- ******************* start header   *********************** -->
+<!--{template 'system/header.html'}-->
+<!-- *******************  end header   *********************** -->
+
+<div class="hr-h10"></div>
+<div class="column ad-area-1">
+	<div class="col-l-main"><!--#include virtual="/section/24.html"--><!--内容页顶部banner1--></div>
+	<div class="col-r-extra"><!--#include virtual="/section/25.html"--><!--内容页顶部banner2--></div>
+</div>
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="mode-position">
+		<span>
+			<a href="{WWW_URL}">首页</a>
+			{loop $pos $cat}
+			<a href="{$cat[url]}">{$cat[name]}</a>
+			{/loop}
+		</span>
+		组图
+	</div>
+</div>
+<div class="hr-h6"></div>
+<div class="column gallery-wrap">
+	<div class="gallery-head">
+		<div class="gall-pageNumber"><strong >{$total}</strong></div>
+		<div class="gall-title">
+			<h1>{$title}</h1>
+            <!--{if str_cut($description,180) != $description}-->
+            <p class="pic-title-summary">{str_cut($description,180)}<a href="javascript:;" onclick="description(this);" rel="f">[详细]</a></p>
+            <p class="pic-title-summary" style="display:none;">{$description}<a href="javascript:;" onclick="description(this);" rel="s">[收起]</a></p>
+            <!--{else}-->
+            <p class="pic-title-summary">{$description}</p>
+            <!--{/if}-->
+			<p class="pic-tit-info">
+                <span> {date('Y-m-d H:i', $published)}</span>
+                <!--{if $source_name}-->
+                <span>来源：<!--{if $source_url}--><a href="{$source_url}" target="_blank">{$source_name}</a><!--{else}-->{$source_name}<!--{/if}--></span>
+                <!--{/if}-->
+            </p>
+		</div>
+		<div class="view-other"><a href="{$pages[1][url]}" class="view-all-pic topdp">幻灯片</a><a href="{APP_URL}{url('comment/comment/index', 'topicid=' . $topicid)}">评论 <span class="comments">{$comments}</span> 条</a></div>
+	</div>
+	<div class="hr-h10"></div>
+	<div class="gallery-tile-wrap">
+		<ul class="gallerl-tile">
+		<!--{loop $pages $pic}-->
+			<li><div class="gall-pic-box">
+					<a href="{$pic[url]}"><img src="{thumb($pic[image], 200, 200)}" alt="{$pic[note]}" /></a>
+				</div>
+				<p><a href="{$pic[url]}">{str_cut($pic[note], 30)}</a></p>
+			</li>
+		<!--{/loop}-->
+		</ul>
+	</div>
+</div>
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="bor-9fc">
+		<div class="mode-head">
+		<h2 class="cor-c00">幻灯片精选</h2>
+	    </div>
+	    <div class="mode-imgtxt gall-imgs">
+      <!--#include virtual="/section/36.html"--><!--组图页精选-->
+		</div>
+	</div>
+</div>
+
+<div class="hr-h10"></div>
+<!--{if $allowcomment}-->
+<!-- *******************  start 评论   *********************** -->
+<!--{template 'picture/comment.html'}-->
+<!-- *******************  end 评论   *********************** -->
+<!--{/if}-->
+
+<div class="hr-h10"></div>
+		
+<script type="text/javascript">
+$(function(){
+	$('.gallerl-tile li').hover(function(){
+				$(this).addClass('tile-on');
+			},function(){
+				$(this).removeClass('tile-on');
+	});
+
+    var desc_state = $.cookie(COOKIE_PRE + 'p_' + contentid + '_desc');
+    if (desc_state) {
+        description($('a[rel=' + desc_state + ']', '.pic-title-summary'));
+    }
+});
+
+//取评论和pv
+$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){
+	$('.comments').html(data.comments);
+});
+function description(obj) {
+    var obj = $(obj);
+    if (obj.size()) {
+        var type = obj.attr('rel');
+        if (type == 'f') {
+            obj.parent().hide().next('p').show().css({
+                height: 'auto',
+                overflow: 'auto'
+            });
+        } else {
+            obj.parent().hide().prev('p').show();
+        }
+        $.cookie(COOKIE_PRE + 'p_' + contentid + '_desc', type);
+    }
+}
+</script>
+<!--{template 'system/footer.html'}-->

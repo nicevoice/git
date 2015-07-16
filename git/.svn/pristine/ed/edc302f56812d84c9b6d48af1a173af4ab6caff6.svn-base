@@ -1,0 +1,16 @@
+.pagination{text-align:center;}
+  .pagination a {background-color:#FFFFFF;
+border:1px solid #DDDDDD;
+color:#2266BB;
+float:left;
+font-family:Arial;
+height:20px;
+line-height:20px;
+margin:0 6px 0 0;
+padding:0 6px;
+text-align:center;
+vertical-align:middle;}
+  .pagination span{display:block; float:left;padding:0 6px; height:20px; line-height:20px; margin:0 6px 0;text-align:center;}
+  .pagination a:hover{text-decoration:none;border-color: #26b;}
+  .pagination .current{background-color: #26b; color: #fff; font-weight: bold; }
+    .pagination .current.prev, .pagination .current.next{color:#999;border-color:#999;background:#fff;}

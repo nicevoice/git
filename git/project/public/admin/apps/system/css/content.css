@@ -1,0 +1,21 @@
+.check-repeat-box{display: inline-block; width: 488px; overflow: hidden;position: relative; vertical-align: middle; float: left;}
+.check-repeat-ico {width: 20px; height: 20px; background:url('../images/check-repeat.png') no-repeat; display: inline-block;vertical-align:middle; cursor: pointer; position: absolute; top:4px; right: 2px; }
+.check-repeat-panel {border:1px solid #D3E8F9; border-width: 0 1px 1px; padding:0 0 2px 0; width:484px; overflow:hidden;background:#FFF;position: absolute;z-index:999;clear: both;}
+.check-repeat-row {padding: 6px 4px; margin: 0 2px;}
+.check-repeat-row:hover {background: #D3E8F9;}
+.check-repeat-title a{text-decoration:none; color: #000 !important; font-size: 12px;}
+.check-repeat-title a:hover{text-decoration:none !important; color: #000 !important;}
+.check-repeat-title .keyword {color:#f00 !important;}
+.check-repeat-cate {padding: 0 8px; font-size:12px; color: #666; cursor: default;}
+.check-repeat-banner {padding: 6px 0 4px 12px; position: relative; font-weight:bold;}
+.check-repeat-close {float: right;padding: 0 16px 8px 0; color: #077AC7; position: absolute; right: 0; font-weight:normal;}
+.check-repeat-close :hover {text-decoration:none}
+
+.check-repeat-panel .picture {background-position: 0 -336px;}
+.check-repeat-panel .link {background-position: 0 -100px;}
+.check-repeat-panel .video {background-position: 0 -125px;}
+.check-repeat-panel .activity {background-position: 0 -252px;}
+.check-repeat-panel .vote {background-position: 0 -171px;}
+.check-repeat-panel .interview {background-position: 0 -147px;}
+.check-repeat-panel .survey {background-position: 0 -309px;}
+.check-repeat-panel .special {background-position: 0 -280px;}

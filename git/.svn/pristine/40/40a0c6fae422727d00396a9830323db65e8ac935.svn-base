@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta name="keywords" content="{$tags}" />
+<meta name="description" content="{$description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<title>{$title}_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/video.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+</head>
+
+<body>
+<!-- ******************* start header   *********************** -->
+<!--{template 'system/header.html'}-->
+<!-- *******************  end header   *********************** -->
+
+<!-- 视频标题区 -->
+<div class="title-bar">
+	<div class="column pos-r">
+		<span class="share f-r pos-r">分享到：<a href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('{$title}'+'{$description}')+'&url='+encodeURIComponent(location.href)+'&appkey='+SINA_APPKEY,'_blank','width=450,height=400');})()"><img src="{IMG_URL}templates/{TEMPLATE}/images/sina.gif" title="新浪微博"/></a>
+			<a href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent('{$title}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&source='+QQ_SOURCEID+'&pic=','转播到腾讯微博', 'width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no'); })()"><img src="{IMG_URL}templates/{TEMPLATE}/images/qq.png" title="腾讯微博"/></a>
+					
+			<a href="javascript:u=location.href;t='{$title}';c = %22%22 + (window.getSelection ? window.getSelection() : document.getSelection ? document.getSelection() : document.selection.createRange().text);var url=%22http://cang.baidu.com/do/add?it=%22+encodeURIComponent(t)+%22&iu=%22+encodeURIComponent(u)+%22&dc=%22+encodeURIComponent('{$description}')+%22&fr=ien#nw=1%22;window.open(url,%22_blank%22,%22scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes%22); void 0"><img src="{IMG_URL}templates/{TEMPLATE}/images/baidu.gif" title="百度搜藏"/></a>
+			<a href="javascript:u='http://share.xiaonei.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'xiaonei','toolbar=0,resizable=1,scrollbars=yes,status=1,width=626,height=436');void(0)" title="人人网"/></a>
+			<a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent('{$title}'.substring(0,76))+'&uri='+encodeURIComponent(location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/qzone.gif" title="Qzone" /></a>
+			<a href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(kaixin=window.open('http://www.kaixin001.com/~repaste/repaste.php?&rurl='+escape(d.location.href)+'&rtitle='+escape('{$title}')+'&rcontent='+escape('{$description}'),'kaixin'));kaixin.focus();"><img src="{IMG_URL}templates/{TEMPLATE}/images/kaixin.gif" title="开心网"/></a>
+			<a href="javascript:var%20u='http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/douban.gif" title="豆瓣网"/></a>
+		</span>
+		 <div>
+			<h2 class="h2" style="font-weight:normal;">{$title}</h2> 
+			<span class="time fz12">时长：<span class="ff">{second_format($playtime)}</span></span> <span class="funs fz12">人气：<span class="ff" id="pv">0</span></span> <span class="tag fz12">标签: <!--{loop $keywords $r}--><a href="{$r[url]}">{$r[tag]}</a> <!--{/loop}--> </span>
+		 </div>
+		 
+			
+	</div>
+</div>
+
+ 
+<!-- 视频展示区 -->
+<div class="vedio-show ov">
+	<div class="column">
+		<div class="vedio-left f-l pos-r mar-r-24"><img src="{IMG_URL}templates/{TEMPLATE}/images/ads/vedio-left.png" width="146" height="407" /><a href="" title="" class="pos-a closed">关闭</a></div>
+		<div class="vedio-center f-l"><!--{template 'video/player/'.$player.'.html'}--></div>
+		<div class="vedio-right f-l pos-r mar-l-24"><img src="{IMG_URL}templates/{TEMPLATE}/images/ads/vedio-right.png" width="146" height="407" /><a href="" title="" class="pos-a closed2">关闭</a></div>
+	</div>
+</div>
+<div class="hr-h20"></div>
+
+<div class="column">
+	<div class="w-690 f-l">
+	
+		<!-- 相关视频 -->
+		<!--- start related --->
+		<!--{if $keywords || $related}-->
+		<!--<?php $related_count = 0; ?>-->
+		<div class="mod about-vedio bd-gray">
+			<div class="hd gray-title">
+				<h2 class="h2">相关视频</h2>
+			</div>
+			<div class="bd scroll_box" id="tp_scroll_box">
+				<p class="scroll_left">left</p>
+				<div class="scroll_list">
+					<ul>
+					<!--{if $related}-->
+						<!--{loop $relateds $k $r}-->
+						<?php $related_count++; ?>
+						<li><a href="{$r[url]}"><img src="<?php if($r['thumb']){echo $r['thumb'];}else{echo IMG_URL.'templates/'.TEMPLATE.'/css/images/video/no.png';} ?>" alt="{$r[title]}" /></a><h3><a href="{$r[url]}">{str_cut($r[title],10,'')}</a></h3></li>
+						<!--{/loop}-->
+					<!--{else}-->
+						<!--{content_related contentid="$contentid" tags="$tags" modelid="5" size="10"}-->
+						<?php $related_count++; ?>
+						<li><a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}" /></a><h3><a href="{$r[url]}">{str_cut($r[title],10,'')}</a></h3></li>
+						<!--{/content_related}-->
+					<!--{/if}-->
+					</ul>
+				</div>
+				<p class="scroll_right">right</p>
+			</div>
+		</div>
+		<div class="hr-h10"></div>
+		<!--<?php echo $related_count; ?>-->
+		<!--{if $related_count}-->
+		<style type="text/css">.arti-rel {display:block !important;}</style>
+		<!--{/if}-->
+		<!--{/if}-->
+		<!--- end related --->
+		<!--- start mood --->
+		<div class="bd-gray ov">
+			<!--{template 'article/mood.html'}-->
+			<!--- end mood --->
+			<div class="txt ov">
+				<span class="copy f-r"><a onclick="copyToClipboard(window.location.href);return false" href="javascript:;">【复制网址】</a></span>
+				<div class="digg">
+				<a id="supports" href="javascript:digg.set({$contentid},1)"><span>0</span><span>50%</span></a>
+				<a id="againsts" href="javascript:digg.set({$contentid},0)" class="againsts"><span>0</span><span>50%</span></a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="hr-h10"></div>
+		
+		<!--{if $allowcomment}-->
+		<!-- *******************  start 评论   *********************** -->
+		 <!--{template 'article/comment.html'}-->
+			<!-- *******************  end 评论   *********************** -->
+		<!--{/if}-->
+		
+	</div>
+	<div class="w-260 f-r">
+	
+		<!-- 推荐视频 -->
+		<div class="mod bd-gray">
+			<div class="hd gray-title2">
+				<h2 class="h2">推荐视频</h2>
+			</div>
+			<div class="bd pad-t-8">
+				<ul class="vedio-list">
+				<!--{content modelid="4" where="thumb<>''" weight="60," size="4"}-->
+					 <li><div class="vedio-bg"><a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}" width="102" height="62" /></a></div><p><a href="{$r[url]}">{str_cut($r['title'],16,'')}</a></p></li>
+				<!--{/content}-->
+				</ul>
+				<div class="h0 clear"></div>
+			</div>
+		</div>
+		
+		<!-- 焦点视频 -->
+		<div class="mod bd-gray" style="border-top-width:0;">
+			<div class="hd gray-title2">
+				<h2 class="h2">焦点视频</h2>
+			</div>
+			<div class="bd pad-t-8">
+				<ul class="vedio-list">
+				<!--{content modelid="4" where="thumb<>''" orderby="pv desc" size="4"}-->
+					 <li><div class="vedio-bg"><a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}" width="102" height="62" /></a></div><p><a href="{$r[url]}">{str_cut($r['title'],16,'')}</a></p></li>
+				<!--{/content}-->
+				</ul>
+				<div class="h0 clear"></div>
+			</div>
+		</div>
+						   
+		<div class="mod bd-gray" style="border-top-width:0;">
+			 <div class="hd tabTitle1">
+				<h2 class="f-l">排行榜</h2>
+				<ul id="tab-title-1" class="ov f-r">
+				  <li><a href="" title="" class="tabs-focus">点击</a></li>
+				  <li><a href="" title="">评价</a></li>
+				  <li><a href="" title="" style=" border-right-width:0;">Digg</a></li>
+				</ul>
+			 </div>
+			 <div class="bd" id="tab-cont-1">
+				<div>
+					<ul class="rank-list">
+					<!--{content modelid="4" orderby="comments desc" size="9"}-->
+						 <li><em class="ico">{$i}</em><a href="{$r[url]}" title="{$r[title]}">{str_cut($r['title'],25,'')}</a></li>
+					<!--{/content}-->
+					</ul>
+				</div>
+				<div style="display:none">
+					<ul class="rank-list">
+					<!--{content modelid="4" orderby="pv desc" size="9"}-->
+						 <li><em class="ico">{$i}</em><a href="{$r[url]}" title="{$r[title]}">{str_cut($r['title'],25,'')}</a></li>
+					<!--{/content}-->
+					</ul>
+				</div>
+				<div style="display:none">
+					<ul class="rank-list">
+					<!--{db sql="select a.title,a.url from #table_content a LEFT JOIN #table_digg ON a.contentid=b.contentid WHERE a.modelid=4 ORDER BY b.supports DESC" size="9"}-->
+						 <li><em class="ico">{$i}</em><a href="{$r[url]}" title="{$r[title]}">{str_cut($r['title'],25,'')}</a></li>
+					<!--{/db}-->
+					</ul>
+				</div>
+			 </div>
+		</div>
+								
+	</div>
+</div>
+
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/digg/js/digg.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};
+jQuery.ThinkAutoScroll = function(ID,speed)
+{
+    var $ul = $('.scroll_list>ul',ID),
+        cTime;
+
+    if($ul.children('li').length > 4)
+    {
+        cTime  = setInterval(toScroll,speed);
+
+        $(ID).hover(
+            function(){
+                clearInterval(cTime);
+            },function(){
+                cTime = setInterval(toScroll,speed);
+            }
+        );
+
+        $('.scroll_left',ID).bind('click',function(){ toScroll(1);});
+        $('.scroll_right',ID).bind('click',function(){ toScroll();});
+    }
+
+    function toScroll(isLeft)
+    {
+        if (isLeft) {
+            $ul.animate({ left:'-626px'},{ duration:200,complete:function(){
+                    $ul.append($ul.find('li:first'));
+                    $ul.css('left','0');
+                }}
+            );
+        }else{
+            $ul.animate({ left:0}, { duration:200,complete:function(){
+                    $ul.prepend($ul.find('li:last'));
+                    $ul.css("left",'-626px');
+                }}
+            );
+        }
+    }
+};
+
+function copyToClipboard(txt) {  //复制网址
+	if(window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+		alert("复制链接成功！");
+	} else if(navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert(" 被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode",str,copytext.length*2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans,null,clipid.kGlobalClipboard);
+		alert("复制链接成功！");
+	}
+}
+
+$(document).ready(function(){
+	digg.get(contentid);
+	$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){
+		$('#pv').html(data.pv);
+	});
+    $.ThinkAutoScroll('#tp_scroll_box',30000);
+});
+</script>
+
+<!--{template 'system/footer.html'}-->

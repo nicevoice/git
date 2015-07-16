@@ -1,0 +1,205 @@
+.button_style_1 {
+    width: auto;
+    float: none;
+}
+.panel_wrapper .button_style_1 {
+    height: 17px;
+    line-height: 18px;
+    margin: 0 4px;
+    padding: 2px 5px;
+}
+.tabs {
+    margin-top: 5px;
+}
+.panel_wrapper {
+    height: 310px;
+    margin-top: 0;
+}
+.panel-action {
+    padding-top: 5px;
+    line-height: 18px;
+}
+.panel-action select {
+    line-height: inherit;
+}
+.panel-content {
+    margin-top: 10px;
+    padding: 0 4px;
+    height: 280px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.mceActionPanel {
+    text-align: right;
+}
+
+/* 图片列表 */
+.image-list {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.image-thumb-item,
+.image-thumb-item-helper,
+.image-thumb-empty {
+    width: 215px;
+    height: 160px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1px;
+    border: solid 1px #CCC;
+    float: left;
+    margin-right: 14px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.image-list-sortable .image-thumb-item-helper,
+.image-list-sortable .image-thumb-item .image-thumb-item-a {
+    cursor: move;
+}
+.image-list-sortable .image-thumb-item-helper {
+    border: dashed 1px #00A5D5;
+}
+.image-thumb-empty {
+    line-height: 160px;
+    color: #CCC;
+    cursor: pointer;
+}
+.image-thumb-item .image-thumb-item-a {
+    display: block;
+    width: 213px;
+    height: 158px;
+    vertical-align: middle;
+    margin-top: 1px;
+    margin-left: 1px;
+    *margin-left: 0;
+    *margin-top: 0;
+    background: transparent url(/images/loader.gif) no-repeat center center;
+}
+.image-thumb-item .image-thumb-item-action {
+    top: 2px;
+    width: 213px;
+    height: 25px;
+    line-height: 30px;
+    text-align: right;
+    cursor: pointer;
+}
+.image-thumb-item .image-thumb-item-desc,
+.image-thumb-item .image-thumb-item-desc textarea {
+    overflow: hidden;
+}
+.image-thumb-item .image-thumb-item-desc:hover,
+.image-thumb-item span.image-thumb-item-desc-edit {
+    border-color: #888888 #DDDDDD #DDDDDD #888888;
+    border-style: solid;
+    border-width: 1px;
+    padding: 7px 2px;
+}
+.image-thumb-item .image-thumb-item-desc,
+.image-thumb-item .image-thumb-item-desc-edit {
+    bottom: 2px;
+    text-align: left;
+    color: #FFF;
+    padding: 8px 3px;
+}
+.image-thumb-item .image-thumb-item-desc,
+.image-thumb-item .image-thumb-item-desc textarea,
+.image-thumb-item .image-thumb-item-desc-edit,
+.image-thumb-item .image-thumb-item-desc-edit textarea {
+    width: 207px;
+    height: 30px;
+    line-height: 15px;
+    white-space: normal;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+.image-thumb-item span.image-thumb-item-desc-edit {
+    width: 207px;
+    color: #000000;
+    background-color: #FBFBFB;
+}
+.image-thumb-item .image-thumb-item-desc textarea,
+.image-thumb-item .image-thumb-item-desc-edit textarea {
+    border: none;
+    background: transparent;
+    padding: 0;
+    resize: none;
+    outline: none;
+}
+.image-thumb-item .image-thumb-item-desc textarea {
+    width: 207px;
+    color: #FFF;
+    background: url(images/blank.gif) repeat 0 0;
+}
+.image-thumb-item .image-thumb-item-desc-edit textarea {
+    width: 207px;
+    color: #000;
+}
+.image-thumb-item .image-thumb-item-action,
+.image-thumb-item .image-thumb-item-desc,
+.image-thumb-item .image-thumb-item-desc-edit {
+    display: block;
+    position: absolute;
+    left: 2px;
+}
+.image-thumb-item .image-thumb-item-action,
+.image-thumb-item .image-thumb-item-desc {
+    background: rgba(0, 0, 0, 0.3);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#4c000000', EndColorStr='#4c000000');
+}
+:root .image-thumb-item .image-thumb-item-action,
+:root .image-thumb-item .image-thumb-item-desc {
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#00000000', EndColorStr='#00000000');
+}
+.image-thumb-item .image-thumb-item-action a {
+    display: inline-block;
+    width: 16px;
+    line-height: 16px;
+    height: 16px;
+    margin: 4px 5px 0 0;
+}
+.image-thumb-item .image-thumb-item-action a img {
+    margin: 0;
+    padding: 0;
+}
+.image-thumb-item .image-thumb-item-action .image-thumb-item-message,
+.image-thumb-item .image-thumb-item-action .image-thumb-item-num {
+    color: #FFF;
+    float: left;
+    margin-left: 5px;
+    line-height: 25px;
+    max-width: 150px;
+    overflow: hidden;
+}
+
+.image-panel-list {
+
+}
+.image-panel-list tr th {
+    position: relative;
+    vertical-align: middle;
+}
+.image-panel-list tr th span {
+    display: block;
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+.image-panel-list tr th span a, 
+.image-panel-list tr th span a img {
+    display: block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+.image-panel-list tr td {
+    padding: 5px;
+}
+.image-panel-list tr td input {
+    display: block;
+    width: 98%;
+    height: 20px;
+    line-height: 20px;
+    margin: 0;
+}

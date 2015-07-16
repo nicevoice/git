@@ -1,0 +1,38 @@
+#history_index,#history_index_hover{position: relative;width:64px;color:#fff;}
+#history_index_hover{ background:url(images/bg_1.gif) no-repeat right -70px;line-height:20px;height:21px; margin-top:3px; margin-right:12px;}
+#search_index{width:129px; background:url(images/bg_1.gif) no-repeat 0 -100px; line-height:28px; padding-top:8px;}
+#search_index ul li{line-height:18px; height:21px; color:#fff; text-indent:8px;}
+.search_index_btn{text-indent:-9999px; width:18px; float:left;}
+#calendarBox .link{width:948px; margin:10px auto 0; border:1px solid #ccc; background:#FAFAFA; padding:4px;}
+#calendarBox .link a{width:90px; display:block; float:left; overflow:hidden; padding-left:4px; margin:4px auto; line-height:33px; text-align:center;}
+#foot_link{background:#f1f1f1; border-bottom:1px solid #ddd; height:24px; line-height:24px;}
+#foot{line-height:24px; color:#666;}
+#calendarBox {cursor: default; background: #fff;border:1px solid #ccc;position:absolute;right:0;top:18px;width:175px;z-index:10000;color: #000;}
+#calendarBox .selectDate {clear:both;float:left;font-size:14px;padding: 0 2px;margin:4px 0 6px;width:175px;}
+#calendarBox .selectDate div{float: left;width: 22px;}
+#calendarBox .selectDate div a{
+	display: block;width: 22px;
+}
+#calendarBox .selectDate .cu_month{width: 78px;}
+#calendarBox .title {background: #DDD;clear:both;float:left;width:175px;}
+#calendarBox .title .endweek {color:#BA2636;}
+#calendarBox .title li {float:left;font-weight:bold;line-height:25px;text-align: center;width:25px;font-size:12px;margin:0px;padding:0px}
+#calendarBox .list {clear:both;float:left;width:175px;}
+#calendarBox .list li {text-align: center; color: #aaa; background: #F6F6F6;float:left;height:25px;line-height:25px;margin:0 1px 1px 0;width:24px;}
+#calendarBox a {color: #000;padding: 0;display:block;text-align: center;}
+#calendarList a {width: 24px;padding: 0;text-align: center;}
+#calendarBox a:hover {background: #369; color: #fff;}
+#hoursDiv {text-align:center; font-size: 14px; font-weight: bold; color:#888; border-bottom:1px solid #aaa;}
+#hoursDiv a {margin: 0 10px;}
+#hoursDiv a.current{color: #F00}
+
+#search_index{width:129px; background:url(images/bg_1.gif) no-repeat -180px -480px; line-height:28px; padding-top:8px; height:24px;}
+#search_index ul li{line-height:18px; height:21px; color:#fff; text-indent:8px;}
+.search_index_btn{text-indent:-9999px; width:18px; float:left;}
+.search_index_txt{ width:102px; padding-left:3px; color:#666;}
+
+#calendarBox .link{width:948px; margin:10px auto 0; border:1px solid #ccc; background:#FAFAFA; padding:4px;}
+#calendarBox .link a{width:90px; display:block; float:left; overflow:hidden; padding-left:4px; margin:4px auto; line-height:33px; text-align:center;}
+#foot_link{background:#fff; border-top:1px solid #ddd; height:32px; line-height:32px; color:#666;}
+
+#foot{line-height:24px; color:#666;}

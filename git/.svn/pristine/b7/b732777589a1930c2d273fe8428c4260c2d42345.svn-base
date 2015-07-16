@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<filename tips="填写文件名" pass="">
+		<required event="submit">必填</required>
+		<regex args="/^\w+$/">填写0-9,_,a-z组合</regex>
+	</filename>
+	<filealias tips="可以是中文名称" pass="">
+	</filealias>
+</root>

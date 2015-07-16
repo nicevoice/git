@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>注册_{$SYSTEM[sitename]}</title>
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+		<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/jquery.form.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.validator.js"></script>
+<script type="text/javascript">
+$.validate.setConfigs({
+	xmlPath:'apps/member/validators/'
+});
+$(document).ready(function() {
+	$('#member_registerForm').validate({
+		infoHandler:function(jq,message,type){
+			if(type == 'error') {
+				jq.siblings('.tipinfo').hide();
+				jq.siblings('.warn').html(message).show();
+			}
+		}
+	});
+	
+	$("#member_registerForm input").focus(function() {
+		$(this).siblings('.warn').hide();
+		$(this).siblings('.tipinfo').show();
+	});
+
+	$('#member_bindForm').validate({
+		infoHandler:function(jq,message,type){
+			if(type == 'error') {
+				jq.siblings('.tipinfo').hide();
+				jq.siblings('.warn').html(message).show();
+			}
+		}
+	});
+	
+	$("#member_bindForm input").focus(function() {
+		$(this).siblings('.warn').hide();
+		$(this).siblings('.tipinfo').show();
+	});
+});
+</script>
+</head>
+<body>
+<!--{template 'system/header.html'}-->
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="member-wrap w-720 bor-ccc">
+		<div class="member-title">
+			<h2>欢迎  {$uname}<img src="apps/member/images/ico_sina_ok.gif" class="top-rss" /></h2> 
+			 <span class="cor-666"> 如果您没有本站账号，完善信息后即可访问，并且下次可以直接使用新浪帐号登陆！ </span>
+		</div>
+		<div>
+		<form action="{url('member/index/otherlogin')}" method="POST"  name="member_registerForm" id="member_registerForm" >
+			<ul class="formFormat member-form">
+				<li><span class="info f-l"><label for="reg_username">用户名：</label></span>
+				<input name="username" id="reg_username" type="text" value="{$uname}" maxlength="16" class="input-text age f-l input-w160" />
+				<span class="tipinfo">3-16字，可由中文,字母,数字及"_"组成</span>
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li><span class="info f-l"><label for="reg_password">密码：</label></span>
+				<input name="password" id="reg_password" type="password" value="" maxlength="32" class="input-text age f-l input-w160" />
+				<span class="tipinfo">字符长度在6到16个字符之间</span>
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li><span class="info f-l"><label for="reg_password_check">确认密码：</label></span>
+				<input name="password_check" id="reg_password_check" type="password" value="" maxlength="32" class="input-text age f-l input-w160" />
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li><span class="info f-l"><label for="reg_email">邮箱：</label></span>
+				<input name="email" id="reg_email" type="text" value="{$login_info['email']}" class="input-text age f-l input-w160" />
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li class="align-member cor-666">
+				<input type="submit" class="btn" value="同意协议，提交注册申请" />
+				<a href="{url('member/index/login')}" class="ch-yzm" style="color: #06c; ">已注册登录</a>
+				</li>
+				<li>
+					<div class="readme bor-ccc padd-10">
+						<!-- 服务条款 -->
+						{$SETTING[agreement]}
+					</div>
+				</li>
+			</ul>
+		</form>
+		</div>
+		<div class="member-title">
+			<h2><img src="apps/member/images/ico_sina_ok.gif" class="top-rss" />您也可以和本站已有帐号进行绑定！</h2>
+		</div>
+		<div>
+		<form action="{url('member/index/otherlogin', 'arg=statusBind')}" method="POST"  name="member_bindForm" id="member_bindForm" >
+			<ul class="formFormat member-form">
+				<li><span class="info f-l"><label for="bind_username">用户名：</label></span>
+				<input name="username" id="reg_username" type="text" maxlength="16" class="input-text age f-l input-w160" />
+				<span class="tipinfo">3-16字，可由中文,字母,数字及"_"组成</span>
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li><span class="info f-l"><label for="bind_password">密码：</label></span>
+				<input name="password" id="reg_password" type="password" value="" maxlength="32" class="input-text age f-l input-w160" />
+				<span class="tipinfo">字符长度在6到16个字符之间</span>
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<li class="align-member cor-666">
+				<input type="submit" class="btn" value="绑定" />
+				</li>
+			</ul>
+		</form>
+		</div>
+	</div>
+</div>
+<div class="hr-h10"></div>
+<!--{template 'system/footer.html'}-->

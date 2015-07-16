@@ -1,0 +1,129 @@
+	input[type='text']{border:1px solid #ddd; padding:3px; border-color:#888 #ddd #ddd #888; background-color:#fbfbfb; font-size:12px; font-family:Tahoma, Verdana,"宋体"; line-height:1.0;}
+	input[type='text']:focus{
+		border-color:#00A5D5;
+	}
+	div.ctrl_area {
+		height:38px;line-height:40px;padding:0;margin:0;border:0;
+		text-align:left;
+	}
+	div.ctrl_area button.button_style_1,
+	div.ctrl_area select {
+		float:left;
+		margin:8px 6px 0 6px;
+		height:21px;
+	}
+	h3.navi {
+		height:23px;
+		line-height:23px;
+		border:0;
+		padding:0 5px;
+		margin:0;
+	}
+	h3.tag_span {
+		padding-left:15px;
+	}
+	h3.tag_span span.active {
+		background-color:#fff;
+		border-left:1px solid #9AC4DC;
+		border-right:1px solid #9AC4DC;
+		padding:0 9px;
+	}
+	#leftList, #centerList, #rightList {
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	
+	.bdr_r {
+		border-right:1px solid #C2CFF1;
+	}
+	
+	#centerList {
+		background-color:#EBEFF9;
+		overflow-y:scroll;
+	}
+	
+	.channel {
+		margin-top:5px;
+	}
+	.channel li {
+		padding-left:16px;
+		cursor:pointer;
+		height:22px;
+		line-height:22px;
+		overflow:hidden;
+	}
+	.channel li:hover,
+	.channel li.hover {
+		background-color:#fffddd;
+	}
+	.channel li.focus {
+		background-color:#C2CFF1;
+	}
+	
+	.viewer-container {
+		margin-left:5px;
+		display:none;
+	}
+	.viewer-container li {
+		background-color:white;
+		border:2px solid white;
+	}
+	.viewer-container li.focus {
+		border-color:#6688EE;
+	}
+	.viewer-container li .item-header {
+		font-weight:bold;
+		cursor:pointer;
+		background-color:transparent;
+		background-image:none;
+		border-bottom:1px solid #E0E0E8;
+		height:28px;
+		line-height:28px;
+	}
+	.viewer-container li.expanded .item-header {
+		background-color:#F3F5FC;
+	}
+	.viewer-container li.spiden .item-header,
+	.viewer-container li.viewed .item-header {
+		font-weight:normal;
+	}
+	.item-header .header-left {
+		vertical-align:middle;
+	}
+	.item-header a {
+		vertical-align:middle;
+	}
+	.item-header .header-right {
+		float:right;
+		display:inline-block;
+	}
+	.header-right img {
+		margin:auto 2px;
+	}
+	.viewer-container li.hover,
+	.viewer-container li:hover {
+		background-color:#fffddd;
+	}
+	.viewer-container li div.item-desc {
+		clear:both;
+		color:#2F2F2F;
+		font-size:13px;
+		line-height:125%;
+		margin-top:10px;
+		overflow:auto;
+		padding-left:15px;
+		padding-right:15px;
+		table-layout:fixed;
+		display:none;
+	}
+	.viewer-container li.expanded div.item-desc {
+		display:block;
+	}
+	
+	.table_list td span.catname {
+		cursor:pointer;
+	}
+	
+	#saveTempBtn {
+		display:none;
+	}

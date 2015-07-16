@@ -1,0 +1,59 @@
+/* Generic context menu styles */
+.contextMenu {
+	position: absolute;width: 100px;z-index: 99999;
+	border: solid 1px #00A5D5;background:#fff;padding:1px;margin:0;
+	display: none;cursor:pointer;
+    -moz-box-shadow: 0 0 5px #AAA;
+    -webkit-box-shadow: 0 0 5px #AAA;
+    box-shadow: 0 0 5px #AAA;
+}
+
+.contextMenu LI {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 12px;
+}
+
+.contextMenu A {
+	font-size: 12px;
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 20px;
+	height: 20px;
+	background: url(images/bg-contextMenu.gif) no-repeat 0 30px;
+	outline: none;
+	padding: 1px 5px;
+	padding-left: 26px;
+}
+
+.contextMenu LI:hover A {
+	color: #FFF;
+	background-color: #4D90FE;
+}
+
+.contextMenu LI.separator {
+	border-top: solid 1px #CCC;
+}
+
+/*
+	Adding Icons
+	
+	You can add icons to the context menu by adding
+	classes to the respective LI element(s)
+*/
+.contextMenu LI.new a{ background-position: 5px -234px; }
+.contextMenu LI.edit a{ background-position: 5px -27px; }
+.contextMenu LI.cut a{ background-position: 5px -716px;}
+.contextMenu LI.copy a{ background-position: 5px -386px;}
+.contextMenu LI.paste a{ background-position: 5px -746px;}
+.contextMenu LI.delete a{ background-position: 5px -116px;}
+.contextMenu LI.del a{ background-position: 5px -116px;}
+.contextMenu LI.quit a{ background-position: 5px -240px;}
+.contextMenu LI.run a{ background-position: 5px -237px;}
+.contextMenu LI.log a{ background-position: 5px -237px;}
+.contextMenu LI.install a{ background-position: 5px -806px;}
+.contextMenu LI.uninstall a{ background-position: 5px -240px;}
+.contextMenu LI.download a{ background-position: 5px -536px;}
+/*.contextMenu LI.rename a{ background-position: 5px -776px;}*/

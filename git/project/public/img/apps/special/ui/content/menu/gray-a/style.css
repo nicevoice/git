@@ -1,0 +1,17 @@
+.content-menu-gray-a {
+	background-color:#556266;
+	padding:0px 10px;
+}
+.content-menu-gray-a a {
+	color:#fff;
+	font-size:12px;
+}
+.content-menu-gray-a a:hover {
+	color:#ccc;
+	text-decoration:none;
+}
+.content-menu-gray-a span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}

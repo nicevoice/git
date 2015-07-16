@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+<link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+<title>{$wd}-题库搜索</title>
+<link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+<script type="text/javascript" src="{JS_URL}jquery.js"></script>
+<script type="text/javascript" src="{JS_URL}exam/exam.js"></script>
+{include_tpl('section/605.html')}
+</head>
+
+<body>
+<!--{template 'exam/header_mini'}-->
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+        	<div class="tk-searcharea pb15">
+                <form action="{WWW_URL}exam/so" method="get">
+				<span class="tk-searchToolBg">
+                    <input type="text" name="wd" class="tk-searchInput" placeholder="请输入题目、选项、来源等关键词" value="<?php echo htmlspecialchars($wd);?>">
+                </span>
+                    <input type="hidden" name="subjectid" value="<?php echo intval($subjectid)?>">
+                    <input type="hidden" name="rd" value="<?php echo random(12);?>">
+                    <input type="submit" value="" class="tk-searchsubmit">
+                </form>
+            </div>
+
+        	<div class="tk-exam clearfix">
+                {if $exceed}<p style="margin:10px 0"><font class="f14"><b>提示："{$exceed}"&nbsp;及其后面的字词均被忽略，因为会计网题库的查询限制在38个汉字以内。</b></font><br></p>{/if}
+            {if $lists}
+            <div class="tk-examright" style="float:none;width:auto">
+            	<div class="tk-examtitle pl20">在 <font style="color: red;">{$propertys[$subjectid][name]}</font> 科目下，找到{$count}道相关题目</div>
+                <?php
+                    $number = $page > 1 ? ($page-1)*$pagesize : 0;
+                ?>
+                {loop $lists $list}
+                <?php
+                 $title =  str_replace($wd, '<em class="tk-green">'.$wd.'</em>', $list['subject']);
+                 $showid = $list['bandid'] ? $list['bandid'] : $list['questionid'];
+                 $showid = md5($showid.'exam');
+                 ++$number;
+                ?>
+                <div class="tk-examtimu">
+                	<div class="tk-examtimuinner">
+                    	<span class="tk-listitem"><a href="#" name="1"></a>{$number}</span>{$title}
+                    </div>
+                    <div class="tk-examselect pl10 pr10 pt5 pb5">
+                    	<ul>
+                        	{loop $list['option'] $k $op}
+                            <li><span class="mr10">{$alphabet[$k]}</span>{$op['name']}</li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    <div class="tk-selectitem clearfix tk-dashline">
+                    	<div class="tk-laiyuanicon">
+                        	{$list['source']}
+                        </div>
+                        <div class="fn-fr clearfix">
+                            <a href="javascript:void(0);" data-id="{$list['questionid']}" class="tk-save favorite">收藏本题</a>
+                            <span class="tk-line">|</span>
+                            <a href="{kuaiji_url('question/show' , array('id'=>$showid) , 'exam')}" target="_blank" class="tk-detail tk-detailon fc-blue">查看答案</a>
+                        </div>
+                    	
+                    </div>
+
+                    
+                </div>
+                {/loop}
+
+            {else}
+
+                    <div class="nors" style="font-size: 14px;">
+                        <p>抱歉，没有找到与<span style="font-family:宋体">“</span><em style="color: #cc0000;">{$wd}</em><span style="font-family:宋体">”</span>相关的网页。
+                        </p>
+                        <br>建议：
+                        <ul>
+                            <li>检查输入是否正确</li>
+                            <li>简化输入词</li>
+                            <li>尝试其他相关词，如同义、近义词等</li>
+                        </ul>
+                    </div>
+
+            {/if}
+            </div>
+            {if $pages}
+            <div class="tk-pagenav">
+                {$pages}
+            </div>
+            {/if}
+        </div>
+        
+        </div>
+
+    </div>
+</div>
+
+<!--{template 'exam/footer.html'}-->

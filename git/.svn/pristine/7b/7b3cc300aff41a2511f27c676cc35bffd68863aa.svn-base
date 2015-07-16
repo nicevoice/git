@@ -1,0 +1,14 @@
+<div class="p-leftbar">
+	<div class="inner">
+		<div class="hd"><h3>投稿管理</h3></div>
+		<div class="bd">
+			<ul>
+				<li rel="contribute">-<a href="{url('contribution/panel/contribute')}" >投稿</a></li>
+				<li rel="published">-<a href="{url('contribution/panel/published')}" >已发表</a> (<span id="num_publish">{$statistics[publish]}</span>)</li>
+				<li rel="submitted">-<a href="{url('contribution/panel/submitted')}" >审核中</a> (<span id="num_wait">{$statistics[wait]}</span>)</li>
+				<li rel="rejected">-<a href="{url('contribution/panel/rejected')}" >已退稿</a> (<span id="num_reject">{$statistics[reject]}</span>)</li>
+				<li rel="drafted">-<a href="{url('contribution/panel/drafted')}" >草稿箱</a> (<span id="num_draft">{$statistics[draft]}</span>)</li>
+			</ul>
+		</div>
+	</div>
+</div>

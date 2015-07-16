@@ -1,0 +1,121 @@
+/*
+ * imgAreaSelect style to be used with deprecated options
+ */
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-border1 {
+	border: solid 1px #000;
+}
+
+.imgareaselect-border2 {
+	border: dashed 1px #fff;
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+    border: solid 1px #000;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-outer {
+    background-color: #000;
+    opacity: 0.3;
+    filter: alpha(opacity=40);
+}
+
+.imgareaselect-selection {
+	background-color: #fff;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+
+
+/*
+ * imgAreaSelect animated border style
+ */
+
+.imgareaselect-border1 {
+	background: url(border-anim-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+    background: url(border-anim-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+    background: url(border-anim-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+    background: url(border-anim-h.gif) repeat-x left bottom;
+}
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+	opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+	border: solid 1px #000;
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+.imgareaselect-outer {
+	background-color: #000;
+	opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+
+
+/*
+ * imgAreaSelect default style
+ */
+
+.imgareaselect-border1 {
+	background: url(border-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+    background: url(border-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+    background: url(border-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+    background: url(border-h.gif) repeat-x left bottom;
+}
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+    border: solid 1px #000;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-outer {
+    background-color: #000;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.imgareaselect-selection {  
+}

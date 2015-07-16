@@ -1,0 +1,61 @@
+body{ background-color:#ffffff; color:#515151; font-size:12px;font-family: "Microsoft Yahei", "微软雅黑","宋体", Tahoma, Arial, Helvetica, STHeiti; padding:0px; margin:0px; position:relative; overflow-x:hidden;}
+ul,li,ol,dl,dt,dd,p,form,input,h1,h2,h3,h4{ padding:0px; margin:0px; list-style:none;}
+a img{ border:none;}
+a{color:#515151;text-decoration: none;}
+a:hover {text-decoration: none;	color: #df8e18;}
+.yahei{}
+.clr{ height:0px; margin:0px; padding:0px; clear:both; overflow:hidden;}
+.space{ padding-top:10px;}
+
+
+.header{ width:920px; margin:auto; height:80px; padding-top:22px; overflow:hidden;}
+.header .logo{ float:left; width:150px; height:56px; overflow:hidden; display:block; background:url(../js/logo.jpg) no-repeat; line-height:56px; text-indent:30000px;}
+.header .search{ width:490px; float:left; padding-left:150px; overflow:hidden;}
+.header .search form{ width:490px; height:36px; background:url(../js/searchbtn.jpg) no-repeat;}
+.header .search form .txt{ width:390px; padding-left:10px; height:36px; border:none; line-height:36px; background:none; float:left; color:#999}
+.header .search form .btn{ width:90px; float:left; background:none; border:none; padding:0px; margin:0px; cursor:pointer; line-height:36px; height:36px; text-indent:3000px; overflow:hidden;}
+.header .search .hot{ height:30px; line-height:30px;}
+.header .search .hot a{ color:#000000;}
+.header .search .hot a:hover{ color:#ff5600;}
+
+.header2{ height:125px; position:relative; background:#040001}
+.header2 .headerimg{ width:920px; margin:auto; height:125px; position:relative;}
+.header2 .headerimg img{ width:1300px; height:125px; position:absolute; display:block; left:-190px;}
+
+
+.menu{ background-color:#80bc32; height:46px; width:auto}
+.menu ul{ width:720px; margin:auto;}
+.menu ul li{ width:80px; float:left; width:80px; height:46px; line-height:46px;}
+.menu a{ color:#ffffff;font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti; font-size:15px; width:80px; height:46px; line-height:46px; display:block; text-align:center}
+.menu a:hover,.menu ul li.cur a{ color:#ffffff;background-color:#ff7c00}
+.menu ul li#home,.menu ul li#home a{ width:60px;}
+
+.menu2{ background:#444444; border-bottom:#000000 solid 1px;}
+.menu2 a:hover,.menu2 ul li.cur a{ background-color:#262626}
+
+.resultbar{ margin:0; padding:0; font-size:16px; text-align:center; margin-bottom:20px; }
+
+ul.pic { background:#FFF; position:relative; }
+li.piclist { font-size:0px; line-height:0px;  width:214px; border:#6a6a6a solid 1px; overflow:hidden; margin:5px; cursor:pointer;float:left}
+li.piclist img{ width:214px;}
+li.piclist em { background:url(../js/seebig.png) no-repeat;*background: none;_background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../js/seebig.png', sizingMethod='crop'); position:absolute; width:143px; height:109px;  left:-200px; }
+div.pic_b { position:relative; cursor:pointer;}
+a.pic_a strong.txt{ display:block; width:209px; height:38px; position:absolute;  z-index:30000; font-size:14px; left:0px; bottom:0px; line-height:38px; padding-left:5px; color:#ffffff; font-weight:normal; background:#000000;filter:alpha(opacity=60); -moz-opacity:0.6;-khtml-opacity: 0.6; opacity: 0.6;}
+a.pic_a.hover { position:relative; display:block; }
+a.pic_a.hover span { position:absolute; bottom:10px; left:0px; color:#fff; width:194px; z-index:2; display:block; font-size:12px; line-height:18px; padding:5px 10px; overflow:hidden; cursor:pointer;}
+a.pic_a.hover em { top:0px; left:35px; background-position:center center; }
+
+.pic_div { background:#e8e8e8;cursor:pointer;overflow: hidden;}
+.picmain { padding-top:5px;  background:#FFF;  margin:auto;width:1000px;}
+/*  */
+
+.pages{ text-align:center; font-size:13px; clear:both; padding-top:30px; padding-bottom:40px;}
+.pages span,.pages a{ padding:3px 10px 3px 10px; border:#e3e3e3 solid 1px; margin:0px 3px 0px 3px;}
+.pages .btn{ background:url(../images/btnbg.jpg)  0px  bottom repeat-x;}
+.pages span.page{ border:none; color:#676767;}
+.pages .cur { background-color:#F60;color:#FFF}
+
+.ad1{ padding-top:20px; width:870px; height:90px; overflow:hidden; margin:auto; }
+.ad2{ padding-top:10px; width:855px;  overflow:hidden; margin:auto; }
+.footer{ text-align:center; padding-top:20px; padding-bottom:30px; border-top:#d9d5d6 solid 1px; font-family:Tahoma, Geneva, sans-serif;line-height:18px;}
+.footer2{ border:none;}

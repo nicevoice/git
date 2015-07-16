@@ -1,0 +1,25 @@
+﻿CACHE MANIFEST
+#version 1.0
+
+CACHE:
+#HTML
+index.php
+#JS
+app/app.js
+app/config.js
+zeptojs/zepto-min.js
+plugins/iscroll.js
+plugins/jstorage.min.js
+#CSS
+ui/css/cmstopmobile.css
+#LOGO
+ui/images/cmstop_logo.png
+ui/images/cmstop.png
+ui/images/no_thumb.png
+#Loading
+ui/css/ui/load.gif
+
+
+NETWORK:
+*
+EOF;

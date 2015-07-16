@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+<name>蓝色经典</name>
+<reserved>1</reserved>
+<define>
+	<page>blue</page>
+	<title>blue</title>
+	<widget>blue</widget>
+	<content>
+		<code>blue</code>
+		<title>blue</title>
+		<list>blue</list>
+		<slider>blue-a</slider>
+		<piclist>blue</piclist>
+		<palist>blue</palist>
+		<menu>blue</menu>
+		<comment>blue</comment>
+		<activity>blue</activity>
+		<survey>blue</survey>
+		<vote>blue</vote>
+	</content>
+</define>
+</theme>

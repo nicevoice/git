@@ -1,0 +1,13 @@
+/* CSS file for table dialog in the table plugin */
+
+.panel_wrapper div.current {
+	height: 250px;
+}
+
+.advfield {
+	width: 250px;
+}
+
+#class {
+	width: 150px;
+}

@@ -1,0 +1,75 @@
+
+<style>
+    #ajaxHtml {height: 613px;}
+    .close-div {position: absolute;right: 10px;top: 14px;}
+</style>
+<div class="tk-mmtitle">
+    会计网题库已收录{$_subject[$subjectid]['name']}考试历年真题{$count}套
+</div>
+<div class="pl10 pr10 reall-div">
+    {if $lists}
+   <!--{loop $lists $list}-->
+    <?php $contentid = $list['contentid'];?>
+    <table class="bbdashed mt5 mb15">
+        <tr>
+            <td width='480'>
+                <div class="pl10 fts14">{$list['title']} {date('Y-m-d', $list['published'])}</div>
+            </td>
+            <td width='100' rowspan="2">
+                {if $countList[$contentid]}<div class="fts14 fc-999 fn-tar">已完成{$countList[$contentid]}次</div>{/if}
+            </td>
+            <td rowspan="2" width='100'><a href="{kuaiji_url('show' , array('examid'=>md5($list['contentid'])) , 'exam')}" target="_blank" class="tk-tmmore fts14 go-exam-now">立即模考</a></td>
+        </tr>
+        </tr>
+        <td><div class="fc-999 fts12 pl10 ">已有<span class="fc-green">{$list['count']}</span>人模考</div></td>
+        </tr>
+    </table>
+    <!--{/loop}-->
+    {else}
+    该科目下还未录入真题试卷！！！
+    {/if}
+</div>
+<div class="clearfix pb10">
+    <div class="tk-pagenav">
+
+    </div>
+</div>
+
+<script>
+    var total = '{$count}';
+    var pageSize = '{$pageSize}';
+
+    if (parseInt(total) > parseInt(pageSize)) {
+        $(".tk-pagenav").pagination(total, {
+            prev_text: '上一页',
+            next_text: '下一页',
+            items_per_page: pageSize,
+            num_display_entries: 5,
+            num_edge_entries: 10,
+            callback: function(index){
+                index = index+1;
+                if(index > 0)get_content(index);
+            }
+        });
+    }
+var get_content = function(index){
+    $.getJSON('{WWW_URL}exam/exam/really_ls.html?subjectid={$subjectid}&page='+index+'&jsoncallback=?', function(json){
+        if(json.state) {
+
+            var html = '';
+            var info = json.info;
+            var count = json.count;
+            for (i in info) {
+                html += '<table class="bbdashed mt5 mb15"><tbody><tr><td width="480"><div class="pl10 fts14">'+info[i].title+' '+info[i].date+'</div></td>'
+                +   '<td width="100" rowspan="2">';
+                var contntid = info[i].contentid;
+                if (count[contntid] > 0)html += '<div class="fts14 fc-999 fn-tar">已完成'+count[contntid]+'次</div>';
+                html += '</td>'
+                +   '<td rowspan="2" width="100"><a href="'+info[i].url+'" target="_blank" class="tk-tmmore fts14 go-exam-now">立即模考</a></td></tr>'
+                +   '<tr><td><div class="fc-999 fts12 pl10 ">已有<span class="fc-green">'+info[i].count+'</span>人模考</div></td></tr></tbody></table>';
+            }
+            $('.reall-div').html(html);
+        }
+    });
+}
+</script>

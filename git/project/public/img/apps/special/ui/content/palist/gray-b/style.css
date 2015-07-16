@@ -1,0 +1,9 @@
+﻿ .content-palist-gray-b li {	padding:8px 6px;	border-bottom:1px dotted #ccc;}
+ .content-palist-gray-b img {	margin:8px 8px 8px 0;}
+ .content-palist-gray-b .summary {	margin:0;	padding:0;}
+ .content-palist-gray-b{background-color:#fff;}
+ .content-palist-gray-b .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-gray-b .imgtxtsummary-list a{color:#333;}
+ .content-palist-gray-b .imgtxtsummary-list h3 a{ color:#333; font-size:12px;font-weight:bold;}
+ .content-palist-gray-b .imgtxtsummary-list p{color:#333;}
+ .content-palist-gray-b .imgtxtsummary-list a:hover{text-decoration:none;color:#136e1d;}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<number tips="请输入期号">
+	  	<required event="submit">期号不能为空</required>
+	   	<max args="5">期号不能大于5个字</max>
+    </number>
+    <totalNumber tips="请输入总期号">
+	  	<required event="submit">总期号不能为空</required>
+	   	<max args="5">总期号不能大于5个字</max>
+    </totalNumber>
+    <paper tips="请选择杂志">
+	  	<min args="1">请选择杂志</min>
+    </paper>
+    <date tips="请输入出版日期">
+	  	<required event="submit">出版日期不能为空</required>
+    </date>
+</root>

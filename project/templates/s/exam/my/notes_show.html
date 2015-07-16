@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+<link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+<title>笔记题目列表_会计网题库_会计网 </title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<base href="http://www.kuaiji.com/">
+
+<link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+<link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+<script type="text/javascript" src="{JS_URL}jquery.js"></script>
+<script type="text/javascript" src="{JS_URL}dialog.js"></script>
+<script type="text/javascript" src="{JS_URL}exam/exam.js"></script>
+{include_tpl('section/605.html')}
+</head>
+
+<body>
+<?php
+foreach($exam_catid as $cat) {
+    $cats = $category[$cat];
+    $catids[$cats['typeid']] = $cat;
+}
+foreach($project_t as $pro) {
+    if ($subjectid == $pro['proid'] || in_array($subjectid, array_keys($pro['child'])))$catid  = $catids[$pro['proid']];
+}
+?>
+<!--{template 'exam/header_mini'}-->
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+        	<div class="tk-exam clearfix">
+        	<div class="tk-examleft">
+            	<ul>
+                	<li class="tk-timeDetail fn-tac"></li>
+                    <li class="tk-control ontab"><a>查看笔记题目</a></li>
+                </ul>
+            </div>
+            <div class="tk-examright">
+            	<div class="tk-examtitle pl20"><strong>正在查看笔记题目（{$knowledge['name']}）</strong></div>
+                {if $pages}<div class="clearfix pb10 pt10">
+					<div class="tk-pagenav">
+                    	{$pages}
+                    </div>
+                </div>{/if}
+                <?php
+                    $page = $page ? $page : 1;
+                    $number = (($page-1)*$pagesize)+1;
+                ?>
+                <!--{loop $lists $list}-->
+                <?php $knowledgeid = $list['knowledgeid'];?>
+                <div class="tk-examtimu">
+                	<div class="tk-examtimuinner">
+                    	<span class="tk-listitem"><a href="#" name="1"></a>{$number}</span> {$list['subject']}
+                    </div>
+                    <div class="tk-examselect pl10 pr10 pt5 pb5">
+                        <ul>
+                            <?php
+                                $answer = explode(',', $list[answer]);
+                                $qtypeid = $list['qtypeid'];
+                                $a = array();
+                            ?>
+                            <!--{loop $list['option'] $k2 $v2}-->
+                            <?php
+                               if (in_array($v2['optionid'], $answer))$a[] = $alphabet[$k2];
+                            ?>
+
+                            <li {if in_array($v2['optionid'], $answer)}class="rightanswer"{/if}><span class="mr10">{$alphabet[$k2]}</span>{$v2['name']}</li>
+                            <!--{/loop}-->
+                        </ul>
+                    </div>
+                    <div class="tk-selectitem clearfix tk-dashline">
+                        <div class="fn-fl tk-answerbox">
+                            正确答案是<span class="fc-green"><?php echo implode(' ', $a)?></span><span class="tk-line1">|</span>题型： <span class="fc-999">{$propertys[$qtypeid]['name']}</span><span class="tk-line1">|</span>分享到：<span class="tk-toShare"><div class="bdsharebuttonbox"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                </script></span>
+                        </div>
+                        <div class="fn-fr clearfix">
+
+                            <a href="javascript:void(0)" class="tk-detail tk-detailon fc-blue tk-analyze-a">展开解析</a>
+                        </div>
+                    	
+                    </div>
+                    <div class="tk-anylize fn-dn">
+                    	<ul>
+                            <li class="tk-laiyuan">{$list['source']}</li>
+                            <li class="tk-tongji">共有：{$list['votes']}人答过</li>
+                            {if $list['description']}<li class="tk-jiexi">{$list['description']}</li>{/if}
+                            <li class="tk-yiwen"><span class="tk-taolun"></span><span class="fc-blue"><a href="{WWW_URL}kefu/feedback.html" target="_blank"> 点击反馈</a></span></li>
+                            <li class="tk-kaodian">{$propertys[$knowledgeid]['name']}</li>
+                            <li class="tk-biji question_note_{$list['questionid']}" title="{str_cut($list['subject'], 80, '')}"><span class="tk-edit"></span><span class="fc-blue note_content_{$list['notes']['notesid']}" onclick="exam.notes({$list['questionid']}, '{$list['notes']['notesid']}')">{if $list['notes']['content']}{$list['notes']['content']}{else}添加{/if}</span></li>
+                        </ul>
+                    </div>
+
+                
+                </div>
+                <?php ++$number;?>
+                <!--{/loop}-->
+                {if $pages}<div class="clearfix pb20 pt15 bdt-c5c5c5">
+                    <div class="tk-pagenav">
+                        {$pages}
+                    </div>
+                </div>{/if}
+            </div>
+        </div>
+        
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+
+
+    $('.tk-analyze-a').click(function(){
+        if ($(this).attr('data-fyou')) {
+            $(this).removeAttr('data-fyou');
+            $(this).html('展开解析');
+            $(this).removeClass('tk-detailon');
+            $(this).parents('.tk-examtimu').find('.tk-anylize').addClass('fn-dn');
+        } else {
+            $(this).addClass('tk-detailon');
+
+            $(this).parents('.tk-examtimu').find('.tk-anylize').removeClass('fn-dn');
+            $(this).html('收起解析');
+            $(this).attr('data-fyou', 1)
+        }
+    })
+
+    $('.tk-remove').click(function(){
+        var favoriteid = $(this).attr('data-id');
+        if (favoriteid) {
+            if(confirm('你确定要移除这道题目？')){
+                $.getJSON(kj_url + "exam/my/favorite_remove.html?jsoncallback=?",{favoriteid:favoriteid}, function(json){
+                    if(json.state) {
+                        alert(json.info)
+                    } else {
+                        alert(json.error)
+                    }
+                });
+            }
+        }
+    })
+})
+</script>
+<!--{template 'exam/footer'}-->

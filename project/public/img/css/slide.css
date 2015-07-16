@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* 访谈频道-幻灯片 CSS Document */
+.bg_alpha,.slide_cmstop_info{background:#000 url(images/bg_alpha.png) repeat 0 0;opacity:0.5;filter:Alpha(Opacity="50");}
+.slide_cmstop{border:5px solid #ccc; position:relative; width:638px; height:244px; overflow:hidden;}
+.slide_cmstop_pic{width:438px; position:relative; overflow:hidden;cursor:pointer;}
+.slide_cmstop .pos_a{left:0; bottom:0; width:100%;}
+
+.slide_cmstop_info{color:#fff; padding:5px 0; height:40px;overflow:hidden;}
+.slide_cmstop_info h2,.slide_cmstop_info p{padding:0 8px; text-indent:0;}
+.slide_cmstop_nav{ position:absolute; top:0; left:438px; width:200px; overflow:hidden; padding:2px 0;}
+.slide_cmstop_nav li{height:60px;clear:both; padding-left:5px;}
+.slide_cmstop_nav li a{display:block; background:#fff; height:60px;cursor:pointer;}
+.slide_cmstop_nav li a:hover{background:#eee; text-decoration:none;}
+.slide_cmstop_nav li.s_2{background:url(images/bg_arrow.gif) no-repeat 0 27px; border-left:none;}
+.slide_cmstop_nav li.s_2 a,.slide_cmstop_nav li.s_2 a:hover{background-color:#ccc;}
+.slide_cmstop_nav li img{padding:1px; border:2px solid #ddd; height:48px; width:64px; margin:3px 6px; float:left;}
+.slide_cmstop_nav li.s_2 a img{border-color:#fff;}
+.slide_cmstop_nav li span{padding-top:10px; line-height:18px;overflow:hidden; display:block;}
+

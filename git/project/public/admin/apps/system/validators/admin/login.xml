@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<username tips="请输入用户名">
+		<required event="submit">用户名不能为空</required>
+	</username>
+	<password tips="请输入密码">
+		<required event="submit">密码不能为空</required>
+	</password>
+	<seccode tips="请输入右侧的验证码">
+		<required event="submit">验证码不能为空</required>
+	</seccode>
+</root>

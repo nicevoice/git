@@ -1,0 +1,165 @@
+<div class="mod-survey">
+<p class="summary">{$description}</p>
+<form id="survey_{TIME}_{$contentid}" method="post" action="{APP_URL}?app=survey&controller=survey&action=answer">
+	<input name="contentid" type="hidden" value="{$contentid}"/>
+	<!--{loop $questions $k $question}-->
+		<dl id="question_{TIME}_{$question[questionid]}">
+			<dt><?=(++$k)?>. {$question[subject]}<!--{if $question[required]}-->（<!--{if $question[type] == 'text' || $question[type] == 'textarea'}-->必填<!--{else}-->必选<!--{/if}--><!--{if $question[maxoptions]}-->，最多可选{$question[maxoptions]}项<!--{/if}-->）<!--{/if}--></dt>
+		<!--{if $question[image]}-->
+		<dd><img src="{thumb($question[image], 100, 100)}" /></dd>
+		<!--{/if}-->
+		<!--{if $question[description]}-->
+		<dd>{$question[description]}</dd>
+		<!--{/if}-->
+		
+		<!--{if $question[type] == 'text'}-->
+			<dd><input type="text" name="data[{$question[questionid]}]" style="width:{$question[width]}px;" class="input-text"/> </dd>
+		<!--{elseif $question[type] == 'radio'}-->
+			<!--{loop $question[option] $option}-->
+				<!--{if $option[image]}-->
+				<dd><img src="{thumb($option[image], 100, 100)}" /></dd>
+				<!--{/if}-->
+				<dd><label><input type="radio" class="input-radio" name="data[{$question[questionid]}][optionid]" value="{$option[optionid]}" class="bdr_0 {if $option[isfill]}radio{/if}"  />{$option[name]}</label>
+				<!--{if $option[isfill]}-->
+				  <input style="display:none" type="text" name="data[{$question[questionid]}][content]" style="vertical-align:top" class="input-text"/></dd>
+				<!--{/if}-->
+				</dd>
+			<!--{/loop}-->
+			
+		<!--{elseif $question[type] == 'checkbox'}-->
+			<!--{loop $question[option] $option}-->
+				<!--{if $option[image]}-->
+				<dd><img src="{thumb($option[image], 100, 100)}" /></dd>
+				<!--{/if}-->
+				<dd><label><input type="checkbox" name="data[{$question[questionid]}][optionid][]" value="{$option[optionid]}" {if $option[checked]} checked="checked"{/if} class="bdr_0 {if $option[isfill]}checkbox{/if}" class="input-checkbox"/>{$option[name]}</label>	
+				<!--{if $option[isfill]}-->
+					<input style="display:none" type="text" name="data[{$question[questionid]}][content]" class="input-text" style="vertical-align:top"/></dd>
+				<!--{/if}-->
+				</dd>
+			<!--{/loop}-->
+			
+		<!--{elseif $question[type] == 'select'}-->
+			<dd>
+			<select name="data[{$question[questionid]}][optionid]" >
+			 <!--{loop $question[option] $option}-->
+				<option value="{$option[optionid]}" {if $option[isfill]} class="select" {/if}>{$option[name]}</option>
+			 <!--{/loop}-->
+			</select>
+			<!--{if $question[allowfill]}-->
+				<input style="display:none" type="text" class="input-text" name="data[{$question[questionid]}][content]" style="vertical-align:top"/>
+			<!--{/if}-->
+			</dd>
+			
+		<!--{elseif $question[type] == 'textarea'}-->
+			<dd><textarea name="data[{$question[questionid]}]" style="width:{$question[width]}px;height:{$question[height]}px;"></textarea></dd>
+		<!--{/if}-->
+		</dl>
+	<!--{/loop}-->
+	<dl><dt></dt><dd><input type="submit" name="submit" value="提交" class="input-submit"/></dd></dl>
+</form>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#survey_{TIME}_{$contentid}').submit(function(){
+		function error_position(questionid) {
+			var offset = $('#question_{TIME}_'+questionid).offset();
+			window.scroll(offset.left, offset.top-100);
+		}
+		var form = $(this);
+		<!--{loop $questions $k $question}-->
+			<!--{if $question[required]}-->
+				<!--{if $question[type] == 'text'}-->
+					text = form.find('input[name*="data\[{$question[questionid]}\]"]:text').val();
+					<?php $k++?>
+					if(text.length < 1){
+						alert('第{$k}题必填');
+						error_position('{$question[questionid]}');
+						$('input[name*="data\[{$question[questionid]}\]"]:text').focus();
+						return false;
+					}
+					<!--{if $question[maxlength]}-->
+					if(text.length > {$question[maxlength]}){
+						alert('第{$k}题，字符数不能大于{$question[maxlength]}');
+						error_position('{$question[questionid]}');
+						form.find('input[name*="data\[{$question[questionid]}\]"]:text').focus();
+						return false;
+					}
+					<!--{/if}-->
+					<!--{if !empty($question[validator])}-->
+					if(!<!--{if $question[validator]=='date'}-->/^(\d{4})(-|\/)(\d{1,2})\2(\d{1,2})$/<!--{elseif $question[validator]=='email'}-->/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/<!--{elseif $question[validator]=='number'}-->/^\d+$/<!--{/if}-->.test(text))
+					{
+						alert('第{$k}题，必须为<!--{if $question[validator]=='date'}-->日期!<!--{elseif $question[validator]=='email'}-->email<!--{elseif $question[validator]=='number'}-->数字<!--{/if}-->格式!');
+						error_position('{$question[questionid]}');
+						return false;
+					}
+					<!--{/if}-->
+				<!--{elseif $question[type] == 'radio'}-->
+					radio = form.find('input[name*="data\[{$question[questionid]}\]"]:checked');
+					<!--{if $question[allowfill]}-->
+					if(radio.length < 1 && form.find('input[name="data\[{$question[questionid]}\]\[content\]"]:text').val().length < 1){
+					<!--{else}-->
+					if(radio.length < 1){
+					<!--{/if}-->
+						alert('第<?=(++$k)?>题必选');
+						error_position('{$question[questionid]}');
+						return false;
+					}
+				<!--{elseif $question[type] == 'checkbox'}-->
+					checkbox = form.find('input[name*="data\[{$question[questionid]}\]"]:checked');
+					<!--{if $question[allowfill]}-->
+					if(checkbox.length < 1 && form.find('input[name="data\[{$question[questionid]}\]\[content\]"]:text').val().length < 1){
+                    <!--{else}-->
+                    if(checkbox.length < 1){
+                    <!--{/if}-->
+						alert('第<?=(++$k)?>题必选');
+						error_position('{$question[questionid]}');
+						return false;
+					}
+					<!--{if $question[maxoptions]}-->
+					if(checkbox.length > {$question[maxoptions]}){
+						alert('第<?=$k?>题最多可选{$question[maxoptions]}项');
+						error_position('{$question[questionid]}');
+						return false;
+					}
+					<!--{/if}-->
+				<!--{elseif $question[type] == 'select'}-->
+				
+				<!--{elseif $question[type] == 'textarea'}-->
+					textarea = form.find('textarea[name*="data\[{$question[questionid]}\]"]').val();
+					if(textarea.length < 1){
+						alert('第<?=(++$k)?>题内容必填');
+						error_position('{$question[questionid]}');
+						form.find('textarea[name*="data\[{$question[questionid]}\]"]').focus();
+						return false;
+					}
+					<!--{if $question[maxlength]}-->
+					if(textarea.length > {$question[maxlength]}){
+						alert('第<?=(++$k)?>题，字符数不能大于{$question[maxlength]}');
+						error_position('{$question[questionid]}');
+						form.find('textarea[name*="data\[{$question[questionid]}\]"]').focus();
+						return false;
+					}
+					<!--{/if}-->
+				<!--{/if}-->
+			<!--{/if}-->
+		<!--{/loop}-->
+	});
+	$('#survey_{TIME}_{$contentid}').find('.radio').each(function(){
+		var oradio = $(this);
+		oradio.click(function(){
+			oradio.parent().nextAll('input').show();
+		});
+		oradio.parents('dd').siblings().find('input').click(function(){
+			oradio.parent().nextAll('input').hide();
+		});
+	});
+	
+	$('#survey_{TIME}_{$contentid}').find('.checkbox').click(function(){
+		$(this).parent().nextAll('input').css('display',(this.checked?'inline':'none'));
+	});
+	
+	$('#survey_{TIME}_{$contentid}').find('.select').parent().change(function(e){
+		 $(this).next().css('display',($(this.options[this.selectedIndex]).attr('class') =='select'?'inline':'none'));
+	})
+});
+</script>

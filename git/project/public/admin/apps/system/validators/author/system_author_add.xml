@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="请填写作者名字" pass="">
+		<required event="blur submit">必填</required>
+	</name>
+</root>

@@ -1,0 +1,21 @@
+ .content-survey-gray-a{background-color:#FFF; font-size:12px;}
+ .content-survey-gray-a .mod-survey .summary{line-height:20px;color:#666;}
+ .content-survey-gray-a .mod-survey .bdr_0{ margin-right:4px;}
+.content-survey-gray-a .mod-survey {
+	padding:10px;
+}
+.content-survey-gray-a  dl {
+	margin:3px 0; margin-bottom:15px;
+}
+.content-survey-gray-a  dt {
+	color:#06c;
+	line-height:18px;
+	margin-bottom:6px;
+}
+.content-survey-gray-a  dd {
+	margin-left:10px;
+	line-height:20px;
+}
+.content-survey-gray-a  label {
+	cursor:pointer;
+}

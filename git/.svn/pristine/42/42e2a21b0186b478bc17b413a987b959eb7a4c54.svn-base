@@ -1,0 +1,22 @@
+﻿ .content-survey-black-a{background-color:#1c1c1c; font-size:12px;}
+ .content-survey-black-a .mod-survey .summary{line-height:20px;color:#999;}
+ .content-survey-black-a .mod-survey .bdr_0{ margin-right:4px;}
+.content-survey-black-a .mod-survey {
+	padding:10px;
+}
+.content-survey-black-a  dl {
+	margin:3px 0; margin-bottom:15px;
+}
+.content-survey-black-a  dt {
+	color:#ffc000;
+	line-height:18px;
+	margin-bottom:6px;
+}
+.content-survey-black-a  dd {
+	margin-left:10px;
+	line-height:20px;
+	color:#999;
+}
+.content-survey-black-a  label {
+	cursor:pointer;
+}

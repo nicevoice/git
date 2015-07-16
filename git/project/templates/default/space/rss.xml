@@ -1,0 +1,21 @@
+<rss version="2.0">
+<channel>
+	<title><!--{$title}-->_<!--{$sitename}--></title>
+	<link><!--{$rssurl}--></link>
+	<description><!--{$title}--></description>
+	<generator>CMSTOP</generator>
+	<language><!--{$CONFIG['lang']}--></language>
+	<copyright>Copyright 2009 - 2010 CMSTOP Inc. All Rights Reserved.</copyright>
+	<pubDate><!--{$pubDate}--></pubDate>
+	<!--{loop $list $item}-->
+	<item>
+		<title><![CDATA[<!--{$item['title']}-->]]></title>
+		<link><!--{$item['url']}--></link>
+		<description><![CDATA[<!--{$item['description']}-->]]></description>
+		<author><!--{$author}--></author>
+		<comments><!--{$item['comments']}--></comments>
+		<pubDate><!--{$item['published']}--></pubDate>
+	</item>
+	<!--{/loop}-->
+</channel>
+</rss>

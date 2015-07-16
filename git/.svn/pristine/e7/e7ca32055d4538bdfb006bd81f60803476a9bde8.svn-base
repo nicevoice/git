@@ -1,0 +1,17 @@
+.content-menu-pink-a {
+	background:url("images/bg.jpg") repeat-x;
+	padding:0px 10px;
+}
+.content-menu-pink-a a {
+	color:#da2c83;
+	font-size:12px;
+}
+.content-menu-pink-a a:hover {
+	color:#666666;
+	text-decoration:none;
+}
+.content-menu-pink-a span.sepr {
+	margin:0 4px;
+	color:#da2c83;
+	font-size:12px;
+}

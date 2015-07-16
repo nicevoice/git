@@ -1,0 +1,195 @@
+.clear {height:1px; overflow:hidden; clear:both;}
+.clearfix:after {content:""; display:block; clear:both;}
+* html .clearfix {height:1px;}
+*+html .clearfix {min-height:1px;}
+/*  magazine index */
+div.magazineItem {
+	width: 260px;
+	margin: 8px 8px 0 0;
+	float: left;
+}
+.magazine li{
+	line-height:24px;
+	height:24px;
+}
+.magazine li span{
+	 color:#008ACC;
+ }
+li.magazine_logo,li.magazine_pic{
+	width:156px;
+	height:156px;
+	margin:0 auto;
+	text-align:center;
+	line-height:156px;
+}
+li.magazine_logo {
+	text-align: center;
+	padding:1px;
+	width: 240px;
+}
+li.magazine_pic{
+	height:165px;
+	line-height:165px;
+}
+#magazineDiv li input {
+	margin-right: 6px;
+	*margin-right: 3px;
+	padding: 0 6px 2px 6px;
+	*padding: 0 3px 5px 3px;
+}
+#magazineDiv li.memo {
+	height: 50px;
+	overflow: hidden;
+}
+#magazineDiv li.memo span {
+	height: 50px;
+	display: block;
+	float: left;
+}
+#magazineDiv li span {
+	font-weight: bold;
+}
+
+li.magazine_logo {
+	text-align: center;
+	height: 175px;
+}
+li.magazine_logo div{
+	margin: 0 auto;
+	width: 160px;
+	height: 160px;
+	display: table-cell;
+	border: 1px solid #ccc;
+	vertical-align: middle;
+}
+li.magazine_logo div img {
+	vertical-align: middle;
+}
+/* edition index */
+#search select {
+	width: 100px;
+}
+#magazineid {
+	width: 140px;
+}
+#magazine {
+	width: 120px;
+}
+div.ct_selector {
+	float: left;
+	margin-right: 5px;
+}
+input.input_calendar {
+	width: 80px;
+}
+
+/* page index */
+div.item {
+	margin: 8px 8px 0 0;
+	float: left;
+	border: 1px solid #ccc;
+	padding: 6px;
+}
+div.item ul li{
+	margin-top: 6px;
+}
+div.item ul li.yes {
+	background: url(/images/yes.png) no-repeat 0 8px;
+}
+div.item ul li.edit {
+	background: url(/images/edit.gif) no-repeat 138px 0;
+}
+div.item ul li input {
+	width: 80px;
+}
+li.page_pic {
+	text-align: center;
+	width: 160px;
+	height: 170px;
+}
+li.page_pic img{
+	border: 1px solid #CCC;
+	margin: 0 auto;
+}
+
+/* imgmap */
+h3.title {
+	border: 1px solid #9AC4DC;
+	border-bottom: none;
+	position: relative;
+}
+h3.title .tips {
+	position: absolute;
+	left: 375px;
+	top: 4px;
+	cursor: pointer;
+}
+#addArea {
+	position: absolute;
+	left: 225px;
+	top: 4px;
+	cursor: pointer;
+}
+#imgMain {
+	float: left;
+}
+#mapContainer {
+	padding: 6px;
+}
+#area {
+	margin-left: 5px;
+	width: 250px;
+	float: left;
+}
+#pic_div {
+	float: left;
+}
+#storeDiv {
+	float: left;
+}
+#store {
+	border: 1px solid #cde;
+	width: 250px;
+	min-height: 24px;
+}
+#store input {
+	width: 24px;
+	display: none;
+}
+#store li {
+	margin: 1px;
+	cursor: pointer;
+	height: 20px;
+	margin: 3px;
+	width: 230px;
+	line-height: 20px;
+	background: #f1f1f1;
+	padding: 0 6px;
+}
+#store li a {
+	color: #d00;
+}
+#store li.selected {
+	background: #cde;
+}
+#data {
+	clear: both;
+	margin-top: 48px;
+	*margin-top: 24px;
+}
+#data h2 span {
+	color: #d00;
+	font-weight: normal;
+}
+div.mark {
+	background: #f00;
+	border: 3px solid #F00;
+	position: absolute;
+	cursor: move;
+	z-index: 9;
+}
+
+div.over {
+	background: #F00;
+	border-color: #f00;
+}

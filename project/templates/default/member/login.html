@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>登录_{$SYSTEM[sitename]}</title>
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+		<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/jquery.form.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.validator.js"></script>
+<script type="text/javascript">
+	$.validate.setConfigs({
+		xmlPath:'apps/member/validators/'
+	});
+	$(document).ready(function() {
+		$('#member_loginForm').validate({
+			infoHandler:function(jq,message,type){
+				if(type == 'error') {
+					jq.siblings('.tipinfo').hide();
+					jq.siblings('.warn').html(message).show();
+				}
+			}
+		});
+		$("#member_loginForm input").focus(function() {
+			$(this).siblings('.warn').hide();
+			$(this).siblings('.tipinfo').show();
+		});
+	});
+</script>
+</head>
+<body>
+<!--{template 'system/header.html'}-->
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="member-wrap w-720 bor-ccc">
+		<div class="member-title">
+			<h2>会员登录</h2>
+		</div>
+	<div>
+		<form action="{url('member/index/login')}" method="POST" name="member_loginForm" id="member_loginForm">
+			<ul class="formFormat member-form">
+				<li><span class="info f-l"><label for="login_username">用户名：</label></span><input name="username" id="login_username" value="{$rememberusername}" type="text" class="input-text age f-l input-w160"/> <span class="warn" style="display:none;"></span></li>
+				<li><span class="info f-l"><label for="login_password">密　码：</label></span><input name="password" id="login_password" type="password" class="input-text age f-l input-w160"/> <span class="warn" style="display:none;"></span></li>
+				{if !empty($oauth_token)}<li><span class="info f-l"><label for="login_other">站外登陆：</label></span><a href="{$sinaurl}"><img src="apps/member/images/btn_sina.gif" class="top-rss" /></a></li>{/if}
+				<!--{if $needseccode }-->
+				<li><span class="info f-l"><label for="login_seccode">验证码：</label></span>
+				<input name="seccode" id="login_seccode" type="text" value="" maxlength="4" class="input-text age f-l input-w160 member-yzm"  /> 
+				<img src="{url('system/seccode/image')}" id="seccodeimg" onclick="this.src='{url('system/seccode/image')}&id='+Math.random()*5;" style="cursor:pointer;" width="48" height="20"  align="absmiddle" class="img_mar"/>
+				<a  href="javascript:;" onclick="$('#seccodeimg').click()" class="ch-yzm">换一张</a>
+				<span class="warn" style="display:none;"></span>
+				</li>
+				<!--{/if}-->
+				<li class="align-member cor-666"><input name="cookietime" type="checkbox" value="1296000" class="bdr_0"/> 下次自动登录 </li>
+				<li class="align-member"><input class="member-btn" type="submit" value="登 录" /> <a href="{url('member/index/getpassword')}" class="ch-yzm">忘记密码</a></li>
+				<input type="hidden" name="x_url" value="{$_GET['referer']}" />
+			</ul>
+		</form>
+	</div>
+
+	</div>
+</div>
+<div class="hr-h10"></div>
+<!--{template 'system/footer.html'}-->

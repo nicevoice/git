@@ -1,0 +1,52 @@
+.editbox {
+	border-color:#999 #ccc #ccc #999;border-style:solid;border-width:1px;
+	height:430px;
+	width:800px;
+	_width:802px;/*for quirks mode*/
+	float:left;
+}
+.editbox .ctrlarea {
+	background:#F7F7F7;
+	border-bottom:1px solid #ccc;width:100%;
+	line-height:29px;
+	word-wrap :break-word;
+	word-break:break-all;
+	padding:0;
+	margin:0;
+}
+.editbox .ctrlarea span {
+	padding:0 3px;
+}
+.editbox .ctrlarea a {
+    padding:2px 4px;
+    font-size:14px;
+    border:1px solid #F7F7F7;
+    text-decoration:none;
+    color:#555;
+    outline:none;
+    white-space:nowrap;
+    margin-left:3px;
+}
+.editbox .ctrlarea a:hover,
+.editbox .ctrlarea a.active {
+    text-decoration:none;
+    border-color:#7FCAE2;
+    color:#0099CC;
+    background-color:#FEFEFE;
+}
+.editbox .editarea {
+	height:400px;
+	overflow:hidden;
+}
+.editbox .editarea textarea {
+	font-size:14px;line-height:17px;
+	font-family:"Fixedsys","Courier New","Courier","宋体";
+	float:left;
+}
+.editbox .linenum {
+	color:#777;background-color:#eee;
+	overflow:hidden;
+    text-align:right;
+    margin-left:-4px;
+    width:35px;
+}

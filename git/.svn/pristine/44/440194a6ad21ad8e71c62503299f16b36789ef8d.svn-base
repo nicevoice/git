@@ -1,0 +1,129 @@
+{db sql="SELECT * FROM #table_magazine WHERE mid = $mid" size=1 return="m"}{/db}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="expires" content="0" />
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="description" content="{$meta_description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<!--[if IE 6]> 
+		<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+	<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/magazine/js/magazine.js"></script>
+	</head>
+	
+	<body class="body-magazine">
+		<!--{template 'system/header.html'}-->
+		<div class="hr-h10"></div>
+		<div class="column ad-area-1">
+			<div class="col-l-main"><!--#include virtual="/section/24.html"--></div>
+			<div class="col-r-extra"><!--#include virtual="/section/25.html"--></div>
+		</div>
+		<div class="hr-h10"></div>
+		<div class="column position">
+			<div class="mode-position">
+				<span>
+					<a href="{WWW_URL}">首页</a>
+					<a href="{$SETTING['www_root']}/">杂志</a>
+					{$m[name]} >
+					<a href="{$SETTING['www_root']}/{$m[alias]}/{$year}/">{$year}年</a>
+					第{$number}期
+				</span>
+			</div>
+		</div>
+		<div class="column magazine-wrap">
+			<div class="col-r-main w-810 maga-cont">
+				<div class="hr-h10"></div>
+				<div class="dateinfo">
+					<p class="zongqi"><strong>《{$m[name]}》{$year}年第{$number}期</strong></p>
+					<p>
+						<span class="riqi">{date('Y-m-d', $publish)}</span>
+						<span class="riqi mr-12">总第{$total_number}期</span>
+						<span>分享到
+<a href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}'+'{$description}')+'&url='+encodeURIComponent(location.href)+'&appkey='+SINA_APPKEY,'_blank','width=450,height=400');})()"><img src="{IMG_URL}templates/{TEMPLATE}/images/sina.gif" title="新浪微博"/></a>
+            <a href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&source='+QQ_SOURCEID+'&pic=','转播到腾讯微博', 'width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no'); })()"><img src="{IMG_URL}templates/{TEMPLATE}/images/qq.png" title="腾讯微博"/></a>
+            
+						<a href="javascript:u=location.href;t='{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}';c = %22%22 + (window.getSelection ? window.getSelection() : document.getSelection ? document.getSelection() : document.selection.createRange().text);var url=%22http://cang.baidu.com/do/add?it=%22+encodeURIComponent(t)+%22&iu=%22+encodeURIComponent(u)+%22&dc=%22+encodeURIComponent('{$description}')+%22&fr=ien#nw=1%22;window.open(url,%22_blank%22,%22scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes%22); void 0"><img src="{IMG_URL}templates/{TEMPLATE}/images/baidu.gif" title="百度搜藏"/></a>
+						<a href="javascript:u='http://share.xiaonei.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}'.substring(0,76));window.open(u,'xiaonei','toolbar=0,resizable=1,scrollbars=yes,status=1,width=626,height=436');void(0)" title="人人网"/></a>
+						<a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}'.substring(0,76))+'&uri='+encodeURIComponent(location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/qzone.gif" title="Qzone" /></a>
+						<a href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(kaixin=window.open('http://www.kaixin001.com/~repaste/repaste.php?&rurl='+escape(d.location.href)+'&rtitle='+escape('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}')+'&rcontent='+escape('{$description}'),'kaixin'));kaixin.focus();"><img src="{IMG_URL}templates/{TEMPLATE}/images/kaixin.gif" title="开心网"/></a>
+						<a href="javascript:var%20u='http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$m[name]}_{$year}年{$number}期_在线杂志_{$SYSTEM[sitename]}'.substring(0,76));window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/douban.gif" title="豆瓣网"/></a>
+</span>
+					</p>
+				</div>
+				<div class="hr-h10"></div>
+				<div class="">
+					<div class="maga-cont-main mar-lr-10">
+						<div class="curr-maga-title"><h2>本期内容</h2></div>
+						<div class="hr-h10"></div>
+						<div>
+							<div class="maga-cont-list">
+								<!--{db sql="SELECT pid, name FROM #table_magazine_page WHERE eid = $eid" return="p"}-->
+								<p class="mode-bg-dott"><span class="span-bg-black">{$p[name]}</span></p>
+								<div class="hr-h6"></div>
+									<!--{db sql="SELECT mc.contentid, c.title, c.url, a.content, c.pv,a.description,a.editor FROM #table_magazine_content mc LEFT JOIN #table_content c ON mc.contentid = c.contentid LEFT JOIN #table_article a ON mc.contentid = a.contentid WHERE pid = $p[pid]"}-->
+								<h3><a target="_blank" href="{$r[url]}">{$r[title]}</a> <span style="color:#999">{$r[editor]}</span></h3>
+								<p class="maga-d">
+								<!--{if ($r[description])}-->
+									{$r['description']}
+								<!--{else}-->
+									{str_cut(strip_tags($r['content']), 255)}
+								<!--{/if}-->
+								</p>
+									<!--{/db}-->
+								<div class="hr-h10"></div>
+								<!--{/db}-->
+							   
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-l-extra w-150 maga-nav">
+				<p class="maga-prev"><a class="fs-14 bold" href="javascript:;">本期杂志</a></p>
+				<div class="maga-nav-wrap">
+					<div class="maga-now-thumb">
+						<img src="{thumb($image,116,150)}" alt="" />
+					</div>
+				</div>
+				<div class="hrzz"></div>
+				<?php $stack=array();?>
+				<!--{db sql="SELECT * FROM #table_magazine_edition WHERE mid = $mid AND year = $year ORDER BY created"}-->
+				<?php $stack[]=$r;?>
+				<!--{if $r[number]==$number && !is_null($stack[$i-2]) }-->
+				<p class="maga-prev"><a href="{$SETTING['www_root']}/{$m[alias]}/{$year}/<?=$stack[$i-2][eid];?>/" class="fs-14 bold">上期杂志</a></p>
+				<div class="maga-nav-wrap">
+					<div class="maga-now-thumb">
+						<a href="{$SETTING['www_root']}/{$m[alias]}/{$year}/<?=$stack[$i-2][eid];?>/"><img src="{thumb($stack[$i-2][image],116,150)}" title="<?=$stack[$i-2][title];?>" /></a>
+					</div>
+				</div>
+				<!--{/if}-->
+		    	<!--{/db}-->
+				<p class="wqhg">往期回顾</p>
+						<p class="wqhg">
+							<select id="review">
+							<!--{db sql="SELECT distinct year FROM #table_magazine_edition WHERE mid = $mid"}-->
+						    <option value="{$SETTING['www_root']}/{$m[alias]}/{$r[year]}/"<!--{if $r[year]==$year}--> selected="selected"<!--{/if}-->>{$r[year]}年</option>
+							<!--{/db}-->
+							</select>
+							<input type="button" value="确定" class="his-maga" onclick="location.href=document.getElementById('review').value" />
+						</p>
+					<div class="hrzz" style="margin-top:10px;"></div>
+					
+				<div class="maga-logo"><p>E-Zine</p></div>
+			</div>
+		</div>
+		<div class="hr-h10"></div>
+
+	</body>
+</html>

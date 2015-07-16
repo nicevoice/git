@@ -1,0 +1,40 @@
+﻿/*
+ @name 蓝色经典
+ @notes 每条规则 以 .content-{模块文件夹名}-{风格包文件夹名} 开头
+*/
+.content-activity-gray-d{background-color:#fff;}
+.content-activity-gray-d .mod-activity {
+	padding:10px;
+	font-size:12px;
+	color:#666;
+}
+.content-activity-gray-d .summary {
+	padding-bottom:10px;
+	line-height:18px;
+	font-size:12px;
+}
+.content-activity-gray-d .require {
+	color:#0d774b;
+	border-top:1px dotted #ccc;
+}
+.content-activity-gray-d label {
+	cursor:pointer;
+	font-weight:normal;
+}
+.content-activity-gray-d table {
+	color:#333;
+}
+.content-activity-gray-d th {
+	text-align:right;
+	font-weight:normal;
+}
+.content-activity-gray-d th em {
+	color:#0d774b;
+}
+.content-activity-gray-d input.input-submit {
+	background:url("images/submit.gif") no-repeat 0 0;
+	color:#fff;
+	height:23px;
+	width:72px;
+	border:0;
+}

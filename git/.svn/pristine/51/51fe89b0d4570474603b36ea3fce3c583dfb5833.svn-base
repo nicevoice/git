@@ -1,0 +1,63 @@
+ /***
+ 	* @name:		Reset（样式重置）
+ 	* @author:		王月龙
+ 	* @type:		基础类
+ 	* @explain:	
+ 	* @relating:	no
+ 	* @dependent:	no
+ */
+ /*个人专栏页*/
+ .author{ background:url(images/high-bg.jpg) no-repeat scroll left -250px; overflow:hidden}
+ .mode-tabs .f-r ul li a{ background:none; color:#333333;}
+ .mode-tabs .f-r ul li a:hover{ color:#0066cc}
+ .author img{ border:1px solid #CCCCCC; padding:1px; float:left}
+ .author .author-rss img{ border:none; padding:0; margin-left:6px}
+ .author-introduce{ width:100px}
+ .author-introduce h3{ font-size:14px; color:#333333; font-size:14px; font-weight:bold}
+ .author-introduce p{margin-bottom:10px;}
+ .author-name{ font-size:14px; color:#333333; font-size:14px; font-weight:bold; line-height:20px}
+ .author .digg-one a{ background:url(images/big-bj02.jpg) 0 0 no-repeat; width:47px; height:24px; line-height:24px; padding-left:28px; display:block}
+ .author .digg-one a:hover{ text-decoration:underline}
+ .post-time02{ margin-left: 10px;  font-family: Arial; font-size: 10px; color: #999;}
+ .clink-amount{ color:#666666; margin-top:6px; padding-left:3px}
+ .mode-comment02 dd p{ line-height:20px}
+ .mode-comment02 dd{ padding-bottom:0}
+ .hot-people{ background:url(images/big-bj02.jpg) 0 -56px no-repeat;}
+ .hot-people .no1-head{ background-color:#609FDF;color:#FFFFFF; font-size:14px; font-weight:bold; width:68px; height:22px; margin-left:3px; padding-top:3px; line-height:22px; text-align:center; font-family:黑体}
+ .author-list ul li{ float:left; width:25%; text-align:center; margin:5px 0}
+ .people-introduction{ width:440px; height:124px; background:url(images/people.gif) no-repeat; margin-left:5px; margin-bottom:10px}
+ .people-introduction img{ border:3px solid #FFFFFF; }
+ .people-introduction h3{ font-size:14px; font-weight:bold; padding-top:18px}
+ .people-introduction .imgtxt{float:left;  margin:12px 30px 2px 12px; display:inline}
+ .people-introduction .imgtxt p{ text-align:center; margin-top:3px}
+ .mode-imgtitle h3{ font-size:14px; color:#0066cc; font-weight:bold; text-indent:7px; float:left}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* 
+  *	********** 最终添加到style.css文件夹中	  **********
+  */
+ .mode-imgtxtsummary03 img{ border:1px #CCCCCC solid; padding:1px}
+ .mode-imgtxtsummary03 li{ margin-top:10px; height:1%}
+ 
+ .w-260{ width:260px}
+ .w-690{ width:690px}
+ .w-450{ width:450px}
+ 
+ .line-h18{ line-height: 18px; }
+ 
+ .padd-10{ padding: 10px;}
+ .padd-12{ padding: 12px;}
+ .mar-l-20{ margin-left: 20px; }
+ .mar-lt-15{ margin-left:15px; margin-top:15px}
+ .padd-b-12{ padding-bottom:12px;}
+ 
+ .cor-333{ color:#333}
+ .cor-999{ color: #999; }

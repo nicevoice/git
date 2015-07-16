@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<type>
+		<required event="submit">不得为空</required>
+	</type>
+</root>

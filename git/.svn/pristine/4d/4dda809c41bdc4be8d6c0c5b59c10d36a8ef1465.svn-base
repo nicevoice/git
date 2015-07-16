@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>视频_{$SYSTEM[sitename]}</title>
+<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+<meta name="description" content="{$SYSTEM[seodescription]}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+</head>
+<body>
+<!--{template 'system/header_channel.html'}-->
+
+<div class="hr-h10"></div>
+<div class="column">
+	<div class="menu-cir nosubmenu">
+		<div class="menu-cir-main">
+			<div class="mode-menu">
+					<ul id="common-menu">
+				<li><a href="{WWW_URL}" target="_self">首页</a></li>
+				<li><a href="http://news.cmstop.loc/" target="_self">新闻</a></li>
+				<li><a href="http://photo.cmstop.loc/" target="_self">图片</a></li>
+				<li id="nav-cur"><a href="http://video.cmstop.loc/" target="_self">视频</a></li>
+				<li><a href="http://talk.cmstop.loc/" target="_self">访谈</a></li>
+				<li><a href="http://special.cmstop.loc/" target="_self">专题</a></li>
+				<li><a href="http://space.cmstop.loc/" target="_self">专栏</a></li>
+				<li><a href="{WWW_URL}paper/" target="_self">报纸</a></li>
+				<li><a href="{WWW_URL}magazine/" target="_self">杂志</a></li>
+				<li><a href="{APP_URL}roll.php" target="_self">滚动</a></li>
+				<li><a href="{APP_URL}rank.php" target="_self">排行</a></li>
+				<li><a href="{APP_URL}tags.php" target="_self">标签</a></li>
+				<li><a href="{APP_URL}digg.php" target="_self">Digg</a></li>
+				<li><a href="{APP_URL}mood.php" target="_self">心情</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-cir-l"></div>
+		<div class="menu-cir-r"></div>
+	</div>
+</div>
+<div class="hr-h10"></div>
+<!-- ******************* start Flash部分    *********************** -->
+<div class="column video-f-wrap">
+	<div class="col-l-main mode-flash-1" style="margin-top:10px;">
+		<!--#include virtual="/section/8.html"--><!--幻灯片-->
+	</div>
+	
+	
+	<div class="col-r-extra w-380" >
+		<div class="padd-8 video-hot">
+		
+			<div class="mode-imgtxtsummary">
+				<!--#include virtual="/section/6.html"--><!--头条-->
+			</div>
+			<div class="hr-h10"></div>
+			
+			<div class="mode-txtlink video-txtlink">
+				<!--#include virtual="/section/7.html"--><!--推荐视频-->
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+<!-- ******************* end Flash部分    *********************** -->
+<div class="hr-h10"></div>
+<div class="column">
+	<?php include WWW_PATH."section/62.html";?><!--首页通栏banner -->
+</div>
+<div class="hr-h10"></div>
+<!-- ******************* start box    *********************** -->
+<div class="column">
+	<div class="col-l-main w-720">
+	<!--{loop channel() $cha}-->
+		<!-- ******************* start 频道列表    *********************** -->
+		<div class="video-list-wrap">
+			<div class="mode-head mode-head-3">
+				<h2 class="cor-06c">{$cha[name]}</h2>
+				<a href="{$cha[url]}" class="more-e">更多</a>
+			</div>
+			<div class="mode-imgtxt-video">
+		<ul>
+			<!--{content modelid="4" catid="$cha[catid]" orderby="published desc" size="8"}-->
+			<li>
+				<a href="{$r[url]}"><img src="{thumb($r[thumb],140,105)}" alt="{$r[title]}" width="140" height="105"/></a>
+				<p class="txtlink"><a href="{$r[url]}">{str_cut($r['title'], 18)}</a></p>
+				<p><span class="v-play-c">{$r[pv]}</span><span class="v-comment-c">{$r[comments]}</span></p>
+			</li>
+			<!--{/content}-->
+		</ul>
+	</div>
+		</div>
+		<!-- ******************* end 频道列表    *********************** -->
+	<!--{/loop}-->
+	</div>
+	<!-- ******************* start 视频新闻    *********************** -->
+	<div class="col-r-extra w-230 bor-9fc">
+		<div class="mode-imgtitle mode-imgtitbg">
+			<h2 class="mode-videotitle">视频新闻</h2>
+		</div>
+		<div class="mode-imgtxtsummary mode-imgtxtsummary-2">
+			<ul>
+			<!--{content modelid="4" published="30" orderby="published desc" size="8"}-->
+				<li>
+					<div class="imgtxt">
+						<a href="{$r[url]}"><img src="{thumb($r[thumb],68,50)}" alt="{$r[title]}"  width="68" height="50"/></a>
+					</div>
+					<h3><a href="{$r[url]}">{$r[title]}</a></h3>
+					<p><span class="v-play-c">{$r[pv]}</span><span class="v-comment-c">{$r[comments]}</span></p>
+				</li>
+			 <!--{/content}-->
+			</ul>
+		</div>
+	</div>
+	<!-- ******************* end 视频新闻    *********************** -->
+</div>
+
+<!-- ******************* end box    *********************** -->
+<div class="clear"></div>
+<div class="hr-h10"></div>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+
+<!--{template 'system/footer.html'}-->
+

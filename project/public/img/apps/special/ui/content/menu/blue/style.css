@@ -1,0 +1,17 @@
+.content-menu-blue {
+	background:#333 url("images/bg.jpg") no-repeat;
+	padding:0px 10px;
+}
+.content-menu-blue a {
+	color:#fff;
+	font-size:12px;
+}
+.content-menu-blue a:hover {
+	color:#ccc;
+	text-decoration:none;
+}
+.content-menu-blue span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}

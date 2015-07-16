@@ -1,0 +1,26 @@
+.content-vote-blue{background-color:#fff; font-size:12px; color:#06c;}
+.content-vote-blue .mod-vote {
+	padding:10px;
+	padding:10px;
+	overflow:hidden;
+	zoom:1;
+}
+.content-vote-blue  dl {
+	margin:3px 0;
+}
+.content-vote-blue  dt {
+	color:#c00;
+	line-height:20px;
+}
+.content-vote-blue  dd {
+	margin-left:10px;
+	line-height:20px;
+}
+.content-vote-blue .input-radio{margin-right:4px;}
+.content-vote-blue  label {
+	cursor:pointer;
+}
+ 
+ .content-vote-shuimo .content-vote-shuimo {margin-top:10px;margin-bottom:10px;float:left;}
+ .content-vote-blue  a.result{margin-left:10px; color:#c00; text-decoration:none;}
+ .dd-submit {margin-top:10px;}

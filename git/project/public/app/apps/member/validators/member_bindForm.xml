@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<bind_username>
+		<required>请填写用户名</required>
+		<min args="3">用户名长度不够</min>
+		<max args="16">超过最大长度</max>
+		<ajax args="?app=member&amp;controller=index&amp;action=validate&amp;do=is_use" event="blur"></ajax>
+	</bind_username>
+	<password>
+		<required>请填写密码</required>
+		<min args="6">密码长度至少为6位</min>
+		<password>密码格式不正确</password>
+	</password>
+	<password_check>
+		<eq args="#reg_password">密码不一致</eq>
+		<required>请再次填写密码</required>
+	</password_check>
+</root>

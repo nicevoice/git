@@ -1,0 +1,16 @@
+.content-menu-red-b {
+	background-color:#D7000F;
+}
+.content-menu-red-b a {
+	color:#fff;
+	font-size:12px;
+}
+.content-menu-red-b a:hover {
+	color:#ccc;
+	text-decoration:none;
+}
+.content-menu-red-b span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}

@@ -1,0 +1,35 @@
+<?php
+/**
+ * 评论设置
+ *
+ * @aca whole 评论设置
+ */
+class controller_admin_setting extends comment_controller_abstract
+{
+	function __construct(& $app)
+	{
+		parent::__construct($app);
+	}
+
+	public function index()
+	{
+		if ($this->is_post())
+		{
+			$setting = new setting();
+			$_POST['setting']['sensekeyword'] = preg_replace("/(\r\n|\r|\n)+/",chr(10),$_POST['setting']['sensekeyword']);
+			$_POST['setting']['unsafekeyword'] = preg_replace("/(\r\n|\r|\n)+/",chr(10),$_POST['setting']['unsafekeyword']);
+			$result = $setting->set_array('comment',$_POST['setting']) 
+					? array('state'=>true,'message'=>'保存成功') 
+					: array('state'=>false,'error'=>'保存失败');
+			echo $this->json->encode($result);
+		}
+		else
+		{
+			$head = array('title'=>'评论设置');
+
+			$this->view->assign('head', $head);
+			$this->view->assign('setting', $this->setting);
+			$this->view->display('setting');
+		}
+	}
+}

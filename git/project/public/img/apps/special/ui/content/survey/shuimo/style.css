@@ -1,0 +1,22 @@
+﻿ .content-survey-shuimo{background-color:#FFF; font-size:12px;}
+ .content-survey-shuimo .mod-survey .summary{line-height:20px;color:#663300;}
+ .content-survey-shuimo .mod-survey .bdr_0{ margin-right:4px;}
+.content-survey-shuimo .mod-survey {
+	padding:10px;
+}
+.content-survey-shuimo  dl {
+	margin:3px 0; margin-bottom:15px;
+}
+.content-survey-shuimo  dt {
+	color:#c00;
+	line-height:18px;
+	margin-bottom:6px;
+}
+.content-survey-shuimo  dd {
+	margin-left:10px;
+	line-height:20px;
+	color:#663300;
+}
+.content-survey-shuimo  label {
+	cursor:pointer;
+}

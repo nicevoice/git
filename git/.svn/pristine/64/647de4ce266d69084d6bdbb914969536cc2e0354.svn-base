@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<title>
+		<required>请填写标题</required>
+	</title>
+	<catid>
+		<required>请选择栏目</required>
+		<not args="0">请选择栏目</not>
+	</catid>
+	<content>
+		<required>请填写内容</required>
+	</content>
+</root>

@@ -1,0 +1,313 @@
+<?php
+
+	$url_cp = config::get('exam','url_cp');
+    $propertys = common_data('property_0', 'brand');
+    $exam_catid = array(11100,11200,11300,11500);
+    $content = loader::model('content', 'system');
+    $category = & $content->category;
+foreach($exam_catid as $catid) {
+$_types = get_property_child($category[$catid]['typeid']);
+$project_t[$category[$catid]['typeid']] = $propertys[$category[$catid]['typeid']];
+$project_t[$category[$catid]['typeid']]['child'] = $_types;
+foreach ($_types as $types){
+$_subject[$types['proid']] = $types;
+}
+}
+	$subjectid = $url_cp[$cp];
+/* 	print_r($_subject[$subjectid]);
+	die; */
+
+?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+    <title>{examSEO($subjectid, 'title')}</title>
+    <meta name="keywords" content="{examSEO($subjectid, 'keywords')}">
+    <meta name="description" content="{examSEO($subjectid, 'description')}">
+    <base href="http://www.kuaiji.com/">
+
+    <link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+	{include_tpl('section/605.html')}
+    <script type="text/javascript" src="{JS_URL}jquery.js"></script>
+    <script type="text/javascript" src="{JS_URL}dialog.js"></script>
+    <script type="text/javascript" src="{JS_URL}exam/exam.js"></script>
+    <script type="text/javascript" src="{JS_URL}lib/jquery.cookie.js"></script>
+</head>
+<body>
+<script>
+    var BASE_DOMAIN = '{BASE_DOMAIN}';
+</script>
+<script src="{JS_URL}kuaiji.js" type="text/javascript"></script>
+<div class="tk-mini">
+    <div class="tk-minibox clearfix">
+        <div class="tk-home"><a href="{WWW_URL}" target="_blank">会计网首页</a><a href="{VIDEO_URL}">网校</a><a href="{BBS_URL}">论坛</a></div>
+        <div class="tk-menu clearfix">
+            <ul>
+                <li class="tk-search"><a href="{WWW_URL}exam/so">搜索题目</a></li>
+                <li class="tk-cart"><a href="{kuaiji_url('my/action' , array('action'=>'history') , 'exam')}" target="_blank">我的练习</a></li>
+                <li class="tk-reg"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="tk-mainbg" style="background:none">
+    <div class="tk-mainmenu" style="background:none">
+        <div class="tk-maintitle clearfix">
+            <a href="{WWW_URL}exam" class="fn-fl mt5 logo"><span class="beta"></span><img src="{IMG_URL}images/exam/logo.png"></a>
+            <div class="fn-fl tk-navlist">
+                <ul>
+                    <li id="proList"><a href="javascript:void(0);" class="drop fts20 aLink view-project">{$_subject[$subjectid]['name']}</a>
+                        <input type="hidden" name="subjectid" id="subjectid" value="{$subjectid}">
+                        <div class="tk-base clearfix pro-list fn-dn">
+                            <ul>
+                                <?php $exam_png =0?>
+                                {loop $project_t $val}
+                                <li class="clearfix">
+                                    <div class="lititle">{$val['name']}</div>
+                                    {loop $val['child'] $val1}
+                                    <?php ++$exam_png?>
+                                    <div class="divbox project_div_{$val1['proid']}" data-id="{$val1['proid']}" data-title="{$val1['name']}">
+                                        <a href="{examurl2cp($val1['proid'])}">
+                                            <p class="imagebox"><img src="{IMG_URL}images/exam/icon/{$exam_png}.png" height="57"></p>
+                                            <p>{$val1['name']}</p>
+                                        </a>
+                                    </div>
+                                    {/loop}
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
+                        <div class="tk-tip fn-dn"></div>
+                    </li>
+                    <li><a href="javascript:void(0);" class="w83 aLink tk-on">模考与练习</a></li>
+                    <li><a href="javascript:void(0);" url="{WWW_URL}exam/my/history/" class="w83 aLink goproject" >我的练习</a></li>
+                    <li><a href="javascript:void(0);" url="{WWW_URL}exam/question/lists/" class="w83 aLink goproject" >试题大全</a></li>
+                </ul>
+            </div>
+            <div class="tk-items clearfix">
+                <ul>
+                    <li class="tk-stk"><a target="_blank" href="{VIDEO_URL}">网校</a></li>
+                    <li class="tk-bbs"><a target="_blank" href="{BBS_URL}">论坛</a></li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function() {
+                $('#proList').click(function(){
+                    if ($(this).attr('data-fyou')) {
+                        $(this).removeAttr('data-fyou');
+                        $(this).find('.tk-tip').addClass('fn-dn');
+                        $('.pro-list').addClass('fn-dn');
+                    } else {
+                        $('.pro-list').removeClass('fn-dn');
+                        $(this).find('.tk-tip').removeClass('fn-dn');
+                        $(this).attr('data-fyou', 1)
+
+                    }
+                })
+                $('.goproject').click(function(){
+                    var projectid = getCookie('exam_project');
+                    var url = $(this).attr('url');
+                    var projectid = projectid ? projectid : 401;
+                    var Days = 1;
+                    var exp = new Date();
+                    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+                    $.cookie('KJ_exam_project', projectid,{expires: exp.toGMTString(), path: '/', domain:BASE_DOMAIN})
+                     window.location = url+projectid+'.html';
+                })
+                /* $('.tk-basebox a').click(function(){
+                 var parents = $(this).parents('.tk-basebox');
+                 $('#proList a.aLink').html(parents.attr('data-title'));
+                 $('#proList').find('.tk-tip').addClass('fn-dn');
+                 $('.pro-list').addClass('fn-dn');
+                 $('#subjectid').val(parents.attr('data-id'))
+                 })*/
+
+                $('#proList .pro-list a').click(function(){
+                   /* var pro = $(this).parent();
+                    var projectid = pro.attr('data-id');
+                    var projecttitle = pro.attr('data-title');
+                    $('#subjectid').val(projectid);
+                    $('.view-project').html(projecttitle);
+                    var Days = 1;
+                    var exp = new Date();
+                    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+                    $.cookie('KJ_exam_project', projectid,{expires: exp.toGMTString(), path: '/', domain:BASE_DOMAIN})*/
+                })
+            })();
+           /* var projectid = getCookie('exam_project');
+            projectid = projectid ? projectid : 401;
+            $('#subjectid').val(projectid)
+            $('.view-project').html($('.project_div_'+projectid).attr('data-title'))*/
+
+        </script>
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+            <div class="tk-contentbox fn-dn">
+                <div class="tk-contentitle">
+                    <div class="tk-contentitileLeft fts14">
+                        <div>距离会计从业考试还有<span class="tk-btnleft"><span class="tk-btnRight" onclick="DatePicker('time',{'format':'yyyy-MM-dd HH:mm:ss'});">时间设置</span><input type="hidden" value="" class="time"/></span></div>
+                        <div class="tk-time clearfix mt10">
+                            <ul>
+                                <li class="itembg">
+                                    <div class="tk-itemfont">135</div>
+                                    <div class="tk-tiemnum">天</div>
+                                </li>
+                                <li class="itembg1">
+                                    <div class="tk-itemfont">15</div>
+                                    <div class="tk-tiemnum1">小时</div>
+                                </li>
+                                <li class="itembg1">
+                                    <div class="tk-itemfont">15</div>
+                                    <div class="tk-tiemnum1">分</div>
+                                </li>
+                                <li class="itembg1">
+                                    <div class="tk-itemfont">15</div>
+                                    <div class="tk-tiemnum1">秒</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tk-contentitileRight">
+                        <div class="fts14 mt10"><span class="tk-blue">答题量：</span><span class="tk-count">165</span></div>
+                        <div class="fts14 mt20 pt10"><span class="tk-blue">练习天数：</span><span class="tk-count">32</span></div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tk-listarea clearfix" id="project">
+                <ul>
+                    <li class="clearfix tk-grayborderright tk-grayborderbottom ">
+                        <div class="fn-fl m60">
+                            <img src="{IMG_URL}images/exam/mk.gif" />
+                        </div>
+                        <div class="fn-fl m308 ml20">
+                            <div class="tk-mtitle">组卷模考</div>
+                            <div class="tk-text h44">会计网为你生成与目标考试考点范围、难度分布完全匹配的模考试卷。</div>
+                            <div>
+                                <a href="javascript:void(0);" data-type="automatic" class="automatic alinkbg"><span>组卷模考</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix tk-grayborderbottom">
+                        <div class="fn-fl m60">
+                            <img src="{IMG_URL}images/exam/lx2.gif" />
+                        </div>
+                        <div class="fn-fl m308 ml20">
+                            <div class="tk-mtitle">真题模考</div>
+                            <div class="tk-text h44">会计网已收录近十年所有省份会计从业考试真题，马上挑战真题卷。</div>
+                            <div>
+                                <a href="javascript:void(0);" data-type="really" class="a_dialog alinkbg"><span>真题模考</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix tk-grayborderright ">
+                        <div class="fn-fl m60">
+                            <img src="{IMG_URL}images/exam/lx1.gif" />
+                        </div>
+                        <div class="fn-fl m308 ml20">
+                            <div class="tk-mtitle">专项练习</div>
+                            <div class="tk-text h44">自主选择专项或具体考点，各个击破。</div>
+                            <div>
+                                <a href="javascript:void(0);" data-type="special" class="a_dialog alinkbg"><span>专项练习</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="fn-fl m60">
+                            <img src="{IMG_URL}images/exam/lx.gif" />
+                        </div>
+                        <div class="fn-fl m308 ml20">
+                            <div class="tk-mtitle">继续上次练习</div>
+                            <div class="tk-text h44">会计网为你生成与目标考试考点范围、难度分布完全匹配的模考试卷。</div>
+                            <div>
+                                <a href="javascript:void(0);" data-type="sequel" class="gosequel alinkbg"><span>继续上次练习</span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="catid" value="0"/>
+<!--{template 'exam/footer.html'}-->
+<script type="text/javascript" src="{JS_URL}lib/jquery.pagination.js"></script>
+<script type="text/javascript" src="{JS_URL}lib/cmstop.datepicker.js"></script>
+<link href="{JS_URL}lib/datepicker/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var loading = '<div class="ln-loading" style="display: block; top: 312px; left: 529px;"><i><span>正在拼命组卷...</span></i></div>';
+    $(function(){
+
+        $('#project .a_dialog').click(function(){
+            if (!auth){
+                login();
+                return false;
+            }
+            var Today=new Date();
+            var _day = Today.getDate();
+            var html = '<div id="ajaxHtml"><div class="loading" style="width:100%; height: 600px;"></div></div>';
+            exam.dialog({width:710,height:613,titleclass:'close-div'}, html)
+            var t = $(this).attr('data-type');
+            var id = $('#subjectid').val();
+            $.ajax({
+                url: '{WWW_URL}exam/exam/'+t+'.html?subjectid='+id,
+                cache: false,
+                success: function(html){
+                    $("#ajaxHtml").html(html);
+                }
+            });
+        })
+
+        $('#project .gosequel').click(function(){
+            var projectid = $('#subjectid').val();
+            if (!auth){
+                login();
+                return false;
+            }
+            $.getJSON(app_url + "exam/my/donext?jsoncallback=?",{projectid:projectid}, function(json){
+                if(json.state) {
+                    window.location = json.info.url;
+                } else {
+                    alert(json.info);
+                }
+            })
+        })
+        $('#project .automatic').click(function(){
+            if ($(this).attr('_true'))return false;
+            if (!auth){
+                login();
+                return false;
+            }
+            $(this).attr('_true', 1)
+            var _rand = Math.random()*10000;
+            $('body').append(loading);
+            var id = $('#subjectid').val();
+            $.getJSON(app_url + "exam/my/automatic?jsoncallback=?",{subjectid:id,rand:_rand}, function(json){
+                if(json.state) {
+                    window.location = json.url;
+                } else {
+                    $(this).removeAttr('_true')
+                    $('.ln-loading').remove();
+                    alert('没有数据...');
+                }
+            })
+        })
+        $(".j-remove span").live('click',function(){
+            $("#elem").hide();
+            $("#mask").hide();
+        });
+    })
+
+</script>

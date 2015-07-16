@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>搜索_{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{APP_URL}js/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#model>a").click(function (){
+		$("#model>a.now").removeClass('now');
+		$(this).addClass('now');
+		$('#type').val($(this).attr('type'));
+		return false;
+	}).focus(function (){
+		$(this).blur();
+	});
+	$("#submit").click(function(){
+		if($("#wd").val() =='') {
+			$("#wd").focus();
+			return false;
+		}
+	});
+	$('input.input_calendar').focus(function(){
+		WdatePicker({dateFmt:'yyyy-MM-dd'});
+	});
+	$("#advanced").click(function(){
+		if($(this).attr("checked") == true){
+			$("#advanced_div").show();
+		} else{
+			$("#advanced_div").hide();
+		}
+	});
+	if($("#advanced").attr('checked')) {
+		$("#advanced_div").show();
+	}
+	$('.hotsearkey a').click(function (){
+		$('#wd').val($(this).text());
+		$('#submit').click();
+		return false;
+	});
+});
+</script>
+<style type="text/css">
+.f_l {
+	float: left;
+}
+#search {
+	position: relative;
+}
+#advanced_div {
+	top:52px;left:52px;width:410px;display:none;
+}
+</style>
+</head>
+<body>
+<div class="c_b"></div>
+<div id="search_index">
+	<h1 title="搜索">
+		<a href="{url('search/index/index')}">
+			<img src="{IMG_URL}templates/{TEMPLATE}/css/images/sear-logo.gif" alt="搜索" title="搜索" height="59" width="309"/>
+		</a>
+	</h1>
+	<div id="model" class="mar_t_10">
+		<a href="javascript:;" type="all" class="now">全站</a>
+		<a href="javascript:;" type="article">新闻</a>
+		<a href="javascript:;" type="picture">图片</a>
+		<a href="javascript:;" type="video">视频</a>
+		<a href="javascript:;" type="special">专题</a>
+		<a href="javascript:;" type="interview">访谈</a>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<form id="search" name="search" action="" method="GET">
+		<div id="search_box">
+			<input type="hidden" name="app" value="search">
+			<input type="hidden" name="controller" value="index">
+			<input type="hidden" name="action" value="search">
+			<input type="hidden" id="type" name="type" value="all">
+			<input type="text" class="search_txt_1" size="40" id="wd" name="wd">
+			<input type="submit" class="search_btn_1" id="submit" value="搜索">
+			<input type="checkbox" class="high_search" id="advanced" value="1" name="advanced">
+			<span class="red">高级</span>
+		</div>
+		<div id="advanced_div">
+			<select id="catid" name="catid">
+				<option value="">频道</option>
+				{loop $channel $v}
+				<option value="{$v['catid']}">{$v['name']}</option>
+				{/loop}
+			</select>
+			<select id="order" name="order">
+				<option value="published">排序</option>
+				<option value="published">时间</option>
+				<option value="pv">点击</option>
+				<option value="comments">评论</option>
+			</select>
+			时间：
+			<input type="text" value="{$_GET['before']}" name="before" id="before" size="9"  class="input_calendar"/>
+			至
+			<input type="text" value="{$_GET['after']}" name="after" id="after" size="9"  class="input_calendar"/>
+			<input type="checkbox" value="1" id="content" name="content"/> 搜内容
+		</div>
+	</form>
+
+	<div id="advanced_div" style="display:none;top:151px;right:-6px;"> 频道：
+		<select name="catid">
+			<option value="">全部</option>
+			{loop $channel $v}
+			<option value="{$v['catid']}">{$v['name']}</option>
+			{/loop}
+		</select> 
+		时间：
+		 <input type="text" value="" size="8" name="before" id="before" class="input_calendar"/>
+		至
+		 <input type="text" value="" size="8" name="after" id="after" class="input_calendar"/>
+	</div>
+	</form>
+</div>
+<!--{template 'system/footer.html'}-->

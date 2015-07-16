@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<name tips="请输入分组名称">
+	  	<required event="submit">名称不能为空</required>
+	  	<min args="2">名称不能少于2个字</min>
+	   	<max args="50">名称不能大于20个字</max>
+    </name>
+</root>

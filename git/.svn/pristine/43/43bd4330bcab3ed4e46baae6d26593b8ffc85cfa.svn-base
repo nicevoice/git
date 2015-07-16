@@ -1,0 +1,26 @@
+.content-vote-gray-a{background-color:#fff; font-size:12px;}
+.content-vote-gray-a .mod-vote {
+	padding:10px;
+	padding:10px;
+	overflow:hidden;
+	zoom:1;
+}
+.content-vote-gray-a  dl {
+	margin:3px 0;
+}
+.content-vote-gray-a  dt {
+	color:#06c;
+	line-height:20px;
+}
+.content-vote-gray-a  dd {
+	margin-left:10px;
+	line-height:20px;
+}
+.content-vote-gray-a .input-radio{margin-right:4px;}
+.content-vote-gray-a  label {
+	cursor:pointer;
+}
+ 
+ .content-vote-shuimo .content-vote-shuimo {margin-top:10px;margin-bottom:10px;float:left;}
+ .content-vote-gray-a  a.result{margin-left:10px; color:#06c; text-decoration:none;}
+ .dd-submit {margin-top:10px;}

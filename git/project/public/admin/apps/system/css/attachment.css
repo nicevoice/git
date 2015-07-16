@@ -1,0 +1,117 @@
+  .attachment_l{width:170px;}
+.attachment_l li/*,.folder*/{line-height:22px; padding-left:20px; background:url(../images/folder-closed.gif) no-repeat 3px 2px;}
+   .attachment_l li.attachment_folder{background:url(../images/folder.gif) no-repeat 3px 2px; color:#333;}
+  .attachment_l li a{display:block; width:148px;}
+    .attachment_l ul li a{color:#333;}
+	.attachment_l ul li a:hover,.attachment_menu_now{color:#077AC7;}
+	   .attachment_l ul li li a{width:130px;}
+
+  .attachment_r{/*width:600px;*/ margin-left:182px;}
+   .attachment_area{overflow-y:auto;}
+   .attachment_area ul{padding:5px 0;}
+    .attachment_area li{word-wrap:break-word;width:100px; overflow:hidden;margin-right:12px; display:block; padding:2px 0;}
+    .attachment_area li.list_thumb {height:140px; cursor:pointer; }
+	
+    .attachment_area li.list_list {height:40px;  }
+    .attachment_area li .rename_input {	border:1px solid #ccc;padding:0;margin:2px 0;height:16px;line-height:16px;font-size:12px;}
+	.st_list li,.doc_list li{}
+
+.show_st,.show_list{background:url(../images/bg.gif) no-repeat -136px -6px; padding:0 5px 0 15px;}
+.show_list{background-position:-136px -78px;}
+
+li.rename a /*重命名图标 修正*/ {
+	background-image:url(../images/rename.gif);
+}
+/* list的文件名 */
+span.filename {
+	cursor: pointer;
+	font-size: 12px;
+	font-family: simsun, 宋体, Arial;
+	height: 22px;
+	line-height: 22px;
+	width:85px;
+	white-space:nowrap;
+	float:right;
+	display:inline-block;
+	overflow:hidden;
+}
+input.inline_input{
+	width:80px;
+	margin-top:0px;
+}
+/* 输入框样式修正 */
+input.search_input_text {
+	padding: 2px;
+	height: 15px;
+}
+#file_list li {
+	border:1px solid #fff;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	height:30px;
+	margin:5px 3px;
+	padding:3px;
+}
+#file_list li.selected {
+	background-color:#F3F7FD;
+	border:1px solid #BBD8FB;
+}
+#file_list li.list_thumb {
+	height:120px;
+	margin:10px 5px;
+}
+#file_list div.icon {text-align:center;max-height:93px;overflow:hidden;}
+/* 输入框样式修正  */
+input.checkbox {
+	border:0;
+	padding:0;
+	margin:0px;
+	width: 13px;
+	height: 13px;
+}
+/* 输入框样式修正 */
+.namecheck {
+	margin-top: 5px;
+	float:left;
+}
+#select_notice {
+	background-color: yellow;
+	color: #333;
+}
+#show_more {
+	height: 40px;
+	clear: both;
+}
+/* 鼠标停留在文件上面时候的提示框样式 */
+#notice {
+	display: none;
+	background-color: lightyellow;
+	border: 1px solid #eee;
+	padding: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 180px;
+	word-wrap:break-word;
+}
+#ui-datepicker-div {
+	display: none;
+}
+body {
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+.attachment_l li, .folder {
+	line-height:22px;
+	padding-left:20px;
+	background:url(../images/folder-closed.gif) no-repeat 3px 2px;
+}
+.attachment_l li.attachment_folder {
+	background:url(../images/folder.gif) no-repeat 3px 2px;
+	color:#333;
+}
+.vt_list_on {
+	font-weight:bold;
+}

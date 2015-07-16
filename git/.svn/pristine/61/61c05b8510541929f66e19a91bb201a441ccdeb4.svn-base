@@ -1,0 +1,9 @@
+ .content-palist-black-a li {	padding:8px 6px;	border-bottom:1px dotted #ccc;}
+ .content-palist-black-a img {	margin:8px 8px 8px 0;}
+ .content-palist-black-a .summary {	margin:0;	padding:0;}
+ .content-palist-black-a{background-color:#1c1c1c;}
+ .content-palist-black-a .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-black-a .imgtxtsummary-list a{ color:#ffc000;}
+ .content-palist-black-a .imgtxtsummary-list h3 a{color:#999;font-size:12px;}
+ .content-palist-black-a .imgtxtsummary-list p{color:#999;}
+ .content-palist-black-a .imgtxtsummary-list a:hover{text-decoration:none;color:#ffc000;}

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <link rel="shortcut icon" href="http://c.kuaiji.com/image/common/favicon.ico">
+    <title>练习历史题目_会计网题库_会计网 </title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <base href="http://www.kuaiji.com/">
+
+    <link href="{CSS_URL}exam/reset.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/func.css" rel="stylesheet" />
+    <link href="{CSS_URL}exam/exam.css" rel="stylesheet" />
+    <script type="text/javascript" src="{JS_URL}jquery.js"></script>
+    <script type="text/javascript" src="{JS_URL}dialog.js"></script>
+    <script type="text/javascript" src="{JS_URL}exam/exam.js"></script>
+	{include_tpl('section/605.html')}
+</head>
+
+<body>
+<?php
+$id = $id ? $id : 401;
+?>
+<!--{template 'exam/header_mini'}-->
+        <div class="tk-shadow"></div>
+        <div class="tk-contentbg">
+        	<div class="tk-exam clearfix tk-boxshadow mb50">
+        		<div class="tk-practice clearfix">
+                	<ul>
+                        <li class="here"><a href="javascript:void(0);">练习历史</a></li>
+                        <li><a href="{kuaiji_url('my/action_id' , array('action'=>'error', 'id'=>$id) , 'exam')}">错误题目</a></li>
+                        <li><a href="{kuaiji_url('my/action_id' , array('action'=>'notes', 'id'=>$id) , 'exam')}">笔记题目</a></li>
+                        <li ><a href="{kuaiji_url('my/action_id' , array('action'=>'favorite', 'id'=>$id) , 'exam')}">我的收藏本</a></li>
+                        <li ><a href="{kuaiji_url('my/action_id' , array('action'=>'doubt', 'id'=>$id) , 'exam')}">我的疑问</a></li>
+                    </ul>
+                </div>
+                
+                <div class="pt20">
+                    <div class="pl20 pr20 pb20">
+                    	<!--{if $lists}-->
+                    	<!--{loop $lists $list}-->
+                        <table class="tk-history  bbdashed mb20">
+                            <tr>
+								<td width='720'>{$list['title']}</td>
+                                {if $list['isfinish'] == 0}
+                                <td rowspan="2" width='100' class="fn-tac"><a href="{kuaiji_url('my/action_id' , array('action'=>'analyze', 'id'=>$list['answerid']) , 'exam')}" class="fc-blue" target="_blank">查看解析</a></td><td rowspan="2" width='100' class="fn-tac"><a href="{kuaiji_url('my/action_id' , array('action'=>'report', 'id'=>$list['answerid']) , 'exam')}" class="fc-blue" target="_blank">查看报告</a></td>
+                                {else}
+                                <td rowspan="2" width="100" class="fn-tac"><span class="fc-d9d9d9">未完成</span></td><td rowspan="2" width="100" class="fn-tac"><a href="{kuaiji_url('show' , array('examid'=>$list['md5id']) , 'exam')}" target="_blank" class="tk-tmmore">继续做题</a></td>
+                                {/if}
+                            </tr>
+
+                            <tr>
+								<td class="fts12 fc-999">练习时间：{date('Y年m月d日 H:i', $list['created'])}  答题情况：做对{$list['right']}道/共{$list['qcount']}道</td>
+                            </tr>
+
+
+
+                    	</table>
+                        <!--{/loop}-->
+                        <!--{else}-->
+                         	当前的科目是{$p_name}，您目前无该科目的练习历史记录。
+                        <!--{/if}-->
+                        
+                    </div>
+                </div>
+                <div class="clearfix pb10 pt10">
+                    <div class="tk-pagenav">
+                       {$pages}
+                    </div>
+                </div>
+        	</div>
+        
+        </div>
+        
+        
+        
+    </div>
+</div>
+<!--{template 'exam/footer'}-->

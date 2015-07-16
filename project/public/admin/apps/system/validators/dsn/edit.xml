@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="数据源名称">
+	    <required event="submit">必填</required>
+	</name>
+	<host tips="填写主机名">
+    </host>
+	<port tips="填写端口">
+	    <number>端口是数字</number>
+	</port>
+	<username tips="填写用户名">
+	</username>
+	<password tips="填写密码">
+	</password>
+	<dbname tips="填写数据库">
+	    <required event="submit">必填</required>
+	</dbname>
+	<pconnect tips="是否持久连接">
+	</pconnect>
+	<charset tips="选择字符集">
+	</charset>
+</root>

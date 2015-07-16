@@ -1,0 +1,22 @@
+.navigator {overflow:hidden;min-width:200px;position:relative;height:21px;border:1px solid #B9D0E7;background:url(bg.png) repeat-x 0 -126px;}
+.navigator div.leftbtn{ height:21px; width:15px; position:absolute; z-index:2; left:0; border-left:1px solid #626A73; border-right:1px solid #F5F7FA; background:url(bg.png) no-repeat -15px -63px; display:none;}
+	.navigator div.leftbtn.hover{ border-left:1px solid #3C7FB1; border-right:1px solid #3C7FB1; background-position:-15px -84px;}
+	.navigator div.leftbtn.focus{ border-left:1px solid #2C628B; border-right:1px solid #2C628B; background-position:-15px -105px; }
+.navigator div.rightbtn{ height:21px; width:15px; position:absolute; z-index:2; right:25px; border-left:1px solid #F5F7FA; background:url(bg.png) no-repeat -30px -63px; display:none;}
+	.navigator div.rightbtn.hover{ border-left:1px solid #3C7FB1; background-position:-30px -84px; }
+	.navigator div.rightbtn.focus{ border-left:1px solid #2C628B; background-position:-30px -105px; }
+.navigator div.refresh{ height:21px; width:25px; position:absolute; z-index:2; background:url(bg.png) no-repeat; right:0; }
+	.navigator div.refresh.hover{ background-position:0 -21px; }
+	.navigator div.refresh.focus{ background-position:0 -42px; }
+.navigator ul.container { margin:0; padding:0; height:21px; width:auto; position:absolute; z-index:1; background-color:#F5F7FA; }
+	.navigator ul.container li{ list-style:none; display:inline; float:left; cursor:default; }
+	.navigator ul.container li.dirbtn{ width:auto; height:21px; border-left:1px solid #F5F7FA; border-right:1px solid #F5F7FA;padding:0 3px; background:url(bg.png) no-repeat 0 -126px; line-height:21px; }
+		.navigator ul.container li.dirbtn.hover{ border-left:1px solid #3C7FB1; border-right:1px solid #3C7FB1; background-position:0 -147px; }
+		.navigator ul.container li.dirbtn.focus{ border-left:1px solid #2C628B; border-right:1px solid #2C628B; background-position:0 -168px; }
+	.navigator ul.container li.direct{ width:15px; height:21px; border-left:1px solid #F5F7FA; border-right:1px solid #F5F7FA; background:url(bg.png) no-repeat 0 -63px; }
+		.navigator ul.container li.direct.hover{ border-left:1px solid #3C7FB1; border-right:1px solid #3C7FB1; background-position:0 -84px; }
+		.navigator ul.container li.direct.focus{ border-left:1px solid #2C628B; border-right:1px solid #2C628B; background-position:0 -105px; }
+ul.layer{ margin:0; padding:0; width:200px; position:absolute; height:auto;max-height:300px; background-color:#F0F0F0; border:1px solid #646464; min-height:20px; padding:1px 2px; overflow-y:auto; }
+	ul.layer li.item{ list-style:none; border:1px solid #F0F0F0; height:19px; background-color:#F0F0F0; padding:0 3px; -moz-border-radius:3px; -webkit-border-radius:3px; border-bottom-radius:3px; overflow:hidden; }
+	ul.layer li.item.hover{ border-color:#83ABDC; background-color:#DAE9FB; }
+		ul.layer li.item span { cursor:default; height:19px; padding:0px 0 3px 30px; background:url(bg.png) no-repeat -27px 0; }

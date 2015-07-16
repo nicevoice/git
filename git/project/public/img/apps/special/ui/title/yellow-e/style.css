@@ -1,0 +1,15 @@
+/*
+ @name 黄色系列
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-yellow-e {
+	overflow: hidden;
+	background:url("images/yellow-e.jpg");
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:20px;
+}
+.title-yellow-e,
+.title-yellow-e span{color:#990000;}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<disabled tips="状态">
+	</disabled>
+	<username tips="请填写用户名" pass="">
+	    <required event="submit">必填</required>
+	</username>
+	<name tips="填写姓名" pass="">
+	</name>
+	<email tips="填写email" pass="">
+		<email>email格式不对</email>
+	</email>
+	<departmentid tips="选择所属部门" pass="">
+	</departmentid>
+	<sex tips="选择性别" pass="">
+	</sex>
+	<birthday tips="生日" pass="">
+		<date>不是日期</date>
+	</birthday>
+	<qq tips="qq号码" pass="">
+		<qq>格式不对</qq>
+	</qq>
+	<msn tips="填写msn" pass="">
+		<msn>msn格式不对</msn>
+	</msn>
+	<mobile tips="手机号码" pass="">
+		<mobile>格式不对</mobile>
+	</mobile>
+	<telephone tips="填写电话号码" pass="">
+		<telephone>格式不对</telephone>
+	</telephone>
+</root>

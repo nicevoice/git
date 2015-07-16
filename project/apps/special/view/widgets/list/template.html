@@ -1,0 +1,6 @@
+<ul class="txtlink-list">
+	{loop $data $k $v}<li class="item-{($k+1)}">
+		<span class="date">{if $v['time']}{date($dateformat, $v['time'])}{/if}</span>
+		<a href="{$v['url']}" target="_blank">{str_cutword($v['title'], $length)}</a>
+	</li>{/loop}
+</ul>

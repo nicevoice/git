@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+	<name><![CDATA[圣诞]]></name>
+	<reserved>1</reserved>
+	<define>
+		<page><![CDATA[christmas]]></page>
+		<title><![CDATA[chr-a]]></title>
+		<widget><![CDATA[gray-a]]></widget>
+		<content>
+			<code><![CDATA[christmas-a]]></code>
+			<title><![CDATA[gray-d]]></title>
+			<list><![CDATA[gray-c]]></list>
+			<piclist><![CDATA[gray-c]]></piclist>
+			<palist><![CDATA[gray-b]]></palist>
+			<slider><![CDATA[gray-a]]></slider>
+			<menu><![CDATA[red-a]]></menu>
+			<comment><![CDATA[gray-b]]></comment>
+			<activity><![CDATA[gray-d]]></activity>
+			<survey><![CDATA[gray-b]]></survey>
+			<vote><![CDATA[gray-b]]></vote>
+		</content>
+	</define>
+</theme>

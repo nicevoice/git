@@ -1,0 +1,21 @@
+ .content-survey-blue{background-color:#FFF; font-size:12px;}
+ .content-survey-blue .mod-survey .summary{line-height:20px;color:#06c;}
+ .content-survey-blue .mod-survey .bdr_0{ margin-right:4px;}
+.content-survey-blue .mod-survey {
+	padding:10px;
+}
+.content-survey-blue  dl {
+	margin:3px 0; margin-bottom:15px;
+}
+.content-survey-blue  dt {
+	color:#c00;
+	line-height:18px;
+	margin-bottom:6px;
+}
+.content-survey-blue  dd {
+	margin-left:10px;
+	line-height:20px;
+}
+.content-survey-blue  label {
+	cursor:pointer;
+}

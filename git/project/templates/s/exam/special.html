@@ -1,0 +1,135 @@
+<style>
+#ajaxHtml {overflow-y: scroll;  height: 613px;}
+.close-div {position: absolute;right: 30px;top: 14px;}
+</style>
+<div class="tk-mmtitle">按照最新{$_subject[$subjectid]['name']}设置以下专项及考点</div>
+<div class="pl10 pr10">
+    <!--{loop $knowledge $k $list}-->
+    <?php
+        $count =  0;
+        $my_count = 0;
+        if ($list['childids']) {
+            foreach(explode(',', $list['childids']) as $_ky){
+                $count = $count + $counts[$_ky];
+                $my_count = $my_count + $my_counts[$_ky];
+            }
+        } else {
+            $count = $counts[$k];
+            $my_count = $my_counts[$k];
+        }
+        $speed =  floor($my_count/$count*100);
+
+    ?>
+    <table class="tk-sectionboxnone">
+        <tr>
+            <td colspan="3" >
+                <table width="100%">
+                    <tr>
+                        <td class="bbdashed f-1em" width="815">
+                            <div><span class="{if $list['childs']}tk-add tk-one-table{else}tk-circle{/if} tk-span"></span>{$list['name']}(共{$count}道题)</div>
+                            <div>
+                                <span class="tk-spanwrap"><span class="tk-speed"><span class="tk-speedinner" style="width:{$speed}%"></span></span>{$my_count}道/{$count}道 </span>
+
+                            </div>
+                        </td>
+                        <td class="bbdashed fn-tac" width="100"><a href="{APP_URL}exam/my/automatic?tt=1&subjectid={$subjectid}&knowledgeid={$k}" target="_blank" data-knowledgeid="{$k}" class="tk-tmmore">来15道</a></td>
+                    </tr>
+                    {if $list['childs']}
+                    <!--{loop $list['childs'] $K2 $val}-->
+                    <?php
+                        $count =  0;
+                        $my_count = 0;
+                        if ($val['childids']) {
+                            foreach(explode(',', $val['childids']) as $_ky){
+                                $count = $count + $counts[$_ky];
+                                $my_count = $my_count + $my_counts[$_ky];
+                            }
+                        } else {
+                            $count = $counts[$K2];
+                            $my_count = $my_counts[$K2];
+                        }
+                    ?>
+                    <tr class="fn-dn tk-add-tr">
+                        <td colspan="3" >
+                            <table width="100%">
+                                <tr>
+                                    <td  class="bbdashed f-2em" width="815">
+                                        <div><span class="{if $val['childs']}tk-add tk-two-table{else}tk-circle{/if} tk-span"></span>{$val['name']}(共{$count}道题)</div>
+                                        <div>
+                                            <span class="tk-spanwrap"><span class="tk-speed"><span class="tk-speedinner" style="width:50%"></span></span>{$my_count}道/{$count}道 </span>
+
+                                        </div>
+                                    </td>
+                                    <td class="bbdashed fn-tac" width="100"><a href="{APP_URL}exam/my/automatic?tt=1&subjectid={$subjectid}&knowledgeid={$k2}" target="_blank" data-knowledgeid="{$k2}" class="tk-tmmore">来15道</a></td>
+                                </tr>
+                                {if $val['childs']}
+
+                                <tr class="fn-dn">
+                                    <td colspan="3" >
+                                        <table width="100%">
+                                            <!--{loop $val['childs'] $k3 $val1}-->
+                                            <tr>
+                                                <td  class="bbdashed f-4em" width="815">
+                                                    <div><span class="tk-circle tk-span"></span>{$val1['name']}(共{$counts[$k3]}道题)</div>
+                                                    <div class="f-3em">
+                                                        <span class="tk-spanwrap"><span class="tk-speed"><span class="tk-speedinner" style="width:50%"></span></span>{$my_counts[$k3]}道/{$counts[$k3]}道 </span>
+
+                                                    </div>
+                                                </td>
+                                                <td class="bbdashed fn-tac" width="100"><a href="{APP_URL}exam/my/automatic?tt=1&subjectid={$subjectid}&knowledgeid={$k3}" target="_blank" data-knowledgeid="{$k3}" class="tk-tmmore">来15道</a></td>
+                                            </tr>
+                                            <!--{/loop}-->
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                {/if}
+                            </table>
+                        </td>
+                    </tr>
+                    <!--{/loop}-->
+                    {/if}
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!--{/loop}-->
+</div>
+
+
+<script type="text/javascript">
+
+$(function(){
+    $('.tk-two-table').click(function(){
+        if ($(this).attr('data-id')){
+            $(this).parent().parent().parent().next('tr').hide();
+            $(this).removeAttr('data-id')
+            $(this).removeClass('tk-reduce');
+            $(this).addClass('tk-add');
+        }else{
+            $(this).parent().parent().parent().next('tr').show();
+            $(this).attr('data-id', '1')
+            $(this).addClass('tk-reduce');
+            $(this).removeClass('tk-add');
+
+        }
+    })
+    $('.tk-one-table').click(function(){
+        if ($(this).attr('data-id')){
+            $(this).parent().parent().parent().parent().find('.tk-add-tr').hide();
+            $(this).removeAttr('data-id')
+            $(this).removeClass('tk-reduce');
+            $(this).addClass('tk-add');
+
+        }else{
+            $(this).parent().parent().parent().parent().find('.tk-add-tr').show();
+            $(this).attr('data-id', '1')
+            $(this).addClass('tk-reduce');
+            $(this).removeClass('tk-add');
+
+        }
+    })
+    //http://www.kuaiji.com/exam/my/automatic.html?tt=1&subjectid=401&knowledgeid=110490
+})
+
+</script>

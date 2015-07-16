@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>{$head}</head>
+<body {$bodyattr}>
+{diyarea main}
+<?php if ($action == 'publish'): ?>
+<script type="text/javascript">
+(function() {
+    var stat = document.createElement('script'),
+        script = document.getElementsByTagName('script')[0];
+    stat.type = 'text/javascript';
+    stat.async = true;
+    stat.src = '<?php echo APP_URL; ?>?app=system&controller=content&action=stat&contentid={$contentid}';
+    script.parentNode.insertBefore(stat, script);
+})();
+</script>
+<?php endif; ?>
+</body>
+</html>

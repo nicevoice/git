@@ -1,0 +1,93 @@
+.list {
+	background-color:#fff;
+	border:#94C5E5 1px solid;
+	display:none;
+	list-style:disc;
+	z-index:999998;
+	position:absolute;
+	margin:0;
+	padding:2px;
+	width:auto;
+    overflow-y:auto;
+    max-height:300px;
+}
+.list li {
+	height: 25px;
+    line-height: 25px;
+	list-style:none;
+	display:block;
+    background-color: #fff;
+    margin:0;padding:0 5px;
+	color:#333;
+	cursor:pointer;
+}
+.list li.selected{background-color:#D2E9FA;}
+.list li.actived {
+	background-color:#D2E9FA;
+}
+
+a.selectlist {
+	border-width:1px;
+	border-style:solid;
+	border-color:#888 #ddd #ddd #888;
+	/*
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	*/
+	display:inline-block;
+	line-height:16px;
+	padding:2px 16px 2px 5px;
+	background:#fff url(bg.gif) no-repeat right 0;
+	cursor:pointer;
+	min-width:15px;
+	outline:none;
+	vertical-align:middle;
+}
+a.selectlist:hover,
+a.selectlist:focus {
+	border-color:#555 #bbb #bbb #555; background-position: right -22px;
+}
+.selectlist.list {
+	padding:1px 0;
+}
+.selectlist.list li {
+	margin:0 1px;
+	padding:3px 5px 3px 13px;
+	height:16px;
+}
+.selectlist.list li.selected {
+	background:url(bg.gif) no-repeat 0 -220px;
+}
+.selectlist.list li.actived {
+	background-color:#D2E9FA;
+}
+.selectlist span {
+	display:block;
+	line-height:16px;
+	font-size:12px;
+	white-space:nowrap;
+}
+.selectlist em {
+	font-weight:bold;
+}
+.selectlist.modelset b {
+	background:url(bg.gif) no-repeat;
+	display:inline-block;
+	height:16px;
+	width:18px;
+	vertical-align:middle;
+	margin-right:1px;
+}
+.selectlist.modelset b.picture{background:url(bg.gif) no-repeat 0 -337px;}
+.selectlist.modelset b.link{background:url(bg.gif) no-repeat 0 -99px;}
+.selectlist.modelset b.video{background:url(bg.gif) no-repeat 0 -123px;}
+.selectlist.modelset b.interview{background:url(bg.gif) no-repeat 0 -148px;}
+.selectlist.modelset b.debate{background:url(bg.gif) no-repeat 0 -169px;}
+.selectlist.modelset b.spider{background:url(bg.gif) no-repeat 0 -193px;}
+.selectlist.modelset b.activity{background:url(bg.gif) no-repeat 0 -252px;}
+.selectlist.modelset b.vote{background:url(bg.gif) no-repeat 0 -171px;}
+.selectlist.modelset b.survey{background:url(bg.gif) no-repeat 0 -310px;}
+.selectlist.modelset b.article{background:url(bg.gif) no-repeat 0 -50px;}
+.selectlist.modelset b.special{background:url(bg.gif) no-repeat 0 -280px;}
+.selectlist.modelset b.group-pic{background:url(bg.gif) no-repeat 0 -336px;}

@@ -1,0 +1,29 @@
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<wml>
+<head> 
+<meta http-equiv="Expires" content="0"/> 
+<meta http-equiv="Cache-Control" content="no-cache"/> 
+<meta http-equiv="Pragma" content="no-cache"/> 
+</head>
+<card title="{$title}_{$SETTING[webname]}">
+	<p><a href="{WAP_URL}">首页</a> &gt; {loop $pos $cat}<a href="{WAP_URL}?action=category&amp;catid={$cat[catid]}">{$cat[name]}</a> &gt; {/loop}</p>
+	<p align="center"><big>{$title}</big></p>
+	<p align="right">{date('Y-m-d H:i', $created)}<!--{if $source_name}--> 来源：{$source_name}<!--{/if}--></p>
+	<p align="center">
+	<img src="{$picture[src]}" alt="{$picture[alt]}" title="{$picture[alt]}" /><br />
+	{$picture[width]}*{$picture[height]}/{$picture[size]}k<br />
+	<a href="{WAP_URL}?action=image&amp;path={$picture[big_image]}">查看大图</a>
+	</p>
+	<!--{if $page}--><p>{str_replace('&', '&amp;', strip_tags($page, '<a>'))}</p><!--{/if}-->
+	<p><a href="{WAP_URL}?action=comment&amp;contentid={$contentid}">共有评论{intval($comments)}条</a></p>
+<!--{if $relateds}-->
+	<p>
+	<p>相关推荐</p>
+	<!--{loop $relateds $related}-->
+	<a href="{WAP_URL}?action=show&amp;contentid={$related[contentid]}">{$related[title]}</a><br />
+	<!--{/loop}-->
+	</p>
+<!--{/if}-->
+<!--{template 'wap/footer.html'}-->
+</card>
+</wml>

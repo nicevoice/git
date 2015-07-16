@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<title tips="请输入标题">
+		<required event="submit">标题不得为空</required>
+		<max args="80">标题不得超过80个字节</max>
+	</title>
+	<url>
+		<required event="submit">链接不得为空</required>
+		<max args="80">链接不得超过100个字节</max>
+	</url>
+	<thumb  tips="缩略图">
+		
+	</thumb>
+	<tags tips="多个Tag用空格隔开，最多5个">
+		<max args="60">Tags 不得超过60个字节</max>
+	</tags>
+</root>

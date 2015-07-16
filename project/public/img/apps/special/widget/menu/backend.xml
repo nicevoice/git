@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+	<resource>style.css</resource>
+	<resource>{SPEC_URL}css/list.css</resource>
+    <resource>{SPEC_BACKEND_URL}js/widget.js</resource>
+	<resource>script.js</resource>
+	<depends>datapicker</depends>
+</package>

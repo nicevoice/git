@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<password>
+		<required>请填写密码</required>
+	</password>
+	<email>
+		<required>请填写E-mail</required>
+		<email>E-mail格式不正确</email>
+	</email>
+	<email_check>
+		<required>请再次填写E-mail</required>
+		<email>E-mail格式不正确</email>
+		<eq args="#email">E-mail不一致</eq>
+	</email_check>
+</root>

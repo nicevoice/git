@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<title tips="请输入标题">
+	  	<required event="submit">标题不能为空</required>
+	   	<max args="100">标题不能大于100个字</max>
+    </title>
+    <author tips="请输入作者">
+	   	<max args="40">作者不能大于40个字</max>
+    </author>
+     <editor tips="请输入责任编辑">
+	   	<max args="40">编辑不能大于40个字</max>
+    </editor>
+    <description tips="请输入摘要">
+	   	<max args="255">摘要不能大于255个字</max>
+    </description> 
+</root>

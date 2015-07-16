@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<meta name="keywords" content="{$tags}" />
+<meta name="description" content="{$description}" />
+<meta name="author" content="{$SYSTEM[sitename]}" />
+<meta name="Copyright" content="{$SYSTEM[sitename]}版权所有" />
+<title>{$title}_{$SYSTEM[sitename]} </title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};	
+</script>
+</head>
+
+<body>
+<!-- ******************* start header   *********************** -->
+<!--{template 'system/header.html'}-->
+<!-- *******************  end header   *********************** -->
+<div class="hr-h10"></div>
+
+<!-- *******************  start banner   *********************** -->
+<div class="column ad-area-1">
+			<div class="col-l-main"><!--#include virtual="/section/24.html"--></div>
+			<div class="col-r-extra"><!--#include virtual="/section/25.html"--></div>
+</div>
+<!-- *******************  end banner   *********************** -->
+<div class="hr-h10"></div>
+<!-- *******************  start pos and search  *********************** -->
+<div class="column" style="height: 22px; overflow: hidden; zoom: 1;">
+	<div class="mode-position f-l w-650">
+		<span>
+		    <a href="{WWW_URL}">首页</a>
+			{loop $pos $cat}
+			<a href="{$cat[url]}">{$cat[name]}</a>
+			{/loop}
+		</span>
+		正文
+	</div>
+	<div class="f-r">
+    <form name="search" id="search" method="GET" action="{APP_URL}{url('search/index/search')}">
+	    <input type="hidden" name="app" value="search"/>
+	    <input type="hidden" name="controller" value="index"/>
+	    <input type="hidden" name="action" value="search"/>
+		<input type="hidden" name="type" value="all"/>
+	   	<p class="mode-sear"><input type="input" onfocus="this.value=(this.value=='全文检索')?'':this.value" onblur="this.value=(this.value=='')?'全文检索':this.value" name="wd" value="全文检索" class="sear-box" /> <input type="submit" value="检索" class="sear-btn f-r" title="去搜索" /> </p>
+    </form>
+  </div>
+</div>
+<!-- *******************  end pos and search   *********************** -->
+<div class="hr-h6"></div>
+<!-- *******************  start box   *********************** -->
+<div class="column">
+	<div class="col-l-main w-650">
+		<div class="cont-wrap-top"></div>
+		<!-- *******************  start 内容区   *********************** -->
+		<div class="content-wrap bor-9fc padd-20">
+			<h1>{$title}</h1>
+			<div class="arti-atttibute">
+				<span class="f-r">字号:<em id="sfont" title="切换到小字号" onclick="changeFont(this)" class="f-small cor-current">小</em><em id="bfont" title="切换到大字号" onclick="changeFont(this)" class="f-big">大</em></span>
+				<span class="post-time">{date('Y-m-d H:i',$published)}</span>
+				<!--{if $source_name}-->
+  				<span>来源：<!--{if $source_url}--><a href="{$source_url}" target="_blank"><!--{/if}--><!--{if $source_logo}--><img src="{$source_logo}" title="{$source_name}"/><!--{/if}--><!--{if $source_url}--></a><!--{/if}--><!--{if $source_url}--><a href="{$source_url}" target="_blank"><!--{/if}-->{$source_name}<!--{if $source_url}--></a><!--{/if}--></span>
+                <!--{/if}-->
+				<!--{if $allowcomment}-->
+				<span><a href="{APP_URL}?app=comment&controller=comment&action=index&topicid={$topicid}">我要评论(<em class="comments cor-f00">{$comments}</em>)</a></span>
+				<!--{/if}-->
+			</div>
+			<!--{if $description}-->
+				<p class="cont-summary" id="ctrlfssummary">核心提示：{$description}</p>
+		    <!--{/if}-->
+			<div class="cont-detail fs-small" id="ctrlfscont">
+				{$content}
+			</div>
+			<!--{if $hastitles}-->
+			<div class="bor-ccc">
+				<div class="mode-head diy-head-a">
+					<h2 class="cor-c00">本文导航</h2>
+				</div>
+				<div class="clear"></div>
+				<div class="mode-txtlink cor-06c nav-txtlist">
+					<ol>
+					<!--{loop $pages $k $v}-->
+						<li><span>{$k}.</span><a  {if $page==$k} class="now-tit"{/if}  href="{$v[url]}">{$v[title]}</a></li>
+					<!--{/loop}-->
+					</ol>
+				</div>
+			</div>
+			<!--{/if}-->
+			<div id="space_content"></div>
+			<!--{if $pages}-->
+			<div class="hr-h10"></div>
+			<table id="pagination" cellspacing="0" cellpadding="0" class="pagination mar-tb-10">
+				<tbody>
+					<tr><!--{if $prevpage}-->
+  						<td><a href="{$pages[$prevpage][url]}">上一页</a></td>
+						<!--{else}-->
+						<td><a class="no-op" href="javascript:;">上一页</a></td>
+						<!--{/if}-->
+						<!--{loop $pages $k $v}-->
+  						<td><a href="{$v[url]}" <!--{if $k==$page}-->class="now"<!--{/if}-->>{$k}</a></td>
+						<!--{/loop}-->
+						<!--{if $nextpage}-->
+  						<td><a href="{$pages[$nextpage][url]}">下一页</a></td>
+						<!--{else}-->
+						<td><a class="no-op" href="javascript:;">下一页</a></td>
+						<!--{/if}-->
+						<td><a href="javascript:;" onclick="fulltext()" id="show-all-cont">单页阅读</a></td>
+					</tr>
+					</tbody>
+			</table>
+		    <!--{/if}-->
+
+			<div class="hr-h10"></div>
+			
+			<!--{if $keywords}-->
+            <p class="txt-l f-l fs-12 art-tags">Tags：<!--{loop $keywords $r}--><a href="{$r[url]}">{$r[tag]}</a> <!--{/loop}--></p>
+ 			<!--{/if}-->
+			
+			<!--{if $editor}-->
+            <p class="txt-r f-r fs-12 cor-999">责任编辑：{$editor}</p>
+ 			<!--{/if}-->
+			<div class="hr-h10"></div>
+			<!--- start related --->
+			<!--{if $keywords || $related}-->
+            <!--<?php $related_count = 0; ?>-->
+			<div class="arti-rel" style="display:none;">
+				<div class="fs-14 bold mar-l-10 cor-666">相关阅读：</div>
+				<div class="mode-txtlink fs-14 cor-06c">
+					<ul>
+					<!--{if $related}-->
+						<!--{loop $relateds $k $r}-->
+                        <!--<?php $related_count++; ?>-->
+						<li><a href="{$r[url]}">{$r[title]}</a><span class="date">{$r[time]}</span></li>
+                        <!--{/loop}-->
+					<!--{else}-->
+						 <!--{content_related contentid="$contentid" tags="$tags" size="10"}-->
+                         <!--<?php $related_count++; ?>-->
+                         <li><a href="{$r[url]}">{$r[title]}</a><span class="date">{date('Y-m-d', $r['published'])}</span></li>
+						 <!--{/content_related}-->
+					<!--{/if}-->
+					</ul>
+					<div class="hr-h6"></div>
+				</div>
+			</div>
+            <!--<?php echo $related_count; ?>-->
+            <!--{if $related_count}-->
+            <style type="text/css">.arti-rel {display:block !important;}</style>
+            <!--{/if}-->
+			<!--{/if}-->
+			<!--- end related --->
+            
+			<div class="hr-h10"></div>
+			<!--- start mood --->
+			<!--{template 'article/mood.html'}-->
+			<!--- end mood --->
+			<div class="hr-h10"></div>
+			<!--- start dig --->
+			<div class="digg-share">
+				<div class="digg f-l">
+					<a id="supports" href="javascript:digg.set({$contentid},1)"><span>0</span><span>0%</span></a>
+					<a id="againsts" href="javascript:digg.set({$contentid},0)" class="againsts"><span>0</span><span>0%</span></a>
+				</div>
+				<div class="share-tool f-r">
+					<a href="javascript:;" onclick="copyToClipboard(window.location.href);return false">【复制网址】</a>
+					<a href="{APP_URL}print.php?contentid={$contentid}">【打印】</a>
+					<span>分享到
+						<a href="javascript:(function(){window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent('{$title}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&appkey='+SINA_APPKEY,'_blank','width=450,height=400');})()"><img src="{IMG_URL}templates/{TEMPLATE}/images/sina.gif" title="新浪微博"/></a>
+						<a href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent('{$title}'+'  {$description}')+'&url='+encodeURIComponent(location.href)+'&source='+QQ_SOURCEID+'&pic=','转播到腾讯微博', 'width=700, height=580, top=320, left=180, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no'); })()"><img src="{IMG_URL}templates/{TEMPLATE}/images/qq.png" title="腾讯微博"/></a>
+						
+						<a href="javascript:u=location.href;t='{$title}';c = %22%22 + (window.getSelection ? window.getSelection() : document.getSelection ? document.getSelection() : document.selection.createRange().text);var url=%22http://cang.baidu.com/do/add?it=%22+encodeURIComponent(t)+%22&iu=%22+encodeURIComponent(u)+%22&dc=%22+encodeURIComponent('{$description}')+%22&fr=ien#nw=1%22;window.open(url,%22_blank%22,%22scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes%22); void 0"><img src="{IMG_URL}templates/{TEMPLATE}/images/baidu.gif" title="百度搜藏"/></a>
+						<a href="javascript:u='http://share.xiaonei.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'xiaonei','toolbar=0,resizable=1,scrollbars=yes,status=1,width=626,height=436');void(0)" title="人人网"/></a>
+						<a href="javascript:window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent('{$title}'.substring(0,76))+'&uri='+encodeURIComponent(location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/qzone.gif" title="Qzone" /></a>
+						<a href="javascript:d=document;t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');void(kaixin=window.open('http://www.kaixin001.com/~repaste/repaste.php?&rurl='+escape(d.location.href)+'&rtitle='+escape('{$title}')+'&rcontent='+escape('{$description}'),'kaixin'));kaixin.focus();"><img src="{IMG_URL}templates/{TEMPLATE}/images/kaixin.gif" title="开心网"/></a>
+						<a href="javascript:var%20u='http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{$title}'.substring(0,76));window.open(u,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330');void(0)"><img src="{IMG_URL}templates/{TEMPLATE}/images/douban.gif" title="豆瓣网"/></a>
+					</span>
+				</div>
+			</div>
+			<!--- end dig --->
+			<div class="clear"></div>
+		</div>
+		<!-- *******************  end 内容区   *********************** -->
+
+		<div class="hr-h10"></div>
+		<!--{if $allowcomment}-->
+		<!-- *******************  start 评论   *********************** -->
+		 <!--{template 'article/comment.html'}-->
+			<!-- *******************  end 评论   *********************** -->
+		<!--{/if}-->
+	</div>
+	<!-- *******************  start 右侧   *********************** -->
+    <!--{template 'system/right.html'}-->
+	<!-- *******************  end 右侧   *********************** -->
+</div>
+<!-- *******************  end box   *********************** -->
+
+<div class="hr-h10"></div>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/tabs.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/digg/js/digg.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/imagesbox.css" media="screen" />
+<script type="text/javascript">
+var content = '';//第一页内容缓存
+var context = '';//全文内容缓存
+var isfulltext = false;
+$(function(){
+	digg.get(contentid);
+	content = $('#ctrlfscont').html();
+	var font = $.cookie(COOKIE_PRE+'font');//根据cookie设置字体大小并初始化按钮
+	if(font){
+		$('#ctrlfssummary,#ctrlfscont').addClass(font);
+		if(font == 'fs-big'){
+		 	$('#bfont').addClass('cor-current');
+			$('#sfont').removeClass('cor-current');
+		}
+	}
+	$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid);
+	
+	$('form[id^="vote"]').each(function(){
+		var contentid = $(this).find('>input[name="contentid"]:hidden').val();
+		var maxoptions = $(this).find('>input[name="maxoptions"]:hidden').val();
+		$(this).submit(function(){
+			var checkeds = $(this).find('input:checked').length;
+			if(checkeds == 0){
+				alert('请选择投票选项');
+				return false;
+			}
+			if(maxoptions){
+				if(checkeds > parseInt(maxoptions)){
+					alert('最多允许选'+maxoptions+'项');
+					return false;
+				}
+			}
+		})
+	})
+})
+function fulltext(){  //单页阅读
+		if(context =='')
+		$.getJSON(APP_URL+'?app=article&controller=article&action=fulltext&jsoncallback=?&contentid='+contentid,function(data){
+			context = data.content;
+			$('#ctrlfscont').html(data.content);
+			$('#show-all-cont').html('分页阅读').parent().siblings().hide();
+			$('.bor-ccc').hide();
+			isfulltext = true;
+			holdpic();
+		});
+		else{
+			$('#ctrlfscont').html(isfulltext?content:context);
+			$('#show-all-cont').html(isfulltext?'单页阅读':'分页阅读').parent().siblings().toggle(isfulltext === true);
+			isfulltext = (isfulltext === false);
+			$('.bor-ccc').show();
+			holdpic();
+		}
+}
+function holdpic(){//控制内容区域的的图片大小并为过大的图片添加查看原图
+	var options = {
+		imageLoading:IMG_URL+'js/lib/lightBox/lightbox-ico-loading.gif',
+		imageBtnPrev:IMG_URL+'js/lib/lightBox/lightbox-btn-prev.gif',
+		imageBtnNext:IMG_URL+'js/lib/lightBox/lightbox-btn-next.gif',
+		imageBtnClose:IMG_URL+'js/lib/lightBox/lightbox-btn-close.gif',
+		imageBlank:IMG_URL+'js/lib/lightBox/lightbox-blank.gif'
+	};
+	$('#ctrlfscont').find('img').each(function(){
+		var img = this;
+		if (img.width>608) {
+			img.style.width = '600px';
+			$(img).removeAttr('height');
+			var aTag = document.createElement('a');
+			aTag.href = img.src;
+			$(aTag).addClass('bPic')
+			.insertAfter(img).append(img)
+			.lightBox(options);
+		}
+	});
+}
+$(window).load(function(){
+	holdpic();
+});
+function copyToClipboard(txt) {  //复制网址
+	if(window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+		alert("复制链接成功！");
+	} else if(navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert(" 被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode",str,copytext.length*2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans,null,clipid.kGlobalClipboard);
+		alert("复制链接成功！");
+	}
+}
+
+function changeFont(t){ //改变字号
+	var tosmall = (t.innerHTML=='小')?true:false;
+	if(tosmall&&$(t).hasClass('cor-current')) return;
+	$('.cor-current').removeClass('cor-current');
+	$(t).addClass('cor-current');
+	$.cookie(COOKIE_PRE+'font',tosmall?'fs-small':'fs-big',{domain:COOKIE_DOMAIN,path:COOKIE_PATH,expires:300});
+	$('#ctrlfssummary,#ctrlfscont').removeClass(tosmall?'fs-big':'fs-small').addClass(tosmall?'fs-small':'fs-big');
+}
+</script>
+<!-- 专栏内容提取 -->
+<script type="text/javascript" src="{IMG_URL}apps/article/js/space_content.js"></script>
+<!--{template 'system/footer.html'}-->

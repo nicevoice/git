@@ -1,0 +1,10 @@
+<div style="width:480px; padding:10px;">
+<h1 style="font-size:14px; line-height:24px; color:#333;">亲爱的用户：</h1>
+<p style="line-height:28px; color:#333; font-size:12px; text-indent:24px;">我们收到了您找回密码的请求。</p>
+<h2 style="font-size:12px; line-height:24px; color:#333; font-weight:normal;">您的用户名为:{$check['username']}：<br/> 请在24小时内通过以下地址修改密码：</h2>
+<ul style="border-top:1px dotted #ccc; border-bottom:1px dotted #ccc; background-color:#fff; margin:0 0; padding:12px 8px;">
+	<li style=" font-size:12px;line-height:24px; list-style:none; font-family:Arial, Helvetica, sans-serif; color:#f30;">密码修改链接:<a href="{$check['url']}">{$check['url']}</a>  （请点击或复制以上地址到浏览打开）</li>
+</ul>
+<p style="margin:10px 0; line-height:24px; font-size:12px; color:#666;">您可以通过以上信息登录<a href="{WWW_URL}" target="_blank">{WWW_URL}</a>使用本站服务。感谢您对本站的支持!<br/>
+	<a href="{WWW_URL}" target="_blank">{$set['sitename']}</a> <br/> {$set['date']}</p>
+</div>
